@@ -1,0 +1,97 @@
+{
+  "id": "job-7cbe537a2caaac67",
+  "model": "gpt-6-luna",
+  "effort": "high",
+  "repeat": 1,
+  "attempt_id": "cfbe7f25056047ae91203363d906341a",
+  "started_at": "2026-10-23T07:06:53.646822+00:00",
+  "ended_at": "2026-10-23T07:06:54.421564+00:00",
+  "status": "succeeded",
+  "codex_version": "SIMULATED — no Codex/model calls",
+  "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d1f8877f-5399-416d-a163-69cf626217fa}\\AC\\Temp\\codex-benchmark-workspaces\\89d002293e9f4b47bf7e270e47100844\\job-7cbe537a2caaac67\\cfbe7f25056047ae91203363d906341a\\project",
+  "success": true,
+  "generation_finished": true,
+  "usage": {
+    "input_tokens": 1753,
+    "cached_input_tokens": 53,
+    "output_tokens": 453,
+    "reasoning_output_tokens": 151,
+    "total_tokens": 2206
+  },
+  "grade": {
+    "schema_version": 1,
+    "source": "independent_grader",
+    "tests": [
+      {
+        "name": "simulated_functionality",
+        "category": "functionality",
+        "status": "passed",
+        "score": 40,
+        "max_score": 40,
+        "duration_seconds": null,
+        "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+      },
+      {
+        "name": "simulated_algorithm",
+        "category": "algorithm",
+        "status": "passed",
+        "score": 30,
+        "max_score": 30,
+        "duration_seconds": null,
+        "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+      },
+      {
+        "name": "simulated_exceptions",
+        "category": "exceptions",
+        "status": "passed",
+        "score": 20,
+        "max_score": 20,
+        "duration_seconds": null,
+        "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+      },
+      {
+        "name": "simulated_performance",
+        "category": "performance",
+        "status": "passed",
+        "score": 10,
+        "max_score": 10,
+        "duration_seconds": null,
+        "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+      }
+    ],
+    "score": 100,
+    "max_score": 100,
+    "planned_max_score": 100,
+    "pass_rate": 1.0,
+    "measured_tests": 4,
+    "skipped_tests": 0
+  },
+  "usage_source": "turn_final",
+  "completed_event": true,
+  "thread_id": "simulated-cfbe7f25056047ae91203363d906341a",
+  "observed_configuration": [
+    {
+      "source": "session.configured",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "high"
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "malformed_lines": 0,
+  "exit_code": 0,
+  "generation_seconds": 0.4220000000204891,
+  "generation_ended_at": "2026-10-23T07:06:54.074278+00:00",
+  "error_type": null,
+  "process_error": null,
+  "submission_hashes": {
+    "README.md": "0d9b865ec88865e2da70d13e0582408f52a89dd7d2545f11def1d64ec9adb210",
+    "received-prompt.txt": "fbd824721a261abe9b077c18d45574af547e53896aaa75aee50fd9705959b704",
+    "simulation.json": "083ba853c3f9e63e5460dbf46d028cae8c37b68b496508ff93156f32eb099b56",
+    "solution.py": "fefe6b892c8bbf4c2ef00b8d3227bc90b25876292259273e5dfc936adb7169e3"
+  },
+  "grading_error": null,
+  "grading_seconds": 0.2660000000614673,
+  "duration_seconds": 0.6880000000819564,
+  "artifact_path": "runs/job-7cbe537a2caaac67/attempts/cfbe7f25056047ae91203363d906341a"
+}

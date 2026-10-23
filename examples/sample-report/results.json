@@ -1,0 +1,1944 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-23T06:32:56.866148+00:00",
+  "metadata": {
+    "experiment_id": "synthetic-offline-sample",
+    "synthetic": true
+  },
+  "results": [
+    {
+      "id": "demo-0-low-1",
+      "attempt_id": "synthetic",
+      "model": "demo-model-a",
+      "effort": "low",
+      "repeat": 1,
+      "status": "succeeded",
+      "success": true,
+      "started_at": "2026-10-23T00:00:00+00:00",
+      "ended_at": "2026-10-23T00:01:00+00:00",
+      "generation_seconds": 40,
+      "grading_seconds": 2.0,
+      "duration_seconds": 60.0,
+      "codex_version": "SYNTHETIC (not executed)",
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 1300,
+        "cached_input_tokens": 300,
+        "output_tokens": 240,
+        "reasoning_output_tokens": 100,
+        "total_tokens": 1540
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "synthetic_basic",
+            "category": "functionality",
+            "status": "passed",
+            "score": 40,
+            "max_score": 40,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_algorithm",
+            "category": "algorithm",
+            "status": "passed",
+            "score": 30,
+            "max_score": 30,
+            "duration_seconds": 0.2,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_exceptions",
+            "category": "exceptions",
+            "status": "passed",
+            "score": 20,
+            "max_score": 20,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_speed",
+            "category": "performance",
+            "status": "passed",
+            "score": 10,
+            "max_score": 10,
+            "duration_seconds": 0.3,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "memory",
+            "category": "performance",
+            "status": "skipped",
+            "score": null,
+            "max_score": 0,
+            "duration_seconds": null,
+            "detail": "Not measured"
+          }
+        ],
+        "score": 100,
+        "max_score": 100,
+        "planned_max_score": 100,
+        "pass_rate": 1.0,
+        "measured_tests": 4,
+        "skipped_tests": 1
+      },
+      "error_type": null,
+      "usage_source": "turn_final",
+      "warnings": [
+        "All values are synthetic"
+      ],
+      "artifact_path": "runs/demo-0-low-1/attempts/synthetic"
+    },
+    {
+      "id": "demo-0-low-2",
+      "attempt_id": "synthetic",
+      "model": "demo-model-a",
+      "effort": "low",
+      "repeat": 2,
+      "status": "succeeded",
+      "success": true,
+      "started_at": "2026-10-23T00:00:00+00:00",
+      "ended_at": "2026-10-23T00:01:00+00:00",
+      "generation_seconds": 45,
+      "grading_seconds": 2.0,
+      "duration_seconds": 60.0,
+      "codex_version": "SYNTHETIC (not executed)",
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 1400,
+        "cached_input_tokens": 300,
+        "output_tokens": 240,
+        "reasoning_output_tokens": 100,
+        "total_tokens": 1640
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "synthetic_basic",
+            "category": "functionality",
+            "status": "passed",
+            "score": 40,
+            "max_score": 40,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_algorithm",
+            "category": "algorithm",
+            "status": "passed",
+            "score": 30,
+            "max_score": 30,
+            "duration_seconds": 0.2,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_exceptions",
+            "category": "exceptions",
+            "status": "passed",
+            "score": 20,
+            "max_score": 20,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_speed",
+            "category": "performance",
+            "status": "passed",
+            "score": 10,
+            "max_score": 10,
+            "duration_seconds": 0.3,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "memory",
+            "category": "performance",
+            "status": "skipped",
+            "score": null,
+            "max_score": 0,
+            "duration_seconds": null,
+            "detail": "Not measured"
+          }
+        ],
+        "score": 100,
+        "max_score": 100,
+        "planned_max_score": 100,
+        "pass_rate": 1.0,
+        "measured_tests": 4,
+        "skipped_tests": 1
+      },
+      "error_type": null,
+      "usage_source": "turn_final",
+      "warnings": [
+        "All values are synthetic"
+      ],
+      "artifact_path": "runs/demo-0-low-2/attempts/synthetic"
+    },
+    {
+      "id": "demo-0-high-1",
+      "attempt_id": "synthetic",
+      "model": "demo-model-a",
+      "effort": "high",
+      "repeat": 1,
+      "status": "succeeded",
+      "success": true,
+      "started_at": "2026-10-23T00:00:00+00:00",
+      "ended_at": "2026-10-23T00:01:00+00:00",
+      "generation_seconds": 80,
+      "grading_seconds": 2.0,
+      "duration_seconds": 60.0,
+      "codex_version": "SYNTHETIC (not executed)",
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 1300,
+        "cached_input_tokens": 300,
+        "output_tokens": 480,
+        "reasoning_output_tokens": 300,
+        "total_tokens": 1780
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "synthetic_basic",
+            "category": "functionality",
+            "status": "passed",
+            "score": 40,
+            "max_score": 40,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_algorithm",
+            "category": "algorithm",
+            "status": "passed",
+            "score": 30,
+            "max_score": 30,
+            "duration_seconds": 0.2,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_exceptions",
+            "category": "exceptions",
+            "status": "passed",
+            "score": 20,
+            "max_score": 20,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_speed",
+            "category": "performance",
+            "status": "passed",
+            "score": 10,
+            "max_score": 10,
+            "duration_seconds": 0.3,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "memory",
+            "category": "performance",
+            "status": "skipped",
+            "score": null,
+            "max_score": 0,
+            "duration_seconds": null,
+            "detail": "Not measured"
+          }
+        ],
+        "score": 100,
+        "max_score": 100,
+        "planned_max_score": 100,
+        "pass_rate": 1.0,
+        "measured_tests": 4,
+        "skipped_tests": 1
+      },
+      "error_type": null,
+      "usage_source": "turn_final",
+      "warnings": [
+        "All values are synthetic"
+      ],
+      "artifact_path": "runs/demo-0-high-1/attempts/synthetic"
+    },
+    {
+      "id": "demo-0-high-2",
+      "attempt_id": "synthetic",
+      "model": "demo-model-a",
+      "effort": "high",
+      "repeat": 2,
+      "status": "succeeded",
+      "success": true,
+      "started_at": "2026-10-23T00:00:00+00:00",
+      "ended_at": "2026-10-23T00:01:00+00:00",
+      "generation_seconds": 85,
+      "grading_seconds": 2.0,
+      "duration_seconds": 60.0,
+      "codex_version": "SYNTHETIC (not executed)",
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 1400,
+        "cached_input_tokens": 300,
+        "output_tokens": 480,
+        "reasoning_output_tokens": 300,
+        "total_tokens": 1880
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "synthetic_basic",
+            "category": "functionality",
+            "status": "passed",
+            "score": 40,
+            "max_score": 40,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_algorithm",
+            "category": "algorithm",
+            "status": "passed",
+            "score": 30,
+            "max_score": 30,
+            "duration_seconds": 0.2,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_exceptions",
+            "category": "exceptions",
+            "status": "passed",
+            "score": 20,
+            "max_score": 20,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_speed",
+            "category": "performance",
+            "status": "passed",
+            "score": 10,
+            "max_score": 10,
+            "duration_seconds": 0.3,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "memory",
+            "category": "performance",
+            "status": "skipped",
+            "score": null,
+            "max_score": 0,
+            "duration_seconds": null,
+            "detail": "Not measured"
+          }
+        ],
+        "score": 100,
+        "max_score": 100,
+        "planned_max_score": 100,
+        "pass_rate": 1.0,
+        "measured_tests": 4,
+        "skipped_tests": 1
+      },
+      "error_type": null,
+      "usage_source": "turn_final",
+      "warnings": [
+        "All values are synthetic"
+      ],
+      "artifact_path": "runs/demo-0-high-2/attempts/synthetic"
+    },
+    {
+      "id": "demo-1-low-1",
+      "attempt_id": "synthetic",
+      "model": "demo-model-b",
+      "effort": "low",
+      "repeat": 1,
+      "status": "succeeded",
+      "success": true,
+      "started_at": "2026-10-23T00:00:00+00:00",
+      "ended_at": "2026-10-23T00:01:00+00:00",
+      "generation_seconds": 40,
+      "grading_seconds": 2.0,
+      "duration_seconds": 60.0,
+      "codex_version": "SYNTHETIC (not executed)",
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 1300,
+        "cached_input_tokens": 300,
+        "output_tokens": 240,
+        "reasoning_output_tokens": 100,
+        "total_tokens": 1540
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "synthetic_basic",
+            "category": "functionality",
+            "status": "passed",
+            "score": 40,
+            "max_score": 40,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_algorithm",
+            "category": "algorithm",
+            "status": "passed",
+            "score": 30,
+            "max_score": 30,
+            "duration_seconds": 0.2,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_exceptions",
+            "category": "exceptions",
+            "status": "passed",
+            "score": 20,
+            "max_score": 20,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_speed",
+            "category": "performance",
+            "status": "passed",
+            "score": 10,
+            "max_score": 10,
+            "duration_seconds": 0.3,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "memory",
+            "category": "performance",
+            "status": "skipped",
+            "score": null,
+            "max_score": 0,
+            "duration_seconds": null,
+            "detail": "Not measured"
+          }
+        ],
+        "score": 100,
+        "max_score": 100,
+        "planned_max_score": 100,
+        "pass_rate": 1.0,
+        "measured_tests": 4,
+        "skipped_tests": 1
+      },
+      "error_type": null,
+      "usage_source": "turn_final",
+      "warnings": [
+        "All values are synthetic"
+      ],
+      "artifact_path": "runs/demo-1-low-1/attempts/synthetic"
+    },
+    {
+      "id": "demo-1-low-2",
+      "attempt_id": "synthetic",
+      "model": "demo-model-b",
+      "effort": "low",
+      "repeat": 2,
+      "status": "unsupported",
+      "success": false,
+      "started_at": "2026-10-23T00:00:00+00:00",
+      "ended_at": "2026-10-23T00:01:00+00:00",
+      "generation_seconds": 45,
+      "grading_seconds": 2.0,
+      "duration_seconds": 60.0,
+      "codex_version": "SYNTHETIC (not executed)",
+      "exit_code": 1,
+      "usage": {
+        "input_tokens": null,
+        "cached_input_tokens": null,
+        "output_tokens": null,
+        "reasoning_output_tokens": null,
+        "total_tokens": null
+      },
+      "grade": null,
+      "error_type": "unsupported_combination",
+      "usage_source": null,
+      "warnings": [
+        "All values are synthetic"
+      ],
+      "artifact_path": "runs/demo-1-low-2/attempts/synthetic"
+    },
+    {
+      "id": "demo-1-high-1",
+      "attempt_id": "synthetic",
+      "model": "demo-model-b",
+      "effort": "high",
+      "repeat": 1,
+      "status": "succeeded",
+      "success": true,
+      "started_at": "2026-10-23T00:00:00+00:00",
+      "ended_at": "2026-10-23T00:01:00+00:00",
+      "generation_seconds": 80,
+      "grading_seconds": 2.0,
+      "duration_seconds": 60.0,
+      "codex_version": "SYNTHETIC (not executed)",
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 1300,
+        "cached_input_tokens": 300,
+        "output_tokens": 480,
+        "reasoning_output_tokens": 300,
+        "total_tokens": 1780
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "synthetic_basic",
+            "category": "functionality",
+            "status": "passed",
+            "score": 40,
+            "max_score": 40,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_algorithm",
+            "category": "algorithm",
+            "status": "passed",
+            "score": 30,
+            "max_score": 30,
+            "duration_seconds": 0.2,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_exceptions",
+            "category": "exceptions",
+            "status": "passed",
+            "score": 20,
+            "max_score": 20,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_speed",
+            "category": "performance",
+            "status": "passed",
+            "score": 10,
+            "max_score": 10,
+            "duration_seconds": 0.3,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "memory",
+            "category": "performance",
+            "status": "skipped",
+            "score": null,
+            "max_score": 0,
+            "duration_seconds": null,
+            "detail": "Not measured"
+          }
+        ],
+        "score": 100,
+        "max_score": 100,
+        "planned_max_score": 100,
+        "pass_rate": 1.0,
+        "measured_tests": 4,
+        "skipped_tests": 1
+      },
+      "error_type": null,
+      "usage_source": "turn_final",
+      "warnings": [
+        "All values are synthetic"
+      ],
+      "artifact_path": "runs/demo-1-high-1/attempts/synthetic"
+    },
+    {
+      "id": "demo-1-high-2",
+      "attempt_id": "synthetic",
+      "model": "demo-model-b",
+      "effort": "high",
+      "repeat": 2,
+      "status": "timed_out",
+      "success": false,
+      "started_at": "2026-10-23T00:00:00+00:00",
+      "ended_at": "2026-10-23T00:01:00+00:00",
+      "generation_seconds": 85,
+      "grading_seconds": 2.0,
+      "duration_seconds": 60.0,
+      "codex_version": "SYNTHETIC (not executed)",
+      "exit_code": 1,
+      "usage": {
+        "input_tokens": 1400,
+        "cached_input_tokens": 300,
+        "output_tokens": 480,
+        "reasoning_output_tokens": 300,
+        "total_tokens": 1880
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "synthetic_basic",
+            "category": "functionality",
+            "status": "passed",
+            "score": 40,
+            "max_score": 40,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_algorithm",
+            "category": "algorithm",
+            "status": "failed",
+            "score": 0,
+            "max_score": 30,
+            "duration_seconds": 0.2,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_exceptions",
+            "category": "exceptions",
+            "status": "passed",
+            "score": 20,
+            "max_score": 20,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_speed",
+            "category": "performance",
+            "status": "failed",
+            "score": 0,
+            "max_score": 10,
+            "duration_seconds": 0.3,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "memory",
+            "category": "performance",
+            "status": "skipped",
+            "score": null,
+            "max_score": 0,
+            "duration_seconds": null,
+            "detail": "Not measured"
+          }
+        ],
+        "score": 60,
+        "max_score": 100,
+        "planned_max_score": 100,
+        "pass_rate": 0.5,
+        "measured_tests": 4,
+        "skipped_tests": 1
+      },
+      "error_type": "timeout",
+      "usage_source": "turn_final",
+      "warnings": [
+        "All values are synthetic"
+      ],
+      "artifact_path": "runs/demo-1-high-2/attempts/synthetic"
+    }
+  ],
+  "summary": [
+    {
+      "model": "demo-model-a",
+      "effort": "high",
+      "runs": 2,
+      "statuses": {
+        "succeeded": 2
+      },
+      "error_types": {},
+      "metrics": {
+        "score": {
+          "n": 2,
+          "missing": 0,
+          "mean": 100,
+          "min": 100,
+          "max": 100,
+          "stddev": 0.0
+        },
+        "max_score": {
+          "n": 2,
+          "missing": 0,
+          "mean": 100,
+          "min": 100,
+          "max": 100,
+          "stddev": 0.0
+        },
+        "pass_rate": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0,
+          "stddev": 0.0
+        },
+        "input_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1350,
+          "min": 1300,
+          "max": 1400,
+          "stddev": 50.0
+        },
+        "cached_input_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 300,
+          "min": 300,
+          "max": 300,
+          "stddev": 0.0
+        },
+        "output_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 480,
+          "min": 480,
+          "max": 480,
+          "stddev": 0.0
+        },
+        "reasoning_output_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 300,
+          "min": 300,
+          "max": 300,
+          "stddev": 0.0
+        },
+        "total_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1830,
+          "min": 1780,
+          "max": 1880,
+          "stddev": 50.0
+        },
+        "cache_ratio": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.22252747252747251,
+          "min": 0.21428571428571427,
+          "max": 0.23076923076923078,
+          "stddev": 0.008241758241758254
+        },
+        "reasoning_ratio": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.625,
+          "min": 0.625,
+          "max": 0.625,
+          "stddev": 0.0
+        },
+        "generation_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 82.5,
+          "min": 80,
+          "max": 85,
+          "stddev": 2.5
+        },
+        "grading_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 2.0,
+          "min": 2.0,
+          "max": 2.0,
+          "stddev": 0.0
+        },
+        "duration_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 60.0,
+          "min": 60.0,
+          "max": 60.0,
+          "stddev": 0.0
+        },
+        "score_per_1000_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 54.6856323213005,
+          "min": 53.191489361702125,
+          "max": 56.17977528089887,
+          "stddev": 1.4941429595983742
+        },
+        "score_per_second": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1.2132352941176472,
+          "min": 1.1764705882352942,
+          "max": 1.25,
+          "stddev": 0.03676470588235292
+        }
+      },
+      "categories": {
+        "functionality": {
+          "n": 2,
+          "missing": 0,
+          "mean": 40,
+          "min": 40,
+          "max": 40,
+          "stddev": 0.0
+        },
+        "algorithm": {
+          "n": 2,
+          "missing": 0,
+          "mean": 30,
+          "min": 30,
+          "max": 30,
+          "stddev": 0.0
+        },
+        "exceptions": {
+          "n": 2,
+          "missing": 0,
+          "mean": 20,
+          "min": 20,
+          "max": 20,
+          "stddev": 0.0
+        },
+        "performance": {
+          "n": 2,
+          "missing": 0,
+          "mean": 10,
+          "min": 10,
+          "max": 10,
+          "stddev": 0.0
+        }
+      }
+    },
+    {
+      "model": "demo-model-a",
+      "effort": "low",
+      "runs": 2,
+      "statuses": {
+        "succeeded": 2
+      },
+      "error_types": {},
+      "metrics": {
+        "score": {
+          "n": 2,
+          "missing": 0,
+          "mean": 100,
+          "min": 100,
+          "max": 100,
+          "stddev": 0.0
+        },
+        "max_score": {
+          "n": 2,
+          "missing": 0,
+          "mean": 100,
+          "min": 100,
+          "max": 100,
+          "stddev": 0.0
+        },
+        "pass_rate": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0,
+          "stddev": 0.0
+        },
+        "input_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1350,
+          "min": 1300,
+          "max": 1400,
+          "stddev": 50.0
+        },
+        "cached_input_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 300,
+          "min": 300,
+          "max": 300,
+          "stddev": 0.0
+        },
+        "output_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 240,
+          "min": 240,
+          "max": 240,
+          "stddev": 0.0
+        },
+        "reasoning_output_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 100,
+          "min": 100,
+          "max": 100,
+          "stddev": 0.0
+        },
+        "total_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1590,
+          "min": 1540,
+          "max": 1640,
+          "stddev": 50.0
+        },
+        "cache_ratio": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.22252747252747251,
+          "min": 0.21428571428571427,
+          "max": 0.23076923076923078,
+          "stddev": 0.008241758241758254
+        },
+        "reasoning_ratio": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.4166666666666667,
+          "min": 0.4166666666666667,
+          "max": 0.4166666666666667,
+          "stddev": 0.0
+        },
+        "generation_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 42.5,
+          "min": 40,
+          "max": 45,
+          "stddev": 2.5
+        },
+        "grading_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 2.0,
+          "min": 2.0,
+          "max": 2.0,
+          "stddev": 0.0
+        },
+        "duration_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 60.0,
+          "min": 60.0,
+          "max": 60.0,
+          "stddev": 0.0
+        },
+        "score_per_1000_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 62.95533734558124,
+          "min": 60.97560975609756,
+          "max": 64.93506493506493,
+          "stddev": 1.9797275894836837
+        },
+        "score_per_second": {
+          "n": 2,
+          "missing": 0,
+          "mean": 2.361111111111111,
+          "min": 2.2222222222222223,
+          "max": 2.5,
+          "stddev": 0.13888888888888884
+        }
+      },
+      "categories": {
+        "functionality": {
+          "n": 2,
+          "missing": 0,
+          "mean": 40,
+          "min": 40,
+          "max": 40,
+          "stddev": 0.0
+        },
+        "algorithm": {
+          "n": 2,
+          "missing": 0,
+          "mean": 30,
+          "min": 30,
+          "max": 30,
+          "stddev": 0.0
+        },
+        "exceptions": {
+          "n": 2,
+          "missing": 0,
+          "mean": 20,
+          "min": 20,
+          "max": 20,
+          "stddev": 0.0
+        },
+        "performance": {
+          "n": 2,
+          "missing": 0,
+          "mean": 10,
+          "min": 10,
+          "max": 10,
+          "stddev": 0.0
+        }
+      }
+    },
+    {
+      "model": "demo-model-b",
+      "effort": "high",
+      "runs": 2,
+      "statuses": {
+        "succeeded": 1,
+        "timed_out": 1
+      },
+      "error_types": {
+        "timeout": 1
+      },
+      "metrics": {
+        "score": {
+          "n": 2,
+          "missing": 0,
+          "mean": 80,
+          "min": 60,
+          "max": 100,
+          "stddev": 20.0
+        },
+        "max_score": {
+          "n": 2,
+          "missing": 0,
+          "mean": 100,
+          "min": 100,
+          "max": 100,
+          "stddev": 0.0
+        },
+        "pass_rate": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.75,
+          "min": 0.5,
+          "max": 1.0,
+          "stddev": 0.25
+        },
+        "input_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1350,
+          "min": 1300,
+          "max": 1400,
+          "stddev": 50.0
+        },
+        "cached_input_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 300,
+          "min": 300,
+          "max": 300,
+          "stddev": 0.0
+        },
+        "output_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 480,
+          "min": 480,
+          "max": 480,
+          "stddev": 0.0
+        },
+        "reasoning_output_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 300,
+          "min": 300,
+          "max": 300,
+          "stddev": 0.0
+        },
+        "total_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1830,
+          "min": 1780,
+          "max": 1880,
+          "stddev": 50.0
+        },
+        "cache_ratio": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.22252747252747251,
+          "min": 0.21428571428571427,
+          "max": 0.23076923076923078,
+          "stddev": 0.008241758241758254
+        },
+        "reasoning_ratio": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.625,
+          "min": 0.625,
+          "max": 0.625,
+          "stddev": 0.0
+        },
+        "generation_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 82.5,
+          "min": 80,
+          "max": 85,
+          "stddev": 2.5
+        },
+        "grading_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 2.0,
+          "min": 2.0,
+          "max": 2.0,
+          "stddev": 0.0
+        },
+        "duration_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 60.0,
+          "min": 60.0,
+          "max": 60.0,
+          "stddev": 0.0
+        },
+        "score_per_1000_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 44.04733444896007,
+          "min": 31.914893617021274,
+          "max": 56.17977528089887,
+          "stddev": 12.1324408319388
+        },
+        "score_per_second": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.9779411764705883,
+          "min": 0.7058823529411765,
+          "max": 1.25,
+          "stddev": 0.27205882352941174
+        }
+      },
+      "categories": {
+        "functionality": {
+          "n": 2,
+          "missing": 0,
+          "mean": 40,
+          "min": 40,
+          "max": 40,
+          "stddev": 0.0
+        },
+        "algorithm": {
+          "n": 2,
+          "missing": 0,
+          "mean": 15,
+          "min": 0,
+          "max": 30,
+          "stddev": 15.0
+        },
+        "exceptions": {
+          "n": 2,
+          "missing": 0,
+          "mean": 20,
+          "min": 20,
+          "max": 20,
+          "stddev": 0.0
+        },
+        "performance": {
+          "n": 2,
+          "missing": 0,
+          "mean": 5,
+          "min": 0,
+          "max": 10,
+          "stddev": 5.0
+        }
+      }
+    },
+    {
+      "model": "demo-model-b",
+      "effort": "low",
+      "runs": 2,
+      "statuses": {
+        "succeeded": 1,
+        "unsupported": 1
+      },
+      "error_types": {
+        "unsupported_combination": 1
+      },
+      "metrics": {
+        "score": {
+          "n": 1,
+          "missing": 1,
+          "mean": 100,
+          "min": 100,
+          "max": 100,
+          "stddev": 0.0
+        },
+        "max_score": {
+          "n": 1,
+          "missing": 1,
+          "mean": 100,
+          "min": 100,
+          "max": 100,
+          "stddev": 0.0
+        },
+        "pass_rate": {
+          "n": 1,
+          "missing": 1,
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0,
+          "stddev": 0.0
+        },
+        "input_tokens": {
+          "n": 1,
+          "missing": 1,
+          "mean": 1300,
+          "min": 1300,
+          "max": 1300,
+          "stddev": 0.0
+        },
+        "cached_input_tokens": {
+          "n": 1,
+          "missing": 1,
+          "mean": 300,
+          "min": 300,
+          "max": 300,
+          "stddev": 0.0
+        },
+        "output_tokens": {
+          "n": 1,
+          "missing": 1,
+          "mean": 240,
+          "min": 240,
+          "max": 240,
+          "stddev": 0.0
+        },
+        "reasoning_output_tokens": {
+          "n": 1,
+          "missing": 1,
+          "mean": 100,
+          "min": 100,
+          "max": 100,
+          "stddev": 0.0
+        },
+        "total_tokens": {
+          "n": 1,
+          "missing": 1,
+          "mean": 1540,
+          "min": 1540,
+          "max": 1540,
+          "stddev": 0.0
+        },
+        "cache_ratio": {
+          "n": 1,
+          "missing": 1,
+          "mean": 0.23076923076923078,
+          "min": 0.23076923076923078,
+          "max": 0.23076923076923078,
+          "stddev": 0.0
+        },
+        "reasoning_ratio": {
+          "n": 1,
+          "missing": 1,
+          "mean": 0.4166666666666667,
+          "min": 0.4166666666666667,
+          "max": 0.4166666666666667,
+          "stddev": 0.0
+        },
+        "generation_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 42.5,
+          "min": 40,
+          "max": 45,
+          "stddev": 2.5
+        },
+        "grading_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 2.0,
+          "min": 2.0,
+          "max": 2.0,
+          "stddev": 0.0
+        },
+        "duration_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 60.0,
+          "min": 60.0,
+          "max": 60.0,
+          "stddev": 0.0
+        },
+        "score_per_1000_tokens": {
+          "n": 1,
+          "missing": 1,
+          "mean": 64.93506493506493,
+          "min": 64.93506493506493,
+          "max": 64.93506493506493,
+          "stddev": 0.0
+        },
+        "score_per_second": {
+          "n": 1,
+          "missing": 1,
+          "mean": 2.5,
+          "min": 2.5,
+          "max": 2.5,
+          "stddev": 0.0
+        }
+      },
+      "categories": {
+        "functionality": {
+          "n": 1,
+          "missing": 1,
+          "mean": 40,
+          "min": 40,
+          "max": 40,
+          "stddev": 0.0
+        },
+        "algorithm": {
+          "n": 1,
+          "missing": 1,
+          "mean": 30,
+          "min": 30,
+          "max": 30,
+          "stddev": 0.0
+        },
+        "exceptions": {
+          "n": 1,
+          "missing": 1,
+          "mean": 20,
+          "min": 20,
+          "max": 20,
+          "stddev": 0.0
+        },
+        "performance": {
+          "n": 1,
+          "missing": 1,
+          "mean": 10,
+          "min": 10,
+          "max": 10,
+          "stddev": 0.0
+        }
+      }
+    }
+  ],
+  "attempt_history": [
+    {
+      "id": "demo-0-high-1",
+      "attempt_id": "synthetic",
+      "model": "demo-model-a",
+      "effort": "high",
+      "repeat": 1,
+      "status": "succeeded",
+      "success": true,
+      "started_at": "2026-10-23T00:00:00+00:00",
+      "ended_at": "2026-10-23T00:01:00+00:00",
+      "generation_seconds": 80,
+      "grading_seconds": 2.0,
+      "duration_seconds": 60.0,
+      "codex_version": "SYNTHETIC (not executed)",
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 1300,
+        "cached_input_tokens": 300,
+        "output_tokens": 480,
+        "reasoning_output_tokens": 300,
+        "total_tokens": 1780
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "synthetic_basic",
+            "category": "functionality",
+            "status": "passed",
+            "score": 40,
+            "max_score": 40,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_algorithm",
+            "category": "algorithm",
+            "status": "passed",
+            "score": 30,
+            "max_score": 30,
+            "duration_seconds": 0.2,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_exceptions",
+            "category": "exceptions",
+            "status": "passed",
+            "score": 20,
+            "max_score": 20,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_speed",
+            "category": "performance",
+            "status": "passed",
+            "score": 10,
+            "max_score": 10,
+            "duration_seconds": 0.3,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "memory",
+            "category": "performance",
+            "status": "skipped",
+            "score": null,
+            "max_score": 0,
+            "duration_seconds": null,
+            "detail": "Not measured"
+          }
+        ],
+        "score": 100,
+        "max_score": 100,
+        "planned_max_score": 100,
+        "pass_rate": 1.0,
+        "measured_tests": 4,
+        "skipped_tests": 1
+      },
+      "error_type": null,
+      "usage_source": "turn_final",
+      "warnings": [
+        "All values are synthetic"
+      ],
+      "artifact_path": "runs/demo-0-high-1/attempts/synthetic"
+    },
+    {
+      "id": "demo-0-high-2",
+      "attempt_id": "synthetic",
+      "model": "demo-model-a",
+      "effort": "high",
+      "repeat": 2,
+      "status": "succeeded",
+      "success": true,
+      "started_at": "2026-10-23T00:00:00+00:00",
+      "ended_at": "2026-10-23T00:01:00+00:00",
+      "generation_seconds": 85,
+      "grading_seconds": 2.0,
+      "duration_seconds": 60.0,
+      "codex_version": "SYNTHETIC (not executed)",
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 1400,
+        "cached_input_tokens": 300,
+        "output_tokens": 480,
+        "reasoning_output_tokens": 300,
+        "total_tokens": 1880
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "synthetic_basic",
+            "category": "functionality",
+            "status": "passed",
+            "score": 40,
+            "max_score": 40,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_algorithm",
+            "category": "algorithm",
+            "status": "passed",
+            "score": 30,
+            "max_score": 30,
+            "duration_seconds": 0.2,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_exceptions",
+            "category": "exceptions",
+            "status": "passed",
+            "score": 20,
+            "max_score": 20,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_speed",
+            "category": "performance",
+            "status": "passed",
+            "score": 10,
+            "max_score": 10,
+            "duration_seconds": 0.3,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "memory",
+            "category": "performance",
+            "status": "skipped",
+            "score": null,
+            "max_score": 0,
+            "duration_seconds": null,
+            "detail": "Not measured"
+          }
+        ],
+        "score": 100,
+        "max_score": 100,
+        "planned_max_score": 100,
+        "pass_rate": 1.0,
+        "measured_tests": 4,
+        "skipped_tests": 1
+      },
+      "error_type": null,
+      "usage_source": "turn_final",
+      "warnings": [
+        "All values are synthetic"
+      ],
+      "artifact_path": "runs/demo-0-high-2/attempts/synthetic"
+    },
+    {
+      "id": "demo-0-low-1",
+      "attempt_id": "synthetic",
+      "model": "demo-model-a",
+      "effort": "low",
+      "repeat": 1,
+      "status": "succeeded",
+      "success": true,
+      "started_at": "2026-10-23T00:00:00+00:00",
+      "ended_at": "2026-10-23T00:01:00+00:00",
+      "generation_seconds": 40,
+      "grading_seconds": 2.0,
+      "duration_seconds": 60.0,
+      "codex_version": "SYNTHETIC (not executed)",
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 1300,
+        "cached_input_tokens": 300,
+        "output_tokens": 240,
+        "reasoning_output_tokens": 100,
+        "total_tokens": 1540
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "synthetic_basic",
+            "category": "functionality",
+            "status": "passed",
+            "score": 40,
+            "max_score": 40,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_algorithm",
+            "category": "algorithm",
+            "status": "passed",
+            "score": 30,
+            "max_score": 30,
+            "duration_seconds": 0.2,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_exceptions",
+            "category": "exceptions",
+            "status": "passed",
+            "score": 20,
+            "max_score": 20,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_speed",
+            "category": "performance",
+            "status": "passed",
+            "score": 10,
+            "max_score": 10,
+            "duration_seconds": 0.3,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "memory",
+            "category": "performance",
+            "status": "skipped",
+            "score": null,
+            "max_score": 0,
+            "duration_seconds": null,
+            "detail": "Not measured"
+          }
+        ],
+        "score": 100,
+        "max_score": 100,
+        "planned_max_score": 100,
+        "pass_rate": 1.0,
+        "measured_tests": 4,
+        "skipped_tests": 1
+      },
+      "error_type": null,
+      "usage_source": "turn_final",
+      "warnings": [
+        "All values are synthetic"
+      ],
+      "artifact_path": "runs/demo-0-low-1/attempts/synthetic"
+    },
+    {
+      "id": "demo-0-low-2",
+      "attempt_id": "synthetic",
+      "model": "demo-model-a",
+      "effort": "low",
+      "repeat": 2,
+      "status": "succeeded",
+      "success": true,
+      "started_at": "2026-10-23T00:00:00+00:00",
+      "ended_at": "2026-10-23T00:01:00+00:00",
+      "generation_seconds": 45,
+      "grading_seconds": 2.0,
+      "duration_seconds": 60.0,
+      "codex_version": "SYNTHETIC (not executed)",
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 1400,
+        "cached_input_tokens": 300,
+        "output_tokens": 240,
+        "reasoning_output_tokens": 100,
+        "total_tokens": 1640
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "synthetic_basic",
+            "category": "functionality",
+            "status": "passed",
+            "score": 40,
+            "max_score": 40,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_algorithm",
+            "category": "algorithm",
+            "status": "passed",
+            "score": 30,
+            "max_score": 30,
+            "duration_seconds": 0.2,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_exceptions",
+            "category": "exceptions",
+            "status": "passed",
+            "score": 20,
+            "max_score": 20,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_speed",
+            "category": "performance",
+            "status": "passed",
+            "score": 10,
+            "max_score": 10,
+            "duration_seconds": 0.3,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "memory",
+            "category": "performance",
+            "status": "skipped",
+            "score": null,
+            "max_score": 0,
+            "duration_seconds": null,
+            "detail": "Not measured"
+          }
+        ],
+        "score": 100,
+        "max_score": 100,
+        "planned_max_score": 100,
+        "pass_rate": 1.0,
+        "measured_tests": 4,
+        "skipped_tests": 1
+      },
+      "error_type": null,
+      "usage_source": "turn_final",
+      "warnings": [
+        "All values are synthetic"
+      ],
+      "artifact_path": "runs/demo-0-low-2/attempts/synthetic"
+    },
+    {
+      "id": "demo-1-high-1",
+      "attempt_id": "synthetic",
+      "model": "demo-model-b",
+      "effort": "high",
+      "repeat": 1,
+      "status": "succeeded",
+      "success": true,
+      "started_at": "2026-10-23T00:00:00+00:00",
+      "ended_at": "2026-10-23T00:01:00+00:00",
+      "generation_seconds": 80,
+      "grading_seconds": 2.0,
+      "duration_seconds": 60.0,
+      "codex_version": "SYNTHETIC (not executed)",
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 1300,
+        "cached_input_tokens": 300,
+        "output_tokens": 480,
+        "reasoning_output_tokens": 300,
+        "total_tokens": 1780
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "synthetic_basic",
+            "category": "functionality",
+            "status": "passed",
+            "score": 40,
+            "max_score": 40,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_algorithm",
+            "category": "algorithm",
+            "status": "passed",
+            "score": 30,
+            "max_score": 30,
+            "duration_seconds": 0.2,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_exceptions",
+            "category": "exceptions",
+            "status": "passed",
+            "score": 20,
+            "max_score": 20,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_speed",
+            "category": "performance",
+            "status": "passed",
+            "score": 10,
+            "max_score": 10,
+            "duration_seconds": 0.3,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "memory",
+            "category": "performance",
+            "status": "skipped",
+            "score": null,
+            "max_score": 0,
+            "duration_seconds": null,
+            "detail": "Not measured"
+          }
+        ],
+        "score": 100,
+        "max_score": 100,
+        "planned_max_score": 100,
+        "pass_rate": 1.0,
+        "measured_tests": 4,
+        "skipped_tests": 1
+      },
+      "error_type": null,
+      "usage_source": "turn_final",
+      "warnings": [
+        "All values are synthetic"
+      ],
+      "artifact_path": "runs/demo-1-high-1/attempts/synthetic"
+    },
+    {
+      "id": "demo-1-high-2",
+      "attempt_id": "synthetic",
+      "model": "demo-model-b",
+      "effort": "high",
+      "repeat": 2,
+      "status": "timed_out",
+      "success": false,
+      "started_at": "2026-10-23T00:00:00+00:00",
+      "ended_at": "2026-10-23T00:01:00+00:00",
+      "generation_seconds": 85,
+      "grading_seconds": 2.0,
+      "duration_seconds": 60.0,
+      "codex_version": "SYNTHETIC (not executed)",
+      "exit_code": 1,
+      "usage": {
+        "input_tokens": 1400,
+        "cached_input_tokens": 300,
+        "output_tokens": 480,
+        "reasoning_output_tokens": 300,
+        "total_tokens": 1880
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "synthetic_basic",
+            "category": "functionality",
+            "status": "passed",
+            "score": 40,
+            "max_score": 40,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_algorithm",
+            "category": "algorithm",
+            "status": "failed",
+            "score": 0,
+            "max_score": 30,
+            "duration_seconds": 0.2,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_exceptions",
+            "category": "exceptions",
+            "status": "passed",
+            "score": 20,
+            "max_score": 20,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_speed",
+            "category": "performance",
+            "status": "failed",
+            "score": 0,
+            "max_score": 10,
+            "duration_seconds": 0.3,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "memory",
+            "category": "performance",
+            "status": "skipped",
+            "score": null,
+            "max_score": 0,
+            "duration_seconds": null,
+            "detail": "Not measured"
+          }
+        ],
+        "score": 60,
+        "max_score": 100,
+        "planned_max_score": 100,
+        "pass_rate": 0.5,
+        "measured_tests": 4,
+        "skipped_tests": 1
+      },
+      "error_type": "timeout",
+      "usage_source": "turn_final",
+      "warnings": [
+        "All values are synthetic"
+      ],
+      "artifact_path": "runs/demo-1-high-2/attempts/synthetic"
+    },
+    {
+      "id": "demo-1-low-1",
+      "attempt_id": "synthetic",
+      "model": "demo-model-b",
+      "effort": "low",
+      "repeat": 1,
+      "status": "succeeded",
+      "success": true,
+      "started_at": "2026-10-23T00:00:00+00:00",
+      "ended_at": "2026-10-23T00:01:00+00:00",
+      "generation_seconds": 40,
+      "grading_seconds": 2.0,
+      "duration_seconds": 60.0,
+      "codex_version": "SYNTHETIC (not executed)",
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 1300,
+        "cached_input_tokens": 300,
+        "output_tokens": 240,
+        "reasoning_output_tokens": 100,
+        "total_tokens": 1540
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "synthetic_basic",
+            "category": "functionality",
+            "status": "passed",
+            "score": 40,
+            "max_score": 40,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_algorithm",
+            "category": "algorithm",
+            "status": "passed",
+            "score": 30,
+            "max_score": 30,
+            "duration_seconds": 0.2,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_exceptions",
+            "category": "exceptions",
+            "status": "passed",
+            "score": 20,
+            "max_score": 20,
+            "duration_seconds": 0.1,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "synthetic_speed",
+            "category": "performance",
+            "status": "passed",
+            "score": 10,
+            "max_score": 10,
+            "duration_seconds": 0.3,
+            "detail": "SYNTHETIC demonstration value"
+          },
+          {
+            "name": "memory",
+            "category": "performance",
+            "status": "skipped",
+            "score": null,
+            "max_score": 0,
+            "duration_seconds": null,
+            "detail": "Not measured"
+          }
+        ],
+        "score": 100,
+        "max_score": 100,
+        "planned_max_score": 100,
+        "pass_rate": 1.0,
+        "measured_tests": 4,
+        "skipped_tests": 1
+      },
+      "error_type": null,
+      "usage_source": "turn_final",
+      "warnings": [
+        "All values are synthetic"
+      ],
+      "artifact_path": "runs/demo-1-low-1/attempts/synthetic"
+    },
+    {
+      "id": "demo-1-low-2",
+      "attempt_id": "synthetic",
+      "model": "demo-model-b",
+      "effort": "low",
+      "repeat": 2,
+      "status": "unsupported",
+      "success": false,
+      "started_at": "2026-10-23T00:00:00+00:00",
+      "ended_at": "2026-10-23T00:01:00+00:00",
+      "generation_seconds": 45,
+      "grading_seconds": 2.0,
+      "duration_seconds": 60.0,
+      "codex_version": "SYNTHETIC (not executed)",
+      "exit_code": 1,
+      "usage": {
+        "input_tokens": null,
+        "cached_input_tokens": null,
+        "output_tokens": null,
+        "reasoning_output_tokens": null,
+        "total_tokens": null
+      },
+      "grade": null,
+      "error_type": "unsupported_combination",
+      "usage_source": null,
+      "warnings": [
+        "All values are synthetic"
+      ],
+      "artifact_path": "runs/demo-1-low-2/attempts/synthetic"
+    }
+  ]
+}

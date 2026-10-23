@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "C:\\Users\\SSAFY\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "-I",
+    "-B",
+    "C:\\Users\\SSAFY\\Desktop\\AiTest\\codex_bench\\mock_codex.py",
+    "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d1f8877f-5399-416d-a163-69cf626217fa}\\AC\\Temp\\codex-benchmark-workspaces\\89d002293e9f4b47bf7e270e47100844\\job-fbcb5f39ed3553d9\\5715fbbf63854e8fa1a996bd7f0d4fe9\\project",
+    "gpt-6.1-sol",
+    "medium",
+    "1"
+  ],
+  "stdin": "common frozen prompt.md",
+  "cwd": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d1f8877f-5399-416d-a163-69cf626217fa}\\AC\\Temp\\codex-benchmark-workspaces\\89d002293e9f4b47bf7e270e47100844\\job-fbcb5f39ed3553d9\\5715fbbf63854e8fa1a996bd7f0d4fe9\\project"
+}

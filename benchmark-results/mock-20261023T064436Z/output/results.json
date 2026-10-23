@@ -1,0 +1,2623 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-23T06:44:41.602347+00:00",
+  "metadata": {
+    "schema_version": 1,
+    "experiment_id": "d62b201943de4e69ae48fca7d5959c32",
+    "created_at": "2026-10-23T06:44:36.222686+00:00",
+    "runner_version": "1.0.0",
+    "fingerprint": "aa3cd49f9449eaf90f8df4bb401ab4b4974a609e4a8a24ea59713d892fed0f95",
+    "starter_hashes": {
+      "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4"
+    },
+    "grader_hashes": {
+      "plugin.py": "1f57e7f61b769e6f9cb259bc195b312f3a86cef669b1d7ae40f5ec7e0c5dd104"
+    },
+    "jobs": [
+      {
+        "id": "job-841e0c4e9915bf37",
+        "model": "mock-model-a",
+        "effort": "low",
+        "repeat": 1
+      },
+      {
+        "id": "job-47104f3fa329bc87",
+        "model": "mock-model-a",
+        "effort": "low",
+        "repeat": 2
+      },
+      {
+        "id": "job-b9eee3f1e70b98b2",
+        "model": "mock-model-a",
+        "effort": "high",
+        "repeat": 1
+      },
+      {
+        "id": "job-36281ff6bd6818da",
+        "model": "mock-model-a",
+        "effort": "high",
+        "repeat": 2
+      },
+      {
+        "id": "job-4698f0e01a903dde",
+        "model": "mock-model-a",
+        "effort": "unsupported",
+        "repeat": 1
+      },
+      {
+        "id": "job-ac73761cddcfe61a",
+        "model": "mock-model-a",
+        "effort": "unsupported",
+        "repeat": 2
+      },
+      {
+        "id": "job-596033cccaf4d62a",
+        "model": "mock-model-b",
+        "effort": "low",
+        "repeat": 1
+      },
+      {
+        "id": "job-4848dd264f734bc5",
+        "model": "mock-model-b",
+        "effort": "low",
+        "repeat": 2
+      },
+      {
+        "id": "job-bf175d10a4d4ed23",
+        "model": "mock-model-b",
+        "effort": "high",
+        "repeat": 1
+      },
+      {
+        "id": "job-7b2ef52f10b6f293",
+        "model": "mock-model-b",
+        "effort": "high",
+        "repeat": 2
+      },
+      {
+        "id": "job-67e239bab77b3397",
+        "model": "mock-model-b",
+        "effort": "unsupported",
+        "repeat": 1
+      },
+      {
+        "id": "job-935bbc146ff627ed",
+        "model": "mock-model-b",
+        "effort": "unsupported",
+        "repeat": 2
+      }
+    ],
+    "active_seconds": 5.297000000020489,
+    "synthetic": true,
+    "simulation_note": "Only trusted fake_codex.py processes and a synthetic harness grader were executed. No Codex CLI, model, network, or candidate code execution.",
+    "last_finished_at": "2026-10-23T06:44:41.586432+00:00"
+  },
+  "results": [
+    {
+      "id": "job-841e0c4e9915bf37",
+      "model": "mock-model-a",
+      "effort": "low",
+      "repeat": 1,
+      "attempt_id": "0041fb5f03f042ccb94d3eada9c5add9",
+      "started_at": "2026-10-23T06:44:36.262993+00:00",
+      "ended_at": "2026-10-23T06:44:36.661393+00:00",
+      "status": "succeeded",
+      "codex_version": "fake 1.0",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-841e0c4e9915bf37\\0041fb5f03f042ccb94d3eada9c5add9\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 200,
+        "cached_input_tokens": 50,
+        "output_tokens": 40,
+        "reasoning_output_tokens": 10,
+        "total_tokens": 240
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "fixture_only",
+            "category": "harness_fixture",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Synthetic harness test, not code correctness"
+          }
+        ],
+        "score": 1,
+        "max_score": 1,
+        "planned_max_score": 1,
+        "pass_rate": 1.0,
+        "measured_tests": 1,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "fake-0041fb5f03f042ccb94d3eada9c5add9",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "mock-model-a",
+          "reasoning_effort": "low"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.10900000005494803,
+      "generation_ended_at": "2026-10-23T06:44:36.386905+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "received-prompt.txt": "8db8f6f3eaa712f762307038804e27f20d799e96dd7a9994e6df177954fe2335",
+        "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4",
+        "solution.py": "c3502beeb3417c5267612d7eb3735c9007d672cb28d35cbc210f6ed966000679"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.21799999999348074,
+      "duration_seconds": 0.3270000000484288,
+      "artifact_path": "runs/job-841e0c4e9915bf37/attempts/0041fb5f03f042ccb94d3eada9c5add9"
+    },
+    {
+      "id": "job-47104f3fa329bc87",
+      "model": "mock-model-a",
+      "effort": "low",
+      "repeat": 2,
+      "attempt_id": "df5c780311294b78acc50e2722da32e7",
+      "started_at": "2026-10-23T06:44:36.683105+00:00",
+      "ended_at": "2026-10-23T06:44:37.065740+00:00",
+      "status": "succeeded",
+      "codex_version": "fake 1.0",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-47104f3fa329bc87\\df5c780311294b78acc50e2722da32e7\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 200,
+        "cached_input_tokens": 50,
+        "output_tokens": 40,
+        "reasoning_output_tokens": 10,
+        "total_tokens": 240
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "fixture_only",
+            "category": "harness_fixture",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Synthetic harness test, not code correctness"
+          }
+        ],
+        "score": 1,
+        "max_score": 1,
+        "planned_max_score": 1,
+        "pass_rate": 1.0,
+        "measured_tests": 1,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "fake-df5c780311294b78acc50e2722da32e7",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "mock-model-a",
+          "reasoning_effort": "low"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.10900000005494803,
+      "generation_ended_at": "2026-10-23T06:44:36.805880+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "received-prompt.txt": "8db8f6f3eaa712f762307038804e27f20d799e96dd7a9994e6df177954fe2335",
+        "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4",
+        "solution.py": "c3502beeb3417c5267612d7eb3735c9007d672cb28d35cbc210f6ed966000679"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.21799999999348074,
+      "duration_seconds": 0.3270000000484288,
+      "artifact_path": "runs/job-47104f3fa329bc87/attempts/df5c780311294b78acc50e2722da32e7"
+    },
+    {
+      "id": "job-b9eee3f1e70b98b2",
+      "model": "mock-model-a",
+      "effort": "high",
+      "repeat": 1,
+      "attempt_id": "db12b6b44c894488800159b90ce0bb25",
+      "started_at": "2026-10-23T06:44:37.090098+00:00",
+      "ended_at": "2026-10-23T06:44:37.481790+00:00",
+      "status": "succeeded",
+      "codex_version": "fake 1.0",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-b9eee3f1e70b98b2\\db12b6b44c894488800159b90ce0bb25\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 200,
+        "cached_input_tokens": 50,
+        "output_tokens": 40,
+        "reasoning_output_tokens": 10,
+        "total_tokens": 240
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "fixture_only",
+            "category": "harness_fixture",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Synthetic harness test, not code correctness"
+          }
+        ],
+        "score": 1,
+        "max_score": 1,
+        "planned_max_score": 1,
+        "pass_rate": 1.0,
+        "measured_tests": 1,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "fake-db12b6b44c894488800159b90ce0bb25",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "mock-model-a",
+          "reasoning_effort": "high"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.10900000005494803,
+      "generation_ended_at": "2026-10-23T06:44:37.213041+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "received-prompt.txt": "8db8f6f3eaa712f762307038804e27f20d799e96dd7a9994e6df177954fe2335",
+        "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4",
+        "solution.py": "c3502beeb3417c5267612d7eb3735c9007d672cb28d35cbc210f6ed966000679"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.20400000002700835,
+      "duration_seconds": 0.3130000000819564,
+      "artifact_path": "runs/job-b9eee3f1e70b98b2/attempts/db12b6b44c894488800159b90ce0bb25"
+    },
+    {
+      "id": "job-36281ff6bd6818da",
+      "model": "mock-model-a",
+      "effort": "high",
+      "repeat": 2,
+      "attempt_id": "47e1a17a58d34af4aeed89feaa4a57d9",
+      "started_at": "2026-10-23T06:44:37.507237+00:00",
+      "ended_at": "2026-10-23T06:44:38.001079+00:00",
+      "status": "succeeded",
+      "codex_version": "fake 1.0",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-36281ff6bd6818da\\47e1a17a58d34af4aeed89feaa4a57d9\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 200,
+        "cached_input_tokens": 50,
+        "output_tokens": 40,
+        "reasoning_output_tokens": 10,
+        "total_tokens": 240
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "fixture_only",
+            "category": "harness_fixture",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Synthetic harness test, not code correctness"
+          }
+        ],
+        "score": 1,
+        "max_score": 1,
+        "planned_max_score": 1,
+        "pass_rate": 1.0,
+        "measured_tests": 1,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "fake-47e1a17a58d34af4aeed89feaa4a57d9",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "mock-model-a",
+          "reasoning_effort": "high"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.1720000000204891,
+      "generation_ended_at": "2026-10-23T06:44:37.695702+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "received-prompt.txt": "8db8f6f3eaa712f762307038804e27f20d799e96dd7a9994e6df177954fe2335",
+        "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4",
+        "solution.py": "c3502beeb3417c5267612d7eb3735c9007d672cb28d35cbc210f6ed966000679"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.2190000000409782,
+      "duration_seconds": 0.3910000000614673,
+      "artifact_path": "runs/job-36281ff6bd6818da/attempts/47e1a17a58d34af4aeed89feaa4a57d9"
+    },
+    {
+      "id": "job-4698f0e01a903dde",
+      "model": "mock-model-a",
+      "effort": "unsupported",
+      "repeat": 1,
+      "attempt_id": "c3638b1915ee49e3bfb5e7f712068e16",
+      "started_at": "2026-10-23T06:44:38.026077+00:00",
+      "ended_at": "2026-10-23T06:44:38.488388+00:00",
+      "status": "unsupported",
+      "codex_version": "fake 1.0",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-4698f0e01a903dde\\c3638b1915ee49e3bfb5e7f712068e16\\project",
+      "success": false,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": null,
+        "cached_input_tokens": null,
+        "output_tokens": null,
+        "reasoning_output_tokens": null,
+        "total_tokens": null
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "fixture_only",
+            "category": "harness_fixture",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Synthetic harness test, not code correctness"
+          }
+        ],
+        "score": 1,
+        "max_score": 1,
+        "planned_max_score": 1,
+        "pass_rate": 1.0,
+        "measured_tests": 1,
+        "skipped_tests": 0
+      },
+      "usage_source": null,
+      "completed_event": false,
+      "thread_id": "fake-c3638b1915ee49e3bfb5e7f712068e16",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "mock-model-a",
+          "reasoning_effort": "unsupported"
+        }
+      ],
+      "errors": [
+        "Unsupported reasoning effort"
+      ],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 1,
+      "generation_seconds": 0.15700000000651926,
+      "generation_ended_at": "2026-10-23T06:44:38.212000+00:00",
+      "error_type": "unsupported_combination",
+      "process_error": null,
+      "submission_hashes": {
+        "received-prompt.txt": "8db8f6f3eaa712f762307038804e27f20d799e96dd7a9994e6df177954fe2335",
+        "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4",
+        "solution.py": "c3502beeb3417c5267612d7eb3735c9007d672cb28d35cbc210f6ed966000679"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.2190000000409782,
+      "duration_seconds": 0.37600000004749745,
+      "artifact_path": "runs/job-4698f0e01a903dde/attempts/c3638b1915ee49e3bfb5e7f712068e16"
+    },
+    {
+      "id": "job-ac73761cddcfe61a",
+      "model": "mock-model-a",
+      "effort": "unsupported",
+      "repeat": 2,
+      "attempt_id": "87f30f59f4c94e69b0f56c3c01ca3f41",
+      "started_at": "2026-10-23T06:44:38.515550+00:00",
+      "ended_at": "2026-10-23T06:44:38.898380+00:00",
+      "status": "unsupported",
+      "codex_version": "fake 1.0",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-ac73761cddcfe61a\\87f30f59f4c94e69b0f56c3c01ca3f41\\project",
+      "success": false,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": null,
+        "cached_input_tokens": null,
+        "output_tokens": null,
+        "reasoning_output_tokens": null,
+        "total_tokens": null
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "fixture_only",
+            "category": "harness_fixture",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Synthetic harness test, not code correctness"
+          }
+        ],
+        "score": 1,
+        "max_score": 1,
+        "planned_max_score": 1,
+        "pass_rate": 1.0,
+        "measured_tests": 1,
+        "skipped_tests": 0
+      },
+      "usage_source": null,
+      "completed_event": false,
+      "thread_id": "fake-87f30f59f4c94e69b0f56c3c01ca3f41",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "mock-model-a",
+          "reasoning_effort": "unsupported"
+        }
+      ],
+      "errors": [
+        "Unsupported reasoning effort"
+      ],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 1,
+      "generation_seconds": 0.10900000005494803,
+      "generation_ended_at": "2026-10-23T06:44:38.635264+00:00",
+      "error_type": "unsupported_combination",
+      "process_error": null,
+      "submission_hashes": {
+        "received-prompt.txt": "8db8f6f3eaa712f762307038804e27f20d799e96dd7a9994e6df177954fe2335",
+        "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4",
+        "solution.py": "c3502beeb3417c5267612d7eb3735c9007d672cb28d35cbc210f6ed966000679"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.21799999999348074,
+      "duration_seconds": 0.3270000000484288,
+      "artifact_path": "runs/job-ac73761cddcfe61a/attempts/87f30f59f4c94e69b0f56c3c01ca3f41"
+    },
+    {
+      "id": "job-596033cccaf4d62a",
+      "model": "mock-model-b",
+      "effort": "low",
+      "repeat": 1,
+      "attempt_id": "6e467d776c8a400d95c77946fd783982",
+      "started_at": "2026-10-23T06:44:38.926862+00:00",
+      "ended_at": "2026-10-23T06:44:39.313114+00:00",
+      "status": "succeeded",
+      "codex_version": "fake 1.0",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-596033cccaf4d62a\\6e467d776c8a400d95c77946fd783982\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 200,
+        "cached_input_tokens": 50,
+        "output_tokens": 40,
+        "reasoning_output_tokens": 10,
+        "total_tokens": 240
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "fixture_only",
+            "category": "harness_fixture",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Synthetic harness test, not code correctness"
+          }
+        ],
+        "score": 1,
+        "max_score": 1,
+        "planned_max_score": 1,
+        "pass_rate": 1.0,
+        "measured_tests": 1,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "fake-6e467d776c8a400d95c77946fd783982",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "mock-model-b",
+          "reasoning_effort": "low"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.10899999993853271,
+      "generation_ended_at": "2026-10-23T06:44:39.047636+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "received-prompt.txt": "8db8f6f3eaa712f762307038804e27f20d799e96dd7a9994e6df177954fe2335",
+        "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4",
+        "solution.py": "c3502beeb3417c5267612d7eb3735c9007d672cb28d35cbc210f6ed966000679"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.2029999999795109,
+      "duration_seconds": 0.3119999999180436,
+      "artifact_path": "runs/job-596033cccaf4d62a/attempts/6e467d776c8a400d95c77946fd783982"
+    },
+    {
+      "id": "job-4848dd264f734bc5",
+      "model": "mock-model-b",
+      "effort": "low",
+      "repeat": 2,
+      "attempt_id": "804de256afc84fd098a72212b44a190d",
+      "started_at": "2026-10-23T06:44:39.345573+00:00",
+      "ended_at": "2026-10-23T06:44:39.728019+00:00",
+      "status": "succeeded",
+      "codex_version": "fake 1.0",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-4848dd264f734bc5\\804de256afc84fd098a72212b44a190d\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 200,
+        "cached_input_tokens": 50,
+        "output_tokens": 40,
+        "reasoning_output_tokens": 10,
+        "total_tokens": 240
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "fixture_only",
+            "category": "harness_fixture",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Synthetic harness test, not code correctness"
+          }
+        ],
+        "score": 1,
+        "max_score": 1,
+        "planned_max_score": 1,
+        "pass_rate": 1.0,
+        "measured_tests": 1,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "fake-804de256afc84fd098a72212b44a190d",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "mock-model-b",
+          "reasoning_effort": "low"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.10900000005494803,
+      "generation_ended_at": "2026-10-23T06:44:39.467010+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "received-prompt.txt": "8db8f6f3eaa712f762307038804e27f20d799e96dd7a9994e6df177954fe2335",
+        "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4",
+        "solution.py": "c3502beeb3417c5267612d7eb3735c9007d672cb28d35cbc210f6ed966000679"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.20400000002700835,
+      "duration_seconds": 0.3130000000819564,
+      "artifact_path": "runs/job-4848dd264f734bc5/attempts/804de256afc84fd098a72212b44a190d"
+    },
+    {
+      "id": "job-bf175d10a4d4ed23",
+      "model": "mock-model-b",
+      "effort": "high",
+      "repeat": 1,
+      "attempt_id": "af832432dc7e48028c2b4e178c9ad5ad",
+      "started_at": "2026-10-23T06:44:39.759777+00:00",
+      "ended_at": "2026-10-23T06:44:40.147409+00:00",
+      "status": "succeeded",
+      "codex_version": "fake 1.0",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-bf175d10a4d4ed23\\af832432dc7e48028c2b4e178c9ad5ad\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 200,
+        "cached_input_tokens": 50,
+        "output_tokens": 40,
+        "reasoning_output_tokens": 10,
+        "total_tokens": 240
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "fixture_only",
+            "category": "harness_fixture",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Synthetic harness test, not code correctness"
+          }
+        ],
+        "score": 1,
+        "max_score": 1,
+        "planned_max_score": 1,
+        "pass_rate": 1.0,
+        "measured_tests": 1,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "fake-af832432dc7e48028c2b4e178c9ad5ad",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "mock-model-b",
+          "reasoning_effort": "high"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.10900000005494803,
+      "generation_ended_at": "2026-10-23T06:44:39.880947+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "received-prompt.txt": "8db8f6f3eaa712f762307038804e27f20d799e96dd7a9994e6df177954fe2335",
+        "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4",
+        "solution.py": "c3502beeb3417c5267612d7eb3735c9007d672cb28d35cbc210f6ed966000679"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.21799999999348074,
+      "duration_seconds": 0.3270000000484288,
+      "artifact_path": "runs/job-bf175d10a4d4ed23/attempts/af832432dc7e48028c2b4e178c9ad5ad"
+    },
+    {
+      "id": "job-7b2ef52f10b6f293",
+      "model": "mock-model-b",
+      "effort": "high",
+      "repeat": 2,
+      "attempt_id": "db7fcada3c6f4e0a801fa0a22773c1f2",
+      "started_at": "2026-10-23T06:44:40.177752+00:00",
+      "ended_at": "2026-10-23T06:44:40.625102+00:00",
+      "status": "succeeded",
+      "codex_version": "fake 1.0",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-7b2ef52f10b6f293\\db7fcada3c6f4e0a801fa0a22773c1f2\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 200,
+        "cached_input_tokens": 50,
+        "output_tokens": 40,
+        "reasoning_output_tokens": 10,
+        "total_tokens": 240
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "fixture_only",
+            "category": "harness_fixture",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Synthetic harness test, not code correctness"
+          }
+        ],
+        "score": 1,
+        "max_score": 1,
+        "planned_max_score": 1,
+        "pass_rate": 1.0,
+        "measured_tests": 1,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "fake-db7fcada3c6f4e0a801fa0a22773c1f2",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "mock-model-b",
+          "reasoning_effort": "high"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.1559999999590218,
+      "generation_ended_at": "2026-10-23T06:44:40.357607+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "received-prompt.txt": "8db8f6f3eaa712f762307038804e27f20d799e96dd7a9994e6df177954fe2335",
+        "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4",
+        "solution.py": "c3502beeb3417c5267612d7eb3735c9007d672cb28d35cbc210f6ed966000679"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.2029999999795109,
+      "duration_seconds": 0.3589999999385327,
+      "artifact_path": "runs/job-7b2ef52f10b6f293/attempts/db7fcada3c6f4e0a801fa0a22773c1f2"
+    },
+    {
+      "id": "job-67e239bab77b3397",
+      "model": "mock-model-b",
+      "effort": "unsupported",
+      "repeat": 1,
+      "attempt_id": "256cdbdacfd4448d8308a2a793028048",
+      "started_at": "2026-10-23T06:44:40.660145+00:00",
+      "ended_at": "2026-10-23T06:44:41.045680+00:00",
+      "status": "unsupported",
+      "codex_version": "fake 1.0",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-67e239bab77b3397\\256cdbdacfd4448d8308a2a793028048\\project",
+      "success": false,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": null,
+        "cached_input_tokens": null,
+        "output_tokens": null,
+        "reasoning_output_tokens": null,
+        "total_tokens": null
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "fixture_only",
+            "category": "harness_fixture",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Synthetic harness test, not code correctness"
+          }
+        ],
+        "score": 1,
+        "max_score": 1,
+        "planned_max_score": 1,
+        "pass_rate": 1.0,
+        "measured_tests": 1,
+        "skipped_tests": 0
+      },
+      "usage_source": null,
+      "completed_event": false,
+      "thread_id": "fake-256cdbdacfd4448d8308a2a793028048",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "mock-model-b",
+          "reasoning_effort": "unsupported"
+        }
+      ],
+      "errors": [
+        "Unsupported reasoning effort"
+      ],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 1,
+      "generation_seconds": 0.10999999998603016,
+      "generation_ended_at": "2026-10-23T06:44:40.781683+00:00",
+      "error_type": "unsupported_combination",
+      "process_error": null,
+      "submission_hashes": {
+        "received-prompt.txt": "8db8f6f3eaa712f762307038804e27f20d799e96dd7a9994e6df177954fe2335",
+        "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4",
+        "solution.py": "c3502beeb3417c5267612d7eb3735c9007d672cb28d35cbc210f6ed966000679"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.2029999999795109,
+      "duration_seconds": 0.31299999996554106,
+      "artifact_path": "runs/job-67e239bab77b3397/attempts/256cdbdacfd4448d8308a2a793028048"
+    },
+    {
+      "id": "job-935bbc146ff627ed",
+      "model": "mock-model-b",
+      "effort": "unsupported",
+      "repeat": 2,
+      "attempt_id": "f1ea487496f7404bb4a4a67b53edb156",
+      "started_at": "2026-10-23T06:44:41.082023+00:00",
+      "ended_at": "2026-10-23T06:44:41.471572+00:00",
+      "status": "unsupported",
+      "codex_version": "fake 1.0",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-935bbc146ff627ed\\f1ea487496f7404bb4a4a67b53edb156\\project",
+      "success": false,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": null,
+        "cached_input_tokens": null,
+        "output_tokens": null,
+        "reasoning_output_tokens": null,
+        "total_tokens": null
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "fixture_only",
+            "category": "harness_fixture",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Synthetic harness test, not code correctness"
+          }
+        ],
+        "score": 1,
+        "max_score": 1,
+        "planned_max_score": 1,
+        "pass_rate": 1.0,
+        "measured_tests": 1,
+        "skipped_tests": 0
+      },
+      "usage_source": null,
+      "completed_event": false,
+      "thread_id": "fake-f1ea487496f7404bb4a4a67b53edb156",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "mock-model-b",
+          "reasoning_effort": "unsupported"
+        }
+      ],
+      "errors": [
+        "Unsupported reasoning effort"
+      ],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 1,
+      "generation_seconds": 0.10999999998603016,
+      "generation_ended_at": "2026-10-23T06:44:41.202132+00:00",
+      "error_type": "unsupported_combination",
+      "process_error": null,
+      "submission_hashes": {
+        "received-prompt.txt": "8db8f6f3eaa712f762307038804e27f20d799e96dd7a9994e6df177954fe2335",
+        "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4",
+        "solution.py": "c3502beeb3417c5267612d7eb3735c9007d672cb28d35cbc210f6ed966000679"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.20300000009592623,
+      "duration_seconds": 0.3130000000819564,
+      "artifact_path": "runs/job-935bbc146ff627ed/attempts/f1ea487496f7404bb4a4a67b53edb156"
+    }
+  ],
+  "summary": [
+    {
+      "model": "mock-model-a",
+      "effort": "high",
+      "runs": 2,
+      "statuses": {
+        "succeeded": 2
+      },
+      "error_types": {},
+      "metrics": {
+        "score": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "stddev": 0.0
+        },
+        "max_score": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "stddev": 0.0
+        },
+        "pass_rate": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0,
+          "stddev": 0.0
+        },
+        "input_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 200,
+          "min": 200,
+          "max": 200,
+          "stddev": 0.0
+        },
+        "cached_input_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 50,
+          "min": 50,
+          "max": 50,
+          "stddev": 0.0
+        },
+        "output_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 40,
+          "min": 40,
+          "max": 40,
+          "stddev": 0.0
+        },
+        "reasoning_output_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 10,
+          "min": 10,
+          "max": 10,
+          "stddev": 0.0
+        },
+        "total_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 240,
+          "min": 240,
+          "max": 240,
+          "stddev": 0.0
+        },
+        "cache_ratio": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.25,
+          "min": 0.25,
+          "max": 0.25,
+          "stddev": 0.0
+        },
+        "reasoning_ratio": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.25,
+          "min": 0.25,
+          "max": 0.25,
+          "stddev": 0.0
+        },
+        "generation_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.14050000003771856,
+          "min": 0.10900000005494803,
+          "max": 0.1720000000204891,
+          "stddev": 0.03149999998277053
+        },
+        "grading_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.21150000003399327,
+          "min": 0.20400000002700835,
+          "max": 0.2190000000409782,
+          "stddev": 0.007500000006984919
+        },
+        "duration_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.35200000007171184,
+          "min": 0.3130000000819564,
+          "max": 0.3910000000614673,
+          "stddev": 0.03899999998975545
+        },
+        "score_per_1000_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 4.166666666666667,
+          "min": 4.166666666666667,
+          "max": 4.166666666666667,
+          "stddev": 0.0
+        },
+        "score_per_second": {
+          "n": 2,
+          "missing": 0,
+          "mean": 7.494132704830079,
+          "min": 5.81395348767952,
+          "max": 9.174311921980639,
+          "stddev": 1.6801792171505596
+        }
+      },
+      "categories": {
+        "harness_fixture": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "stddev": 0.0
+        }
+      }
+    },
+    {
+      "model": "mock-model-a",
+      "effort": "low",
+      "runs": 2,
+      "statuses": {
+        "succeeded": 2
+      },
+      "error_types": {},
+      "metrics": {
+        "score": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "stddev": 0.0
+        },
+        "max_score": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "stddev": 0.0
+        },
+        "pass_rate": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0,
+          "stddev": 0.0
+        },
+        "input_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 200,
+          "min": 200,
+          "max": 200,
+          "stddev": 0.0
+        },
+        "cached_input_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 50,
+          "min": 50,
+          "max": 50,
+          "stddev": 0.0
+        },
+        "output_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 40,
+          "min": 40,
+          "max": 40,
+          "stddev": 0.0
+        },
+        "reasoning_output_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 10,
+          "min": 10,
+          "max": 10,
+          "stddev": 0.0
+        },
+        "total_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 240,
+          "min": 240,
+          "max": 240,
+          "stddev": 0.0
+        },
+        "cache_ratio": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.25,
+          "min": 0.25,
+          "max": 0.25,
+          "stddev": 0.0
+        },
+        "reasoning_ratio": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.25,
+          "min": 0.25,
+          "max": 0.25,
+          "stddev": 0.0
+        },
+        "generation_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.10900000005494803,
+          "min": 0.10900000005494803,
+          "max": 0.10900000005494803,
+          "stddev": 0.0
+        },
+        "grading_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.21799999999348074,
+          "min": 0.21799999999348074,
+          "max": 0.21799999999348074,
+          "stddev": 0.0
+        },
+        "duration_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.3270000000484288,
+          "min": 0.3270000000484288,
+          "max": 0.3270000000484288,
+          "stddev": 0.0
+        },
+        "score_per_1000_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 4.166666666666667,
+          "min": 4.166666666666667,
+          "max": 4.166666666666667,
+          "stddev": 0.0
+        },
+        "score_per_second": {
+          "n": 2,
+          "missing": 0,
+          "mean": 9.174311921980639,
+          "min": 9.174311921980639,
+          "max": 9.174311921980639,
+          "stddev": 0.0
+        }
+      },
+      "categories": {
+        "harness_fixture": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "stddev": 0.0
+        }
+      }
+    },
+    {
+      "model": "mock-model-a",
+      "effort": "unsupported",
+      "runs": 2,
+      "statuses": {
+        "unsupported": 2
+      },
+      "error_types": {
+        "unsupported_combination": 2
+      },
+      "metrics": {
+        "score": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "stddev": 0.0
+        },
+        "max_score": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "stddev": 0.0
+        },
+        "pass_rate": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0,
+          "stddev": 0.0
+        },
+        "input_tokens": {
+          "n": 0,
+          "missing": 2,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "cached_input_tokens": {
+          "n": 0,
+          "missing": 2,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "output_tokens": {
+          "n": 0,
+          "missing": 2,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "reasoning_output_tokens": {
+          "n": 0,
+          "missing": 2,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "total_tokens": {
+          "n": 0,
+          "missing": 2,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "cache_ratio": {
+          "n": 0,
+          "missing": 2,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "reasoning_ratio": {
+          "n": 0,
+          "missing": 2,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "generation_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.13300000003073364,
+          "min": 0.10900000005494803,
+          "max": 0.15700000000651926,
+          "stddev": 0.023999999975785613
+        },
+        "grading_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.21850000001722947,
+          "min": 0.21799999999348074,
+          "max": 0.2190000000409782,
+          "stddev": 0.0005000000237487257
+        },
+        "duration_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.3515000000479631,
+          "min": 0.3270000000484288,
+          "max": 0.37600000004749745,
+          "stddev": 0.02449999999953434
+        },
+        "score_per_1000_tokens": {
+          "n": 0,
+          "missing": 2,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "score_per_second": {
+          "n": 2,
+          "missing": 0,
+          "mean": 7.771869336654255,
+          "min": 6.369426751327873,
+          "max": 9.174311921980639,
+          "stddev": 1.402442585326383
+        }
+      },
+      "categories": {
+        "harness_fixture": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "stddev": 0.0
+        }
+      }
+    },
+    {
+      "model": "mock-model-b",
+      "effort": "high",
+      "runs": 2,
+      "statuses": {
+        "succeeded": 2
+      },
+      "error_types": {},
+      "metrics": {
+        "score": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "stddev": 0.0
+        },
+        "max_score": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "stddev": 0.0
+        },
+        "pass_rate": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0,
+          "stddev": 0.0
+        },
+        "input_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 200,
+          "min": 200,
+          "max": 200,
+          "stddev": 0.0
+        },
+        "cached_input_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 50,
+          "min": 50,
+          "max": 50,
+          "stddev": 0.0
+        },
+        "output_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 40,
+          "min": 40,
+          "max": 40,
+          "stddev": 0.0
+        },
+        "reasoning_output_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 10,
+          "min": 10,
+          "max": 10,
+          "stddev": 0.0
+        },
+        "total_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 240,
+          "min": 240,
+          "max": 240,
+          "stddev": 0.0
+        },
+        "cache_ratio": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.25,
+          "min": 0.25,
+          "max": 0.25,
+          "stddev": 0.0
+        },
+        "reasoning_ratio": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.25,
+          "min": 0.25,
+          "max": 0.25,
+          "stddev": 0.0
+        },
+        "generation_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.13250000000698492,
+          "min": 0.10900000005494803,
+          "max": 0.1559999999590218,
+          "stddev": 0.023499999952036887
+        },
+        "grading_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.21049999998649582,
+          "min": 0.2029999999795109,
+          "max": 0.21799999999348074,
+          "stddev": 0.007500000006984919
+        },
+        "duration_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.34299999999348074,
+          "min": 0.3270000000484288,
+          "max": 0.3589999999385327,
+          "stddev": 0.015999999945051968
+        },
+        "score_per_1000_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 4.166666666666667,
+          "min": 4.166666666666667,
+          "max": 4.166666666666667,
+          "stddev": 0.0
+        },
+        "score_per_second": {
+          "n": 2,
+          "missing": 0,
+          "mean": 7.7922841669604495,
+          "min": 6.410256411940261,
+          "max": 9.174311921980639,
+          "stddev": 1.382027755020189
+        }
+      },
+      "categories": {
+        "harness_fixture": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "stddev": 0.0
+        }
+      }
+    },
+    {
+      "model": "mock-model-b",
+      "effort": "low",
+      "runs": 2,
+      "statuses": {
+        "succeeded": 2
+      },
+      "error_types": {},
+      "metrics": {
+        "score": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "stddev": 0.0
+        },
+        "max_score": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "stddev": 0.0
+        },
+        "pass_rate": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0,
+          "stddev": 0.0
+        },
+        "input_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 200,
+          "min": 200,
+          "max": 200,
+          "stddev": 0.0
+        },
+        "cached_input_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 50,
+          "min": 50,
+          "max": 50,
+          "stddev": 0.0
+        },
+        "output_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 40,
+          "min": 40,
+          "max": 40,
+          "stddev": 0.0
+        },
+        "reasoning_output_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 10,
+          "min": 10,
+          "max": 10,
+          "stddev": 0.0
+        },
+        "total_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 240,
+          "min": 240,
+          "max": 240,
+          "stddev": 0.0
+        },
+        "cache_ratio": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.25,
+          "min": 0.25,
+          "max": 0.25,
+          "stddev": 0.0
+        },
+        "reasoning_ratio": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.25,
+          "min": 0.25,
+          "max": 0.25,
+          "stddev": 0.0
+        },
+        "generation_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.10899999999674037,
+          "min": 0.10899999993853271,
+          "max": 0.10900000005494803,
+          "stddev": 5.820766091346741e-11
+        },
+        "grading_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.20350000000325963,
+          "min": 0.2029999999795109,
+          "max": 0.20400000002700835,
+          "stddev": 0.0005000000237487257
+        },
+        "duration_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.3125,
+          "min": 0.3119999999180436,
+          "max": 0.3130000000819564,
+          "stddev": 0.0005000000819563866
+        },
+        "score_per_1000_tokens": {
+          "n": 2,
+          "missing": 0,
+          "mean": 4.166666666666667,
+          "min": 4.166666666666667,
+          "max": 4.166666666666667,
+          "stddev": 0.0
+        },
+        "score_per_second": {
+          "n": 2,
+          "missing": 0,
+          "mean": 9.174311926879861,
+          "min": 9.174311921980639,
+          "max": 9.174311931779084,
+          "stddev": 4.8992223611321606e-09
+        }
+      },
+      "categories": {
+        "harness_fixture": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "stddev": 0.0
+        }
+      }
+    },
+    {
+      "model": "mock-model-b",
+      "effort": "unsupported",
+      "runs": 2,
+      "statuses": {
+        "unsupported": 2
+      },
+      "error_types": {
+        "unsupported_combination": 2
+      },
+      "metrics": {
+        "score": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "stddev": 0.0
+        },
+        "max_score": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "stddev": 0.0
+        },
+        "pass_rate": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0,
+          "stddev": 0.0
+        },
+        "input_tokens": {
+          "n": 0,
+          "missing": 2,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "cached_input_tokens": {
+          "n": 0,
+          "missing": 2,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "output_tokens": {
+          "n": 0,
+          "missing": 2,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "reasoning_output_tokens": {
+          "n": 0,
+          "missing": 2,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "total_tokens": {
+          "n": 0,
+          "missing": 2,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "cache_ratio": {
+          "n": 0,
+          "missing": 2,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "reasoning_ratio": {
+          "n": 0,
+          "missing": 2,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "generation_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.10999999998603016,
+          "min": 0.10999999998603016,
+          "max": 0.10999999998603016,
+          "stddev": 0.0
+        },
+        "grading_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.20300000003771856,
+          "min": 0.2029999999795109,
+          "max": 0.20300000009592623,
+          "stddev": 5.820766091346741e-11
+        },
+        "duration_seconds": {
+          "n": 2,
+          "missing": 0,
+          "mean": 0.3130000000237487,
+          "min": 0.31299999996554106,
+          "max": 0.3130000000819564,
+          "stddev": 5.820766091346741e-11
+        },
+        "score_per_1000_tokens": {
+          "n": 0,
+          "missing": 2,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "score_per_second": {
+          "n": 2,
+          "missing": 0,
+          "mean": 9.090909092063622,
+          "min": 9.090909092063622,
+          "max": 9.090909092063622,
+          "stddev": 0.0
+        }
+      },
+      "categories": {
+        "harness_fixture": {
+          "n": 2,
+          "missing": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "stddev": 0.0
+        }
+      }
+    }
+  ],
+  "attempt_history": [
+    {
+      "id": "job-36281ff6bd6818da",
+      "model": "mock-model-a",
+      "effort": "high",
+      "repeat": 2,
+      "attempt_id": "47e1a17a58d34af4aeed89feaa4a57d9",
+      "started_at": "2026-10-23T06:44:37.507237+00:00",
+      "ended_at": "2026-10-23T06:44:38.001079+00:00",
+      "status": "succeeded",
+      "codex_version": "fake 1.0",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-36281ff6bd6818da\\47e1a17a58d34af4aeed89feaa4a57d9\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 200,
+        "cached_input_tokens": 50,
+        "output_tokens": 40,
+        "reasoning_output_tokens": 10,
+        "total_tokens": 240
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "fixture_only",
+            "category": "harness_fixture",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Synthetic harness test, not code correctness"
+          }
+        ],
+        "score": 1,
+        "max_score": 1,
+        "planned_max_score": 1,
+        "pass_rate": 1.0,
+        "measured_tests": 1,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "fake-47e1a17a58d34af4aeed89feaa4a57d9",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "mock-model-a",
+          "reasoning_effort": "high"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.1720000000204891,
+      "generation_ended_at": "2026-10-23T06:44:37.695702+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "received-prompt.txt": "8db8f6f3eaa712f762307038804e27f20d799e96dd7a9994e6df177954fe2335",
+        "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4",
+        "solution.py": "c3502beeb3417c5267612d7eb3735c9007d672cb28d35cbc210f6ed966000679"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.2190000000409782,
+      "duration_seconds": 0.3910000000614673,
+      "artifact_path": "runs/job-36281ff6bd6818da/attempts/47e1a17a58d34af4aeed89feaa4a57d9"
+    },
+    {
+      "id": "job-4698f0e01a903dde",
+      "model": "mock-model-a",
+      "effort": "unsupported",
+      "repeat": 1,
+      "attempt_id": "c3638b1915ee49e3bfb5e7f712068e16",
+      "started_at": "2026-10-23T06:44:38.026077+00:00",
+      "ended_at": "2026-10-23T06:44:38.488388+00:00",
+      "status": "unsupported",
+      "codex_version": "fake 1.0",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-4698f0e01a903dde\\c3638b1915ee49e3bfb5e7f712068e16\\project",
+      "success": false,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": null,
+        "cached_input_tokens": null,
+        "output_tokens": null,
+        "reasoning_output_tokens": null,
+        "total_tokens": null
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "fixture_only",
+            "category": "harness_fixture",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Synthetic harness test, not code correctness"
+          }
+        ],
+        "score": 1,
+        "max_score": 1,
+        "planned_max_score": 1,
+        "pass_rate": 1.0,
+        "measured_tests": 1,
+        "skipped_tests": 0
+      },
+      "usage_source": null,
+      "completed_event": false,
+      "thread_id": "fake-c3638b1915ee49e3bfb5e7f712068e16",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "mock-model-a",
+          "reasoning_effort": "unsupported"
+        }
+      ],
+      "errors": [
+        "Unsupported reasoning effort"
+      ],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 1,
+      "generation_seconds": 0.15700000000651926,
+      "generation_ended_at": "2026-10-23T06:44:38.212000+00:00",
+      "error_type": "unsupported_combination",
+      "process_error": null,
+      "submission_hashes": {
+        "received-prompt.txt": "8db8f6f3eaa712f762307038804e27f20d799e96dd7a9994e6df177954fe2335",
+        "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4",
+        "solution.py": "c3502beeb3417c5267612d7eb3735c9007d672cb28d35cbc210f6ed966000679"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.2190000000409782,
+      "duration_seconds": 0.37600000004749745,
+      "artifact_path": "runs/job-4698f0e01a903dde/attempts/c3638b1915ee49e3bfb5e7f712068e16"
+    },
+    {
+      "id": "job-47104f3fa329bc87",
+      "model": "mock-model-a",
+      "effort": "low",
+      "repeat": 2,
+      "attempt_id": "df5c780311294b78acc50e2722da32e7",
+      "started_at": "2026-10-23T06:44:36.683105+00:00",
+      "ended_at": "2026-10-23T06:44:37.065740+00:00",
+      "status": "succeeded",
+      "codex_version": "fake 1.0",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-47104f3fa329bc87\\df5c780311294b78acc50e2722da32e7\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 200,
+        "cached_input_tokens": 50,
+        "output_tokens": 40,
+        "reasoning_output_tokens": 10,
+        "total_tokens": 240
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "fixture_only",
+            "category": "harness_fixture",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Synthetic harness test, not code correctness"
+          }
+        ],
+        "score": 1,
+        "max_score": 1,
+        "planned_max_score": 1,
+        "pass_rate": 1.0,
+        "measured_tests": 1,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "fake-df5c780311294b78acc50e2722da32e7",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "mock-model-a",
+          "reasoning_effort": "low"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.10900000005494803,
+      "generation_ended_at": "2026-10-23T06:44:36.805880+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "received-prompt.txt": "8db8f6f3eaa712f762307038804e27f20d799e96dd7a9994e6df177954fe2335",
+        "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4",
+        "solution.py": "c3502beeb3417c5267612d7eb3735c9007d672cb28d35cbc210f6ed966000679"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.21799999999348074,
+      "duration_seconds": 0.3270000000484288,
+      "artifact_path": "runs/job-47104f3fa329bc87/attempts/df5c780311294b78acc50e2722da32e7"
+    },
+    {
+      "id": "job-4848dd264f734bc5",
+      "model": "mock-model-b",
+      "effort": "low",
+      "repeat": 2,
+      "attempt_id": "804de256afc84fd098a72212b44a190d",
+      "started_at": "2026-10-23T06:44:39.345573+00:00",
+      "ended_at": "2026-10-23T06:44:39.728019+00:00",
+      "status": "succeeded",
+      "codex_version": "fake 1.0",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-4848dd264f734bc5\\804de256afc84fd098a72212b44a190d\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 200,
+        "cached_input_tokens": 50,
+        "output_tokens": 40,
+        "reasoning_output_tokens": 10,
+        "total_tokens": 240
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "fixture_only",
+            "category": "harness_fixture",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Synthetic harness test, not code correctness"
+          }
+        ],
+        "score": 1,
+        "max_score": 1,
+        "planned_max_score": 1,
+        "pass_rate": 1.0,
+        "measured_tests": 1,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "fake-804de256afc84fd098a72212b44a190d",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "mock-model-b",
+          "reasoning_effort": "low"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.10900000005494803,
+      "generation_ended_at": "2026-10-23T06:44:39.467010+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "received-prompt.txt": "8db8f6f3eaa712f762307038804e27f20d799e96dd7a9994e6df177954fe2335",
+        "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4",
+        "solution.py": "c3502beeb3417c5267612d7eb3735c9007d672cb28d35cbc210f6ed966000679"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.20400000002700835,
+      "duration_seconds": 0.3130000000819564,
+      "artifact_path": "runs/job-4848dd264f734bc5/attempts/804de256afc84fd098a72212b44a190d"
+    },
+    {
+      "id": "job-596033cccaf4d62a",
+      "model": "mock-model-b",
+      "effort": "low",
+      "repeat": 1,
+      "attempt_id": "6e467d776c8a400d95c77946fd783982",
+      "started_at": "2026-10-23T06:44:38.926862+00:00",
+      "ended_at": "2026-10-23T06:44:39.313114+00:00",
+      "status": "succeeded",
+      "codex_version": "fake 1.0",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-596033cccaf4d62a\\6e467d776c8a400d95c77946fd783982\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 200,
+        "cached_input_tokens": 50,
+        "output_tokens": 40,
+        "reasoning_output_tokens": 10,
+        "total_tokens": 240
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "fixture_only",
+            "category": "harness_fixture",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Synthetic harness test, not code correctness"
+          }
+        ],
+        "score": 1,
+        "max_score": 1,
+        "planned_max_score": 1,
+        "pass_rate": 1.0,
+        "measured_tests": 1,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "fake-6e467d776c8a400d95c77946fd783982",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "mock-model-b",
+          "reasoning_effort": "low"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.10899999993853271,
+      "generation_ended_at": "2026-10-23T06:44:39.047636+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "received-prompt.txt": "8db8f6f3eaa712f762307038804e27f20d799e96dd7a9994e6df177954fe2335",
+        "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4",
+        "solution.py": "c3502beeb3417c5267612d7eb3735c9007d672cb28d35cbc210f6ed966000679"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.2029999999795109,
+      "duration_seconds": 0.3119999999180436,
+      "artifact_path": "runs/job-596033cccaf4d62a/attempts/6e467d776c8a400d95c77946fd783982"
+    },
+    {
+      "id": "job-67e239bab77b3397",
+      "model": "mock-model-b",
+      "effort": "unsupported",
+      "repeat": 1,
+      "attempt_id": "256cdbdacfd4448d8308a2a793028048",
+      "started_at": "2026-10-23T06:44:40.660145+00:00",
+      "ended_at": "2026-10-23T06:44:41.045680+00:00",
+      "status": "unsupported",
+      "codex_version": "fake 1.0",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-67e239bab77b3397\\256cdbdacfd4448d8308a2a793028048\\project",
+      "success": false,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": null,
+        "cached_input_tokens": null,
+        "output_tokens": null,
+        "reasoning_output_tokens": null,
+        "total_tokens": null
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "fixture_only",
+            "category": "harness_fixture",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Synthetic harness test, not code correctness"
+          }
+        ],
+        "score": 1,
+        "max_score": 1,
+        "planned_max_score": 1,
+        "pass_rate": 1.0,
+        "measured_tests": 1,
+        "skipped_tests": 0
+      },
+      "usage_source": null,
+      "completed_event": false,
+      "thread_id": "fake-256cdbdacfd4448d8308a2a793028048",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "mock-model-b",
+          "reasoning_effort": "unsupported"
+        }
+      ],
+      "errors": [
+        "Unsupported reasoning effort"
+      ],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 1,
+      "generation_seconds": 0.10999999998603016,
+      "generation_ended_at": "2026-10-23T06:44:40.781683+00:00",
+      "error_type": "unsupported_combination",
+      "process_error": null,
+      "submission_hashes": {
+        "received-prompt.txt": "8db8f6f3eaa712f762307038804e27f20d799e96dd7a9994e6df177954fe2335",
+        "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4",
+        "solution.py": "c3502beeb3417c5267612d7eb3735c9007d672cb28d35cbc210f6ed966000679"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.2029999999795109,
+      "duration_seconds": 0.31299999996554106,
+      "artifact_path": "runs/job-67e239bab77b3397/attempts/256cdbdacfd4448d8308a2a793028048"
+    },
+    {
+      "id": "job-7b2ef52f10b6f293",
+      "model": "mock-model-b",
+      "effort": "high",
+      "repeat": 2,
+      "attempt_id": "db7fcada3c6f4e0a801fa0a22773c1f2",
+      "started_at": "2026-10-23T06:44:40.177752+00:00",
+      "ended_at": "2026-10-23T06:44:40.625102+00:00",
+      "status": "succeeded",
+      "codex_version": "fake 1.0",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-7b2ef52f10b6f293\\db7fcada3c6f4e0a801fa0a22773c1f2\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 200,
+        "cached_input_tokens": 50,
+        "output_tokens": 40,
+        "reasoning_output_tokens": 10,
+        "total_tokens": 240
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "fixture_only",
+            "category": "harness_fixture",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Synthetic harness test, not code correctness"
+          }
+        ],
+        "score": 1,
+        "max_score": 1,
+        "planned_max_score": 1,
+        "pass_rate": 1.0,
+        "measured_tests": 1,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "fake-db7fcada3c6f4e0a801fa0a22773c1f2",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "mock-model-b",
+          "reasoning_effort": "high"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.1559999999590218,
+      "generation_ended_at": "2026-10-23T06:44:40.357607+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "received-prompt.txt": "8db8f6f3eaa712f762307038804e27f20d799e96dd7a9994e6df177954fe2335",
+        "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4",
+        "solution.py": "c3502beeb3417c5267612d7eb3735c9007d672cb28d35cbc210f6ed966000679"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.2029999999795109,
+      "duration_seconds": 0.3589999999385327,
+      "artifact_path": "runs/job-7b2ef52f10b6f293/attempts/db7fcada3c6f4e0a801fa0a22773c1f2"
+    },
+    {
+      "id": "job-841e0c4e9915bf37",
+      "model": "mock-model-a",
+      "effort": "low",
+      "repeat": 1,
+      "attempt_id": "0041fb5f03f042ccb94d3eada9c5add9",
+      "started_at": "2026-10-23T06:44:36.262993+00:00",
+      "ended_at": "2026-10-23T06:44:36.661393+00:00",
+      "status": "succeeded",
+      "codex_version": "fake 1.0",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-841e0c4e9915bf37\\0041fb5f03f042ccb94d3eada9c5add9\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 200,
+        "cached_input_tokens": 50,
+        "output_tokens": 40,
+        "reasoning_output_tokens": 10,
+        "total_tokens": 240
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "fixture_only",
+            "category": "harness_fixture",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Synthetic harness test, not code correctness"
+          }
+        ],
+        "score": 1,
+        "max_score": 1,
+        "planned_max_score": 1,
+        "pass_rate": 1.0,
+        "measured_tests": 1,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "fake-0041fb5f03f042ccb94d3eada9c5add9",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "mock-model-a",
+          "reasoning_effort": "low"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.10900000005494803,
+      "generation_ended_at": "2026-10-23T06:44:36.386905+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "received-prompt.txt": "8db8f6f3eaa712f762307038804e27f20d799e96dd7a9994e6df177954fe2335",
+        "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4",
+        "solution.py": "c3502beeb3417c5267612d7eb3735c9007d672cb28d35cbc210f6ed966000679"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.21799999999348074,
+      "duration_seconds": 0.3270000000484288,
+      "artifact_path": "runs/job-841e0c4e9915bf37/attempts/0041fb5f03f042ccb94d3eada9c5add9"
+    },
+    {
+      "id": "job-935bbc146ff627ed",
+      "model": "mock-model-b",
+      "effort": "unsupported",
+      "repeat": 2,
+      "attempt_id": "f1ea487496f7404bb4a4a67b53edb156",
+      "started_at": "2026-10-23T06:44:41.082023+00:00",
+      "ended_at": "2026-10-23T06:44:41.471572+00:00",
+      "status": "unsupported",
+      "codex_version": "fake 1.0",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-935bbc146ff627ed\\f1ea487496f7404bb4a4a67b53edb156\\project",
+      "success": false,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": null,
+        "cached_input_tokens": null,
+        "output_tokens": null,
+        "reasoning_output_tokens": null,
+        "total_tokens": null
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "fixture_only",
+            "category": "harness_fixture",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Synthetic harness test, not code correctness"
+          }
+        ],
+        "score": 1,
+        "max_score": 1,
+        "planned_max_score": 1,
+        "pass_rate": 1.0,
+        "measured_tests": 1,
+        "skipped_tests": 0
+      },
+      "usage_source": null,
+      "completed_event": false,
+      "thread_id": "fake-f1ea487496f7404bb4a4a67b53edb156",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "mock-model-b",
+          "reasoning_effort": "unsupported"
+        }
+      ],
+      "errors": [
+        "Unsupported reasoning effort"
+      ],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 1,
+      "generation_seconds": 0.10999999998603016,
+      "generation_ended_at": "2026-10-23T06:44:41.202132+00:00",
+      "error_type": "unsupported_combination",
+      "process_error": null,
+      "submission_hashes": {
+        "received-prompt.txt": "8db8f6f3eaa712f762307038804e27f20d799e96dd7a9994e6df177954fe2335",
+        "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4",
+        "solution.py": "c3502beeb3417c5267612d7eb3735c9007d672cb28d35cbc210f6ed966000679"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.20300000009592623,
+      "duration_seconds": 0.3130000000819564,
+      "artifact_path": "runs/job-935bbc146ff627ed/attempts/f1ea487496f7404bb4a4a67b53edb156"
+    },
+    {
+      "id": "job-ac73761cddcfe61a",
+      "model": "mock-model-a",
+      "effort": "unsupported",
+      "repeat": 2,
+      "attempt_id": "87f30f59f4c94e69b0f56c3c01ca3f41",
+      "started_at": "2026-10-23T06:44:38.515550+00:00",
+      "ended_at": "2026-10-23T06:44:38.898380+00:00",
+      "status": "unsupported",
+      "codex_version": "fake 1.0",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-ac73761cddcfe61a\\87f30f59f4c94e69b0f56c3c01ca3f41\\project",
+      "success": false,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": null,
+        "cached_input_tokens": null,
+        "output_tokens": null,
+        "reasoning_output_tokens": null,
+        "total_tokens": null
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "fixture_only",
+            "category": "harness_fixture",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Synthetic harness test, not code correctness"
+          }
+        ],
+        "score": 1,
+        "max_score": 1,
+        "planned_max_score": 1,
+        "pass_rate": 1.0,
+        "measured_tests": 1,
+        "skipped_tests": 0
+      },
+      "usage_source": null,
+      "completed_event": false,
+      "thread_id": "fake-87f30f59f4c94e69b0f56c3c01ca3f41",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "mock-model-a",
+          "reasoning_effort": "unsupported"
+        }
+      ],
+      "errors": [
+        "Unsupported reasoning effort"
+      ],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 1,
+      "generation_seconds": 0.10900000005494803,
+      "generation_ended_at": "2026-10-23T06:44:38.635264+00:00",
+      "error_type": "unsupported_combination",
+      "process_error": null,
+      "submission_hashes": {
+        "received-prompt.txt": "8db8f6f3eaa712f762307038804e27f20d799e96dd7a9994e6df177954fe2335",
+        "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4",
+        "solution.py": "c3502beeb3417c5267612d7eb3735c9007d672cb28d35cbc210f6ed966000679"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.21799999999348074,
+      "duration_seconds": 0.3270000000484288,
+      "artifact_path": "runs/job-ac73761cddcfe61a/attempts/87f30f59f4c94e69b0f56c3c01ca3f41"
+    },
+    {
+      "id": "job-b9eee3f1e70b98b2",
+      "model": "mock-model-a",
+      "effort": "high",
+      "repeat": 1,
+      "attempt_id": "db12b6b44c894488800159b90ce0bb25",
+      "started_at": "2026-10-23T06:44:37.090098+00:00",
+      "ended_at": "2026-10-23T06:44:37.481790+00:00",
+      "status": "succeeded",
+      "codex_version": "fake 1.0",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-b9eee3f1e70b98b2\\db12b6b44c894488800159b90ce0bb25\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 200,
+        "cached_input_tokens": 50,
+        "output_tokens": 40,
+        "reasoning_output_tokens": 10,
+        "total_tokens": 240
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "fixture_only",
+            "category": "harness_fixture",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Synthetic harness test, not code correctness"
+          }
+        ],
+        "score": 1,
+        "max_score": 1,
+        "planned_max_score": 1,
+        "pass_rate": 1.0,
+        "measured_tests": 1,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "fake-db12b6b44c894488800159b90ce0bb25",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "mock-model-a",
+          "reasoning_effort": "high"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.10900000005494803,
+      "generation_ended_at": "2026-10-23T06:44:37.213041+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "received-prompt.txt": "8db8f6f3eaa712f762307038804e27f20d799e96dd7a9994e6df177954fe2335",
+        "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4",
+        "solution.py": "c3502beeb3417c5267612d7eb3735c9007d672cb28d35cbc210f6ed966000679"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.20400000002700835,
+      "duration_seconds": 0.3130000000819564,
+      "artifact_path": "runs/job-b9eee3f1e70b98b2/attempts/db12b6b44c894488800159b90ce0bb25"
+    },
+    {
+      "id": "job-bf175d10a4d4ed23",
+      "model": "mock-model-b",
+      "effort": "high",
+      "repeat": 1,
+      "attempt_id": "af832432dc7e48028c2b4e178c9ad5ad",
+      "started_at": "2026-10-23T06:44:39.759777+00:00",
+      "ended_at": "2026-10-23T06:44:40.147409+00:00",
+      "status": "succeeded",
+      "codex_version": "fake 1.0",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-bf175d10a4d4ed23\\af832432dc7e48028c2b4e178c9ad5ad\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 200,
+        "cached_input_tokens": 50,
+        "output_tokens": 40,
+        "reasoning_output_tokens": 10,
+        "total_tokens": 240
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "fixture_only",
+            "category": "harness_fixture",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Synthetic harness test, not code correctness"
+          }
+        ],
+        "score": 1,
+        "max_score": 1,
+        "planned_max_score": 1,
+        "pass_rate": 1.0,
+        "measured_tests": 1,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "fake-af832432dc7e48028c2b4e178c9ad5ad",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "mock-model-b",
+          "reasoning_effort": "high"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.10900000005494803,
+      "generation_ended_at": "2026-10-23T06:44:39.880947+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "received-prompt.txt": "8db8f6f3eaa712f762307038804e27f20d799e96dd7a9994e6df177954fe2335",
+        "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4",
+        "solution.py": "c3502beeb3417c5267612d7eb3735c9007d672cb28d35cbc210f6ed966000679"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.21799999999348074,
+      "duration_seconds": 0.3270000000484288,
+      "artifact_path": "runs/job-bf175d10a4d4ed23/attempts/af832432dc7e48028c2b4e178c9ad5ad"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "experiment_id": "d62b201943de4e69ae48fca7d5959c32",
+  "created_at": "2026-10-23T06:44:36.222686+00:00",
+  "runner_version": "1.0.0",
+  "fingerprint": "aa3cd49f9449eaf90f8df4bb401ab4b4974a609e4a8a24ea59713d892fed0f95",
+  "starter_hashes": {
+    "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4"
+  },
+  "grader_hashes": {
+    "plugin.py": "1f57e7f61b769e6f9cb259bc195b312f3a86cef669b1d7ae40f5ec7e0c5dd104"
+  },
+  "jobs": [
+    {
+      "id": "job-841e0c4e9915bf37",
+      "model": "mock-model-a",
+      "effort": "low",
+      "repeat": 1
+    },
+    {
+      "id": "job-47104f3fa329bc87",
+      "model": "mock-model-a",
+      "effort": "low",
+      "repeat": 2
+    },
+    {
+      "id": "job-b9eee3f1e70b98b2",
+      "model": "mock-model-a",
+      "effort": "high",
+      "repeat": 1
+    },
+    {
+      "id": "job-36281ff6bd6818da",
+      "model": "mock-model-a",
+      "effort": "high",
+      "repeat": 2
+    },
+    {
+      "id": "job-4698f0e01a903dde",
+      "model": "mock-model-a",
+      "effort": "unsupported",
+      "repeat": 1
+    },
+    {
+      "id": "job-ac73761cddcfe61a",
+      "model": "mock-model-a",
+      "effort": "unsupported",
+      "repeat": 2
+    },
+    {
+      "id": "job-596033cccaf4d62a",
+      "model": "mock-model-b",
+      "effort": "low",
+      "repeat": 1
+    },
+    {
+      "id": "job-4848dd264f734bc5",
+      "model": "mock-model-b",
+      "effort": "low",
+      "repeat": 2
+    },
+    {
+      "id": "job-bf175d10a4d4ed23",
+      "model": "mock-model-b",
+      "effort": "high",
+      "repeat": 1
+    },
+    {
+      "id": "job-7b2ef52f10b6f293",
+      "model": "mock-model-b",
+      "effort": "high",
+      "repeat": 2
+    },
+    {
+      "id": "job-67e239bab77b3397",
+      "model": "mock-model-b",
+      "effort": "unsupported",
+      "repeat": 1
+    },
+    {
+      "id": "job-935bbc146ff627ed",
+      "model": "mock-model-b",
+      "effort": "unsupported",
+      "repeat": 2
+    }
+  ],
+  "active_seconds": 5.297000000020489,
+  "synthetic": true,
+  "simulation_note": "Only trusted fake_codex.py processes and a synthetic harness grader were executed. No Codex CLI, model, network, or candidate code execution.",
+  "last_finished_at": "2026-10-23T06:44:41.586432+00:00"
+}

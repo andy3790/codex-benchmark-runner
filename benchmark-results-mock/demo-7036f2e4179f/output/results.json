@@ -1,0 +1,2222 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-23T07:06:54.463965+00:00",
+  "metadata": {
+    "schema_version": 1,
+    "experiment_id": "89d002293e9f4b47bf7e270e47100844",
+    "created_at": "2026-10-23T07:06:49.856708+00:00",
+    "runner_version": "1.0.0",
+    "fingerprint": "602bcc76a7133734d7c66e5a20a8b76f4de6b7d42d6545c150eb3f554f1b7f6d",
+    "starter_hashes": {
+      "README.md": "0d9b865ec88865e2da70d13e0582408f52a89dd7d2545f11def1d64ec9adb210"
+    },
+    "grader_hashes": {
+      "__init__.py": "ffe8bd5ab5fdad4512a8b0c528a12626a447c26e035d899e3d55d37fcdd04435",
+      "__pycache__/__init__.cpython-311.pyc": "6aad14c0c062c86bc8481dbd56f3664f80572950215dbe938673f84daa64d195",
+      "plugin.py": "2d9f89689d27b94e9ed202b9c98f9dd1da0b383d7b05d9e8c4ff2e3dd8008b21"
+    },
+    "jobs": [
+      {
+        "id": "job-b85ce448e20d48dd",
+        "model": "gpt-6.1-sol",
+        "effort": "low",
+        "repeat": 1
+      },
+      {
+        "id": "job-fbcb5f39ed3553d9",
+        "model": "gpt-6.1-sol",
+        "effort": "medium",
+        "repeat": 1
+      },
+      {
+        "id": "job-05b3bb741d4ee4ba",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "repeat": 1
+      },
+      {
+        "id": "job-b47b1041809d3e4c",
+        "model": "gpt-6-luna",
+        "effort": "low",
+        "repeat": 1
+      },
+      {
+        "id": "job-f4d2b725bd947bab",
+        "model": "gpt-6-luna",
+        "effort": "medium",
+        "repeat": 1
+      },
+      {
+        "id": "job-7cbe537a2caaac67",
+        "model": "gpt-6-luna",
+        "effort": "high",
+        "repeat": 1
+      }
+    ],
+    "active_seconds": 4.577999999979511,
+    "synthetic": true,
+    "source_config": "C:\\Users\\SSAFY\\Desktop\\AiTest\\config.json",
+    "real_model_calls": 0,
+    "last_finished_at": "2026-10-23T07:06:54.451835+00:00"
+  },
+  "results": [
+    {
+      "id": "job-b85ce448e20d48dd",
+      "model": "gpt-6.1-sol",
+      "effort": "low",
+      "repeat": 1,
+      "attempt_id": "ebcb0f3ea51e45d89d994ae0bf1bb8ee",
+      "started_at": "2026-10-23T07:06:49.897452+00:00",
+      "ended_at": "2026-10-23T07:06:50.649265+00:00",
+      "status": "succeeded",
+      "codex_version": "SIMULATED — no Codex/model calls",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d1f8877f-5399-416d-a163-69cf626217fa}\\AC\\Temp\\codex-benchmark-workspaces\\89d002293e9f4b47bf7e270e47100844\\job-b85ce448e20d48dd\\ebcb0f3ea51e45d89d994ae0bf1bb8ee\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 1356,
+        "cached_input_tokens": 256,
+        "output_tokens": 456,
+        "reasoning_output_tokens": 152,
+        "total_tokens": 1812
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "simulated_functionality",
+            "category": "functionality",
+            "status": "passed",
+            "score": 40,
+            "max_score": 40,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_algorithm",
+            "category": "algorithm",
+            "status": "failed",
+            "score": 0,
+            "max_score": 30,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_exceptions",
+            "category": "exceptions",
+            "status": "passed",
+            "score": 20,
+            "max_score": 20,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_performance",
+            "category": "performance",
+            "status": "passed",
+            "score": 10,
+            "max_score": 10,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          }
+        ],
+        "score": 70,
+        "max_score": 100,
+        "planned_max_score": 100,
+        "pass_rate": 0.75,
+        "measured_tests": 4,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "simulated-ebcb0f3ea51e45d89d994ae0bf1bb8ee",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "gpt-6.1-sol",
+          "reasoning_effort": "low"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.4220000000204891,
+      "generation_ended_at": "2026-10-23T07:06:50.325392+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "README.md": "0d9b865ec88865e2da70d13e0582408f52a89dd7d2545f11def1d64ec9adb210",
+        "received-prompt.txt": "fbd824721a261abe9b077c18d45574af547e53896aaa75aee50fd9705959b704",
+        "simulation.json": "9d8ef439f6f2571401314aab5f5c663739269f01c381e754ea658595e4493522",
+        "solution.py": "fefe6b892c8bbf4c2ef00b8d3227bc90b25876292259273e5dfc936adb7169e3"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.26500000001396984,
+      "duration_seconds": 0.6870000000344589,
+      "artifact_path": "runs/job-b85ce448e20d48dd/attempts/ebcb0f3ea51e45d89d994ae0bf1bb8ee"
+    },
+    {
+      "id": "job-fbcb5f39ed3553d9",
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "repeat": 1,
+      "attempt_id": "5715fbbf63854e8fa1a996bd7f0d4fe9",
+      "started_at": "2026-10-23T07:06:50.673116+00:00",
+      "ended_at": "2026-10-23T07:06:51.370482+00:00",
+      "status": "succeeded",
+      "codex_version": "SIMULATED — no Codex/model calls",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d1f8877f-5399-416d-a163-69cf626217fa}\\AC\\Temp\\codex-benchmark-workspaces\\89d002293e9f4b47bf7e270e47100844\\job-fbcb5f39ed3553d9\\5715fbbf63854e8fa1a996bd7f0d4fe9\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 1099,
+        "cached_input_tokens": 199,
+        "output_tokens": 399,
+        "reasoning_output_tokens": 133,
+        "total_tokens": 1498
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "simulated_functionality",
+            "category": "functionality",
+            "status": "passed",
+            "score": 40,
+            "max_score": 40,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_algorithm",
+            "category": "algorithm",
+            "status": "passed",
+            "score": 30,
+            "max_score": 30,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_exceptions",
+            "category": "exceptions",
+            "status": "passed",
+            "score": 20,
+            "max_score": 20,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_performance",
+            "category": "performance",
+            "status": "passed",
+            "score": 10,
+            "max_score": 10,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          }
+        ],
+        "score": 100,
+        "max_score": 100,
+        "planned_max_score": 100,
+        "pass_rate": 1.0,
+        "measured_tests": 4,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "simulated-5715fbbf63854e8fa1a996bd7f0d4fe9",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "gpt-6.1-sol",
+          "reasoning_effort": "medium"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.4219999999040738,
+      "generation_ended_at": "2026-10-23T07:06:51.099233+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "README.md": "0d9b865ec88865e2da70d13e0582408f52a89dd7d2545f11def1d64ec9adb210",
+        "received-prompt.txt": "fbd824721a261abe9b077c18d45574af547e53896aaa75aee50fd9705959b704",
+        "simulation.json": "083ba853c3f9e63e5460dbf46d028cae8c37b68b496508ff93156f32eb099b56",
+        "solution.py": "fefe6b892c8bbf4c2ef00b8d3227bc90b25876292259273e5dfc936adb7169e3"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.2029999999795109,
+      "duration_seconds": 0.6249999998835847,
+      "artifact_path": "runs/job-fbcb5f39ed3553d9/attempts/5715fbbf63854e8fa1a996bd7f0d4fe9"
+    },
+    {
+      "id": "job-05b3bb741d4ee4ba",
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "repeat": 1,
+      "attempt_id": "680f6143aecb45baa6f3c7b7e33f0706",
+      "started_at": "2026-10-23T07:06:51.397107+00:00",
+      "ended_at": "2026-10-23T07:06:52.099709+00:00",
+      "status": "succeeded",
+      "codex_version": "SIMULATED — no Codex/model calls",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d1f8877f-5399-416d-a163-69cf626217fa}\\AC\\Temp\\codex-benchmark-workspaces\\89d002293e9f4b47bf7e270e47100844\\job-05b3bb741d4ee4ba\\680f6143aecb45baa6f3c7b7e33f0706\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 1483,
+        "cached_input_tokens": 283,
+        "output_tokens": 383,
+        "reasoning_output_tokens": 127,
+        "total_tokens": 1866
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "simulated_functionality",
+            "category": "functionality",
+            "status": "passed",
+            "score": 40,
+            "max_score": 40,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_algorithm",
+            "category": "algorithm",
+            "status": "passed",
+            "score": 30,
+            "max_score": 30,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_exceptions",
+            "category": "exceptions",
+            "status": "passed",
+            "score": 20,
+            "max_score": 20,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_performance",
+            "category": "performance",
+            "status": "passed",
+            "score": 10,
+            "max_score": 10,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          }
+        ],
+        "score": 100,
+        "max_score": 100,
+        "planned_max_score": 100,
+        "pass_rate": 1.0,
+        "measured_tests": 4,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "simulated-680f6143aecb45baa6f3c7b7e33f0706",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "gpt-6.1-sol",
+          "reasoning_effort": "high"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.4220000000204891,
+      "generation_ended_at": "2026-10-23T07:06:51.824502+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "README.md": "0d9b865ec88865e2da70d13e0582408f52a89dd7d2545f11def1d64ec9adb210",
+        "received-prompt.txt": "fbd824721a261abe9b077c18d45574af547e53896aaa75aee50fd9705959b704",
+        "simulation.json": "083ba853c3f9e63e5460dbf46d028cae8c37b68b496508ff93156f32eb099b56",
+        "solution.py": "fefe6b892c8bbf4c2ef00b8d3227bc90b25876292259273e5dfc936adb7169e3"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.2190000000409782,
+      "duration_seconds": 0.6410000000614673,
+      "artifact_path": "runs/job-05b3bb741d4ee4ba/attempts/680f6143aecb45baa6f3c7b7e33f0706"
+    },
+    {
+      "id": "job-b47b1041809d3e4c",
+      "model": "gpt-6-luna",
+      "effort": "low",
+      "repeat": 1,
+      "attempt_id": "d4413cefaa424ccb81a8cc22997c9610",
+      "started_at": "2026-10-23T07:06:52.127093+00:00",
+      "ended_at": "2026-10-23T07:06:52.886822+00:00",
+      "status": "succeeded",
+      "codex_version": "SIMULATED — no Codex/model calls",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d1f8877f-5399-416d-a163-69cf626217fa}\\AC\\Temp\\codex-benchmark-workspaces\\89d002293e9f4b47bf7e270e47100844\\job-b47b1041809d3e4c\\d4413cefaa424ccb81a8cc22997c9610\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 1714,
+        "cached_input_tokens": 14,
+        "output_tokens": 214,
+        "reasoning_output_tokens": 71,
+        "total_tokens": 1928
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "simulated_functionality",
+            "category": "functionality",
+            "status": "passed",
+            "score": 40,
+            "max_score": 40,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_algorithm",
+            "category": "algorithm",
+            "status": "passed",
+            "score": 30,
+            "max_score": 30,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_exceptions",
+            "category": "exceptions",
+            "status": "passed",
+            "score": 20,
+            "max_score": 20,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_performance",
+            "category": "performance",
+            "status": "passed",
+            "score": 10,
+            "max_score": 10,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          }
+        ],
+        "score": 100,
+        "max_score": 100,
+        "planned_max_score": 100,
+        "pass_rate": 1.0,
+        "measured_tests": 4,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "simulated-d4413cefaa424ccb81a8cc22997c9610",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "gpt-6-luna",
+          "reasoning_effort": "low"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.4220000000204891,
+      "generation_ended_at": "2026-10-23T07:06:52.555160+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "README.md": "0d9b865ec88865e2da70d13e0582408f52a89dd7d2545f11def1d64ec9adb210",
+        "received-prompt.txt": "fbd824721a261abe9b077c18d45574af547e53896aaa75aee50fd9705959b704",
+        "simulation.json": "083ba853c3f9e63e5460dbf46d028cae8c37b68b496508ff93156f32eb099b56",
+        "solution.py": "fefe6b892c8bbf4c2ef00b8d3227bc90b25876292259273e5dfc936adb7169e3"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.26599999994505197,
+      "duration_seconds": 0.6879999999655411,
+      "artifact_path": "runs/job-b47b1041809d3e4c/attempts/d4413cefaa424ccb81a8cc22997c9610"
+    },
+    {
+      "id": "job-f4d2b725bd947bab",
+      "model": "gpt-6-luna",
+      "effort": "medium",
+      "repeat": 1,
+      "attempt_id": "bebdae641bd84690a8e80a11a6c896f7",
+      "started_at": "2026-10-23T07:06:52.916174+00:00",
+      "ended_at": "2026-10-23T07:06:53.613889+00:00",
+      "status": "succeeded",
+      "codex_version": "SIMULATED — no Codex/model calls",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d1f8877f-5399-416d-a163-69cf626217fa}\\AC\\Temp\\codex-benchmark-workspaces\\89d002293e9f4b47bf7e270e47100844\\job-f4d2b725bd947bab\\bebdae641bd84690a8e80a11a6c896f7\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 1788,
+        "cached_input_tokens": 188,
+        "output_tokens": 488,
+        "reasoning_output_tokens": 162,
+        "total_tokens": 2276
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "simulated_functionality",
+            "category": "functionality",
+            "status": "passed",
+            "score": 40,
+            "max_score": 40,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_algorithm",
+            "category": "algorithm",
+            "status": "failed",
+            "score": 0,
+            "max_score": 30,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_exceptions",
+            "category": "exceptions",
+            "status": "passed",
+            "score": 20,
+            "max_score": 20,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_performance",
+            "category": "performance",
+            "status": "passed",
+            "score": 10,
+            "max_score": 10,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          }
+        ],
+        "score": 70,
+        "max_score": 100,
+        "planned_max_score": 100,
+        "pass_rate": 0.75,
+        "measured_tests": 4,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "simulated-bebdae641bd84690a8e80a11a6c896f7",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "gpt-6-luna",
+          "reasoning_effort": "medium"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.4059999999590218,
+      "generation_ended_at": "2026-10-23T07:06:53.342174+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "README.md": "0d9b865ec88865e2da70d13e0582408f52a89dd7d2545f11def1d64ec9adb210",
+        "received-prompt.txt": "fbd824721a261abe9b077c18d45574af547e53896aaa75aee50fd9705959b704",
+        "simulation.json": "9d8ef439f6f2571401314aab5f5c663739269f01c381e754ea658595e4493522",
+        "solution.py": "fefe6b892c8bbf4c2ef00b8d3227bc90b25876292259273e5dfc936adb7169e3"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.20400000002700835,
+      "duration_seconds": 0.6099999999860302,
+      "artifact_path": "runs/job-f4d2b725bd947bab/attempts/bebdae641bd84690a8e80a11a6c896f7"
+    },
+    {
+      "id": "job-7cbe537a2caaac67",
+      "model": "gpt-6-luna",
+      "effort": "high",
+      "repeat": 1,
+      "attempt_id": "cfbe7f25056047ae91203363d906341a",
+      "started_at": "2026-10-23T07:06:53.646822+00:00",
+      "ended_at": "2026-10-23T07:06:54.421564+00:00",
+      "status": "succeeded",
+      "codex_version": "SIMULATED — no Codex/model calls",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d1f8877f-5399-416d-a163-69cf626217fa}\\AC\\Temp\\codex-benchmark-workspaces\\89d002293e9f4b47bf7e270e47100844\\job-7cbe537a2caaac67\\cfbe7f25056047ae91203363d906341a\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 1753,
+        "cached_input_tokens": 53,
+        "output_tokens": 453,
+        "reasoning_output_tokens": 151,
+        "total_tokens": 2206
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "simulated_functionality",
+            "category": "functionality",
+            "status": "passed",
+            "score": 40,
+            "max_score": 40,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_algorithm",
+            "category": "algorithm",
+            "status": "passed",
+            "score": 30,
+            "max_score": 30,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_exceptions",
+            "category": "exceptions",
+            "status": "passed",
+            "score": 20,
+            "max_score": 20,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_performance",
+            "category": "performance",
+            "status": "passed",
+            "score": 10,
+            "max_score": 10,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          }
+        ],
+        "score": 100,
+        "max_score": 100,
+        "planned_max_score": 100,
+        "pass_rate": 1.0,
+        "measured_tests": 4,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "simulated-cfbe7f25056047ae91203363d906341a",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "gpt-6-luna",
+          "reasoning_effort": "high"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.4220000000204891,
+      "generation_ended_at": "2026-10-23T07:06:54.074278+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "README.md": "0d9b865ec88865e2da70d13e0582408f52a89dd7d2545f11def1d64ec9adb210",
+        "received-prompt.txt": "fbd824721a261abe9b077c18d45574af547e53896aaa75aee50fd9705959b704",
+        "simulation.json": "083ba853c3f9e63e5460dbf46d028cae8c37b68b496508ff93156f32eb099b56",
+        "solution.py": "fefe6b892c8bbf4c2ef00b8d3227bc90b25876292259273e5dfc936adb7169e3"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.2660000000614673,
+      "duration_seconds": 0.6880000000819564,
+      "artifact_path": "runs/job-7cbe537a2caaac67/attempts/cfbe7f25056047ae91203363d906341a"
+    }
+  ],
+  "summary": [
+    {
+      "model": "gpt-6-luna",
+      "effort": "high",
+      "runs": 1,
+      "statuses": {
+        "succeeded": 1
+      },
+      "error_types": {},
+      "metrics": {
+        "score": {
+          "n": 1,
+          "missing": 0,
+          "mean": 100,
+          "min": 100,
+          "max": 100,
+          "stddev": 0.0
+        },
+        "max_score": {
+          "n": 1,
+          "missing": 0,
+          "mean": 100,
+          "min": 100,
+          "max": 100,
+          "stddev": 0.0
+        },
+        "pass_rate": {
+          "n": 1,
+          "missing": 0,
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0,
+          "stddev": 0.0
+        },
+        "input_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 1753,
+          "min": 1753,
+          "max": 1753,
+          "stddev": 0.0
+        },
+        "cached_input_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 53,
+          "min": 53,
+          "max": 53,
+          "stddev": 0.0
+        },
+        "output_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 453,
+          "min": 453,
+          "max": 453,
+          "stddev": 0.0
+        },
+        "reasoning_output_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 151,
+          "min": 151,
+          "max": 151,
+          "stddev": 0.0
+        },
+        "total_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 2206,
+          "min": 2206,
+          "max": 2206,
+          "stddev": 0.0
+        },
+        "cache_ratio": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.030233884768967486,
+          "min": 0.030233884768967486,
+          "max": 0.030233884768967486,
+          "stddev": 0.0
+        },
+        "reasoning_ratio": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.3333333333333333,
+          "min": 0.3333333333333333,
+          "max": 0.3333333333333333,
+          "stddev": 0.0
+        },
+        "generation_seconds": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.4220000000204891,
+          "min": 0.4220000000204891,
+          "max": 0.4220000000204891,
+          "stddev": 0.0
+        },
+        "grading_seconds": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.2660000000614673,
+          "min": 0.2660000000614673,
+          "max": 0.2660000000614673,
+          "stddev": 0.0
+        },
+        "duration_seconds": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.6880000000819564,
+          "min": 0.6880000000819564,
+          "max": 0.6880000000819564,
+          "stddev": 0.0
+        },
+        "score_per_1000_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 45.33091568449683,
+          "min": 45.33091568449683,
+          "max": 45.33091568449683,
+          "stddev": 0.0
+        },
+        "score_per_second": {
+          "n": 1,
+          "missing": 0,
+          "mean": 236.96682463304447,
+          "min": 236.96682463304447,
+          "max": 236.96682463304447,
+          "stddev": 0.0
+        }
+      },
+      "categories": {
+        "functionality": {
+          "n": 1,
+          "missing": 0,
+          "mean": 40,
+          "min": 40,
+          "max": 40,
+          "stddev": 0.0
+        },
+        "algorithm": {
+          "n": 1,
+          "missing": 0,
+          "mean": 30,
+          "min": 30,
+          "max": 30,
+          "stddev": 0.0
+        },
+        "exceptions": {
+          "n": 1,
+          "missing": 0,
+          "mean": 20,
+          "min": 20,
+          "max": 20,
+          "stddev": 0.0
+        },
+        "performance": {
+          "n": 1,
+          "missing": 0,
+          "mean": 10,
+          "min": 10,
+          "max": 10,
+          "stddev": 0.0
+        }
+      }
+    },
+    {
+      "model": "gpt-6-luna",
+      "effort": "low",
+      "runs": 1,
+      "statuses": {
+        "succeeded": 1
+      },
+      "error_types": {},
+      "metrics": {
+        "score": {
+          "n": 1,
+          "missing": 0,
+          "mean": 100,
+          "min": 100,
+          "max": 100,
+          "stddev": 0.0
+        },
+        "max_score": {
+          "n": 1,
+          "missing": 0,
+          "mean": 100,
+          "min": 100,
+          "max": 100,
+          "stddev": 0.0
+        },
+        "pass_rate": {
+          "n": 1,
+          "missing": 0,
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0,
+          "stddev": 0.0
+        },
+        "input_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 1714,
+          "min": 1714,
+          "max": 1714,
+          "stddev": 0.0
+        },
+        "cached_input_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 14,
+          "min": 14,
+          "max": 14,
+          "stddev": 0.0
+        },
+        "output_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 214,
+          "min": 214,
+          "max": 214,
+          "stddev": 0.0
+        },
+        "reasoning_output_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 71,
+          "min": 71,
+          "max": 71,
+          "stddev": 0.0
+        },
+        "total_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 1928,
+          "min": 1928,
+          "max": 1928,
+          "stddev": 0.0
+        },
+        "cache_ratio": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.008168028004667444,
+          "min": 0.008168028004667444,
+          "max": 0.008168028004667444,
+          "stddev": 0.0
+        },
+        "reasoning_ratio": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.3317757009345794,
+          "min": 0.3317757009345794,
+          "max": 0.3317757009345794,
+          "stddev": 0.0
+        },
+        "generation_seconds": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.4220000000204891,
+          "min": 0.4220000000204891,
+          "max": 0.4220000000204891,
+          "stddev": 0.0
+        },
+        "grading_seconds": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.26599999994505197,
+          "min": 0.26599999994505197,
+          "max": 0.26599999994505197,
+          "stddev": 0.0
+        },
+        "duration_seconds": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.6879999999655411,
+          "min": 0.6879999999655411,
+          "max": 0.6879999999655411,
+          "stddev": 0.0
+        },
+        "score_per_1000_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 51.86721991701245,
+          "min": 51.86721991701245,
+          "max": 51.86721991701245,
+          "stddev": 0.0
+        },
+        "score_per_second": {
+          "n": 1,
+          "missing": 0,
+          "mean": 236.96682463304447,
+          "min": 236.96682463304447,
+          "max": 236.96682463304447,
+          "stddev": 0.0
+        }
+      },
+      "categories": {
+        "functionality": {
+          "n": 1,
+          "missing": 0,
+          "mean": 40,
+          "min": 40,
+          "max": 40,
+          "stddev": 0.0
+        },
+        "algorithm": {
+          "n": 1,
+          "missing": 0,
+          "mean": 30,
+          "min": 30,
+          "max": 30,
+          "stddev": 0.0
+        },
+        "exceptions": {
+          "n": 1,
+          "missing": 0,
+          "mean": 20,
+          "min": 20,
+          "max": 20,
+          "stddev": 0.0
+        },
+        "performance": {
+          "n": 1,
+          "missing": 0,
+          "mean": 10,
+          "min": 10,
+          "max": 10,
+          "stddev": 0.0
+        }
+      }
+    },
+    {
+      "model": "gpt-6-luna",
+      "effort": "medium",
+      "runs": 1,
+      "statuses": {
+        "succeeded": 1
+      },
+      "error_types": {},
+      "metrics": {
+        "score": {
+          "n": 1,
+          "missing": 0,
+          "mean": 70,
+          "min": 70,
+          "max": 70,
+          "stddev": 0.0
+        },
+        "max_score": {
+          "n": 1,
+          "missing": 0,
+          "mean": 100,
+          "min": 100,
+          "max": 100,
+          "stddev": 0.0
+        },
+        "pass_rate": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.75,
+          "min": 0.75,
+          "max": 0.75,
+          "stddev": 0.0
+        },
+        "input_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 1788,
+          "min": 1788,
+          "max": 1788,
+          "stddev": 0.0
+        },
+        "cached_input_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 188,
+          "min": 188,
+          "max": 188,
+          "stddev": 0.0
+        },
+        "output_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 488,
+          "min": 488,
+          "max": 488,
+          "stddev": 0.0
+        },
+        "reasoning_output_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 162,
+          "min": 162,
+          "max": 162,
+          "stddev": 0.0
+        },
+        "total_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 2276,
+          "min": 2276,
+          "max": 2276,
+          "stddev": 0.0
+        },
+        "cache_ratio": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.10514541387024609,
+          "min": 0.10514541387024609,
+          "max": 0.10514541387024609,
+          "stddev": 0.0
+        },
+        "reasoning_ratio": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.3319672131147541,
+          "min": 0.3319672131147541,
+          "max": 0.3319672131147541,
+          "stddev": 0.0
+        },
+        "generation_seconds": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.4059999999590218,
+          "min": 0.4059999999590218,
+          "max": 0.4059999999590218,
+          "stddev": 0.0
+        },
+        "grading_seconds": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.20400000002700835,
+          "min": 0.20400000002700835,
+          "max": 0.20400000002700835,
+          "stddev": 0.0
+        },
+        "duration_seconds": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.6099999999860302,
+          "min": 0.6099999999860302,
+          "max": 0.6099999999860302,
+          "stddev": 0.0
+        },
+        "score_per_1000_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 30.755711775043938,
+          "min": 30.755711775043938,
+          "max": 30.755711775043938,
+          "stddev": 0.0
+        },
+        "score_per_second": {
+          "n": 1,
+          "missing": 0,
+          "mean": 172.41379312085027,
+          "min": 172.41379312085027,
+          "max": 172.41379312085027,
+          "stddev": 0.0
+        }
+      },
+      "categories": {
+        "functionality": {
+          "n": 1,
+          "missing": 0,
+          "mean": 40,
+          "min": 40,
+          "max": 40,
+          "stddev": 0.0
+        },
+        "algorithm": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0,
+          "min": 0,
+          "max": 0,
+          "stddev": 0.0
+        },
+        "exceptions": {
+          "n": 1,
+          "missing": 0,
+          "mean": 20,
+          "min": 20,
+          "max": 20,
+          "stddev": 0.0
+        },
+        "performance": {
+          "n": 1,
+          "missing": 0,
+          "mean": 10,
+          "min": 10,
+          "max": 10,
+          "stddev": 0.0
+        }
+      }
+    },
+    {
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "runs": 1,
+      "statuses": {
+        "succeeded": 1
+      },
+      "error_types": {},
+      "metrics": {
+        "score": {
+          "n": 1,
+          "missing": 0,
+          "mean": 100,
+          "min": 100,
+          "max": 100,
+          "stddev": 0.0
+        },
+        "max_score": {
+          "n": 1,
+          "missing": 0,
+          "mean": 100,
+          "min": 100,
+          "max": 100,
+          "stddev": 0.0
+        },
+        "pass_rate": {
+          "n": 1,
+          "missing": 0,
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0,
+          "stddev": 0.0
+        },
+        "input_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 1483,
+          "min": 1483,
+          "max": 1483,
+          "stddev": 0.0
+        },
+        "cached_input_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 283,
+          "min": 283,
+          "max": 283,
+          "stddev": 0.0
+        },
+        "output_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 383,
+          "min": 383,
+          "max": 383,
+          "stddev": 0.0
+        },
+        "reasoning_output_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 127,
+          "min": 127,
+          "max": 127,
+          "stddev": 0.0
+        },
+        "total_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 1866,
+          "min": 1866,
+          "max": 1866,
+          "stddev": 0.0
+        },
+        "cache_ratio": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.19082939986513822,
+          "min": 0.19082939986513822,
+          "max": 0.19082939986513822,
+          "stddev": 0.0
+        },
+        "reasoning_ratio": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.33159268929503916,
+          "min": 0.33159268929503916,
+          "max": 0.33159268929503916,
+          "stddev": 0.0
+        },
+        "generation_seconds": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.4220000000204891,
+          "min": 0.4220000000204891,
+          "max": 0.4220000000204891,
+          "stddev": 0.0
+        },
+        "grading_seconds": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.2190000000409782,
+          "min": 0.2190000000409782,
+          "max": 0.2190000000409782,
+          "stddev": 0.0
+        },
+        "duration_seconds": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.6410000000614673,
+          "min": 0.6410000000614673,
+          "max": 0.6410000000614673,
+          "stddev": 0.0
+        },
+        "score_per_1000_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 53.59056806002144,
+          "min": 53.59056806002144,
+          "max": 53.59056806002144,
+          "stddev": 0.0
+        },
+        "score_per_second": {
+          "n": 1,
+          "missing": 0,
+          "mean": 236.96682463304447,
+          "min": 236.96682463304447,
+          "max": 236.96682463304447,
+          "stddev": 0.0
+        }
+      },
+      "categories": {
+        "functionality": {
+          "n": 1,
+          "missing": 0,
+          "mean": 40,
+          "min": 40,
+          "max": 40,
+          "stddev": 0.0
+        },
+        "algorithm": {
+          "n": 1,
+          "missing": 0,
+          "mean": 30,
+          "min": 30,
+          "max": 30,
+          "stddev": 0.0
+        },
+        "exceptions": {
+          "n": 1,
+          "missing": 0,
+          "mean": 20,
+          "min": 20,
+          "max": 20,
+          "stddev": 0.0
+        },
+        "performance": {
+          "n": 1,
+          "missing": 0,
+          "mean": 10,
+          "min": 10,
+          "max": 10,
+          "stddev": 0.0
+        }
+      }
+    },
+    {
+      "model": "gpt-6.1-sol",
+      "effort": "low",
+      "runs": 1,
+      "statuses": {
+        "succeeded": 1
+      },
+      "error_types": {},
+      "metrics": {
+        "score": {
+          "n": 1,
+          "missing": 0,
+          "mean": 70,
+          "min": 70,
+          "max": 70,
+          "stddev": 0.0
+        },
+        "max_score": {
+          "n": 1,
+          "missing": 0,
+          "mean": 100,
+          "min": 100,
+          "max": 100,
+          "stddev": 0.0
+        },
+        "pass_rate": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.75,
+          "min": 0.75,
+          "max": 0.75,
+          "stddev": 0.0
+        },
+        "input_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 1356,
+          "min": 1356,
+          "max": 1356,
+          "stddev": 0.0
+        },
+        "cached_input_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 256,
+          "min": 256,
+          "max": 256,
+          "stddev": 0.0
+        },
+        "output_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 456,
+          "min": 456,
+          "max": 456,
+          "stddev": 0.0
+        },
+        "reasoning_output_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 152,
+          "min": 152,
+          "max": 152,
+          "stddev": 0.0
+        },
+        "total_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 1812,
+          "min": 1812,
+          "max": 1812,
+          "stddev": 0.0
+        },
+        "cache_ratio": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.1887905604719764,
+          "min": 0.1887905604719764,
+          "max": 0.1887905604719764,
+          "stddev": 0.0
+        },
+        "reasoning_ratio": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.3333333333333333,
+          "min": 0.3333333333333333,
+          "max": 0.3333333333333333,
+          "stddev": 0.0
+        },
+        "generation_seconds": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.4220000000204891,
+          "min": 0.4220000000204891,
+          "max": 0.4220000000204891,
+          "stddev": 0.0
+        },
+        "grading_seconds": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.26500000001396984,
+          "min": 0.26500000001396984,
+          "max": 0.26500000001396984,
+          "stddev": 0.0
+        },
+        "duration_seconds": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.6870000000344589,
+          "min": 0.6870000000344589,
+          "max": 0.6870000000344589,
+          "stddev": 0.0
+        },
+        "score_per_1000_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 38.63134657836645,
+          "min": 38.63134657836645,
+          "max": 38.63134657836645,
+          "stddev": 0.0
+        },
+        "score_per_second": {
+          "n": 1,
+          "missing": 0,
+          "mean": 165.87677724313113,
+          "min": 165.87677724313113,
+          "max": 165.87677724313113,
+          "stddev": 0.0
+        }
+      },
+      "categories": {
+        "functionality": {
+          "n": 1,
+          "missing": 0,
+          "mean": 40,
+          "min": 40,
+          "max": 40,
+          "stddev": 0.0
+        },
+        "algorithm": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0,
+          "min": 0,
+          "max": 0,
+          "stddev": 0.0
+        },
+        "exceptions": {
+          "n": 1,
+          "missing": 0,
+          "mean": 20,
+          "min": 20,
+          "max": 20,
+          "stddev": 0.0
+        },
+        "performance": {
+          "n": 1,
+          "missing": 0,
+          "mean": 10,
+          "min": 10,
+          "max": 10,
+          "stddev": 0.0
+        }
+      }
+    },
+    {
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "runs": 1,
+      "statuses": {
+        "succeeded": 1
+      },
+      "error_types": {},
+      "metrics": {
+        "score": {
+          "n": 1,
+          "missing": 0,
+          "mean": 100,
+          "min": 100,
+          "max": 100,
+          "stddev": 0.0
+        },
+        "max_score": {
+          "n": 1,
+          "missing": 0,
+          "mean": 100,
+          "min": 100,
+          "max": 100,
+          "stddev": 0.0
+        },
+        "pass_rate": {
+          "n": 1,
+          "missing": 0,
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0,
+          "stddev": 0.0
+        },
+        "input_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 1099,
+          "min": 1099,
+          "max": 1099,
+          "stddev": 0.0
+        },
+        "cached_input_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 199,
+          "min": 199,
+          "max": 199,
+          "stddev": 0.0
+        },
+        "output_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 399,
+          "min": 399,
+          "max": 399,
+          "stddev": 0.0
+        },
+        "reasoning_output_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 133,
+          "min": 133,
+          "max": 133,
+          "stddev": 0.0
+        },
+        "total_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 1498,
+          "min": 1498,
+          "max": 1498,
+          "stddev": 0.0
+        },
+        "cache_ratio": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.181073703366697,
+          "min": 0.181073703366697,
+          "max": 0.181073703366697,
+          "stddev": 0.0
+        },
+        "reasoning_ratio": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.3333333333333333,
+          "min": 0.3333333333333333,
+          "max": 0.3333333333333333,
+          "stddev": 0.0
+        },
+        "generation_seconds": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.4219999999040738,
+          "min": 0.4219999999040738,
+          "max": 0.4219999999040738,
+          "stddev": 0.0
+        },
+        "grading_seconds": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.2029999999795109,
+          "min": 0.2029999999795109,
+          "max": 0.2029999999795109,
+          "stddev": 0.0
+        },
+        "duration_seconds": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.6249999998835847,
+          "min": 0.6249999998835847,
+          "max": 0.6249999998835847,
+          "stddev": 0.0
+        },
+        "score_per_1000_tokens": {
+          "n": 1,
+          "missing": 0,
+          "mean": 66.75567423230974,
+          "min": 66.75567423230974,
+          "max": 66.75567423230974,
+          "stddev": 0.0
+        },
+        "score_per_second": {
+          "n": 1,
+          "missing": 0,
+          "mean": 236.96682469841548,
+          "min": 236.96682469841548,
+          "max": 236.96682469841548,
+          "stddev": 0.0
+        }
+      },
+      "categories": {
+        "functionality": {
+          "n": 1,
+          "missing": 0,
+          "mean": 40,
+          "min": 40,
+          "max": 40,
+          "stddev": 0.0
+        },
+        "algorithm": {
+          "n": 1,
+          "missing": 0,
+          "mean": 30,
+          "min": 30,
+          "max": 30,
+          "stddev": 0.0
+        },
+        "exceptions": {
+          "n": 1,
+          "missing": 0,
+          "mean": 20,
+          "min": 20,
+          "max": 20,
+          "stddev": 0.0
+        },
+        "performance": {
+          "n": 1,
+          "missing": 0,
+          "mean": 10,
+          "min": 10,
+          "max": 10,
+          "stddev": 0.0
+        }
+      }
+    }
+  ],
+  "attempt_history": [
+    {
+      "id": "job-05b3bb741d4ee4ba",
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "repeat": 1,
+      "attempt_id": "680f6143aecb45baa6f3c7b7e33f0706",
+      "started_at": "2026-10-23T07:06:51.397107+00:00",
+      "ended_at": "2026-10-23T07:06:52.099709+00:00",
+      "status": "succeeded",
+      "codex_version": "SIMULATED — no Codex/model calls",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d1f8877f-5399-416d-a163-69cf626217fa}\\AC\\Temp\\codex-benchmark-workspaces\\89d002293e9f4b47bf7e270e47100844\\job-05b3bb741d4ee4ba\\680f6143aecb45baa6f3c7b7e33f0706\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 1483,
+        "cached_input_tokens": 283,
+        "output_tokens": 383,
+        "reasoning_output_tokens": 127,
+        "total_tokens": 1866
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "simulated_functionality",
+            "category": "functionality",
+            "status": "passed",
+            "score": 40,
+            "max_score": 40,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_algorithm",
+            "category": "algorithm",
+            "status": "passed",
+            "score": 30,
+            "max_score": 30,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_exceptions",
+            "category": "exceptions",
+            "status": "passed",
+            "score": 20,
+            "max_score": 20,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_performance",
+            "category": "performance",
+            "status": "passed",
+            "score": 10,
+            "max_score": 10,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          }
+        ],
+        "score": 100,
+        "max_score": 100,
+        "planned_max_score": 100,
+        "pass_rate": 1.0,
+        "measured_tests": 4,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "simulated-680f6143aecb45baa6f3c7b7e33f0706",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "gpt-6.1-sol",
+          "reasoning_effort": "high"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.4220000000204891,
+      "generation_ended_at": "2026-10-23T07:06:51.824502+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "README.md": "0d9b865ec88865e2da70d13e0582408f52a89dd7d2545f11def1d64ec9adb210",
+        "received-prompt.txt": "fbd824721a261abe9b077c18d45574af547e53896aaa75aee50fd9705959b704",
+        "simulation.json": "083ba853c3f9e63e5460dbf46d028cae8c37b68b496508ff93156f32eb099b56",
+        "solution.py": "fefe6b892c8bbf4c2ef00b8d3227bc90b25876292259273e5dfc936adb7169e3"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.2190000000409782,
+      "duration_seconds": 0.6410000000614673,
+      "artifact_path": "runs/job-05b3bb741d4ee4ba/attempts/680f6143aecb45baa6f3c7b7e33f0706"
+    },
+    {
+      "id": "job-7cbe537a2caaac67",
+      "model": "gpt-6-luna",
+      "effort": "high",
+      "repeat": 1,
+      "attempt_id": "cfbe7f25056047ae91203363d906341a",
+      "started_at": "2026-10-23T07:06:53.646822+00:00",
+      "ended_at": "2026-10-23T07:06:54.421564+00:00",
+      "status": "succeeded",
+      "codex_version": "SIMULATED — no Codex/model calls",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d1f8877f-5399-416d-a163-69cf626217fa}\\AC\\Temp\\codex-benchmark-workspaces\\89d002293e9f4b47bf7e270e47100844\\job-7cbe537a2caaac67\\cfbe7f25056047ae91203363d906341a\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 1753,
+        "cached_input_tokens": 53,
+        "output_tokens": 453,
+        "reasoning_output_tokens": 151,
+        "total_tokens": 2206
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "simulated_functionality",
+            "category": "functionality",
+            "status": "passed",
+            "score": 40,
+            "max_score": 40,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_algorithm",
+            "category": "algorithm",
+            "status": "passed",
+            "score": 30,
+            "max_score": 30,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_exceptions",
+            "category": "exceptions",
+            "status": "passed",
+            "score": 20,
+            "max_score": 20,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_performance",
+            "category": "performance",
+            "status": "passed",
+            "score": 10,
+            "max_score": 10,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          }
+        ],
+        "score": 100,
+        "max_score": 100,
+        "planned_max_score": 100,
+        "pass_rate": 1.0,
+        "measured_tests": 4,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "simulated-cfbe7f25056047ae91203363d906341a",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "gpt-6-luna",
+          "reasoning_effort": "high"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.4220000000204891,
+      "generation_ended_at": "2026-10-23T07:06:54.074278+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "README.md": "0d9b865ec88865e2da70d13e0582408f52a89dd7d2545f11def1d64ec9adb210",
+        "received-prompt.txt": "fbd824721a261abe9b077c18d45574af547e53896aaa75aee50fd9705959b704",
+        "simulation.json": "083ba853c3f9e63e5460dbf46d028cae8c37b68b496508ff93156f32eb099b56",
+        "solution.py": "fefe6b892c8bbf4c2ef00b8d3227bc90b25876292259273e5dfc936adb7169e3"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.2660000000614673,
+      "duration_seconds": 0.6880000000819564,
+      "artifact_path": "runs/job-7cbe537a2caaac67/attempts/cfbe7f25056047ae91203363d906341a"
+    },
+    {
+      "id": "job-b47b1041809d3e4c",
+      "model": "gpt-6-luna",
+      "effort": "low",
+      "repeat": 1,
+      "attempt_id": "d4413cefaa424ccb81a8cc22997c9610",
+      "started_at": "2026-10-23T07:06:52.127093+00:00",
+      "ended_at": "2026-10-23T07:06:52.886822+00:00",
+      "status": "succeeded",
+      "codex_version": "SIMULATED — no Codex/model calls",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d1f8877f-5399-416d-a163-69cf626217fa}\\AC\\Temp\\codex-benchmark-workspaces\\89d002293e9f4b47bf7e270e47100844\\job-b47b1041809d3e4c\\d4413cefaa424ccb81a8cc22997c9610\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 1714,
+        "cached_input_tokens": 14,
+        "output_tokens": 214,
+        "reasoning_output_tokens": 71,
+        "total_tokens": 1928
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "simulated_functionality",
+            "category": "functionality",
+            "status": "passed",
+            "score": 40,
+            "max_score": 40,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_algorithm",
+            "category": "algorithm",
+            "status": "passed",
+            "score": 30,
+            "max_score": 30,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_exceptions",
+            "category": "exceptions",
+            "status": "passed",
+            "score": 20,
+            "max_score": 20,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_performance",
+            "category": "performance",
+            "status": "passed",
+            "score": 10,
+            "max_score": 10,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          }
+        ],
+        "score": 100,
+        "max_score": 100,
+        "planned_max_score": 100,
+        "pass_rate": 1.0,
+        "measured_tests": 4,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "simulated-d4413cefaa424ccb81a8cc22997c9610",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "gpt-6-luna",
+          "reasoning_effort": "low"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.4220000000204891,
+      "generation_ended_at": "2026-10-23T07:06:52.555160+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "README.md": "0d9b865ec88865e2da70d13e0582408f52a89dd7d2545f11def1d64ec9adb210",
+        "received-prompt.txt": "fbd824721a261abe9b077c18d45574af547e53896aaa75aee50fd9705959b704",
+        "simulation.json": "083ba853c3f9e63e5460dbf46d028cae8c37b68b496508ff93156f32eb099b56",
+        "solution.py": "fefe6b892c8bbf4c2ef00b8d3227bc90b25876292259273e5dfc936adb7169e3"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.26599999994505197,
+      "duration_seconds": 0.6879999999655411,
+      "artifact_path": "runs/job-b47b1041809d3e4c/attempts/d4413cefaa424ccb81a8cc22997c9610"
+    },
+    {
+      "id": "job-b85ce448e20d48dd",
+      "model": "gpt-6.1-sol",
+      "effort": "low",
+      "repeat": 1,
+      "attempt_id": "ebcb0f3ea51e45d89d994ae0bf1bb8ee",
+      "started_at": "2026-10-23T07:06:49.897452+00:00",
+      "ended_at": "2026-10-23T07:06:50.649265+00:00",
+      "status": "succeeded",
+      "codex_version": "SIMULATED — no Codex/model calls",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d1f8877f-5399-416d-a163-69cf626217fa}\\AC\\Temp\\codex-benchmark-workspaces\\89d002293e9f4b47bf7e270e47100844\\job-b85ce448e20d48dd\\ebcb0f3ea51e45d89d994ae0bf1bb8ee\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 1356,
+        "cached_input_tokens": 256,
+        "output_tokens": 456,
+        "reasoning_output_tokens": 152,
+        "total_tokens": 1812
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "simulated_functionality",
+            "category": "functionality",
+            "status": "passed",
+            "score": 40,
+            "max_score": 40,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_algorithm",
+            "category": "algorithm",
+            "status": "failed",
+            "score": 0,
+            "max_score": 30,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_exceptions",
+            "category": "exceptions",
+            "status": "passed",
+            "score": 20,
+            "max_score": 20,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_performance",
+            "category": "performance",
+            "status": "passed",
+            "score": 10,
+            "max_score": 10,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          }
+        ],
+        "score": 70,
+        "max_score": 100,
+        "planned_max_score": 100,
+        "pass_rate": 0.75,
+        "measured_tests": 4,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "simulated-ebcb0f3ea51e45d89d994ae0bf1bb8ee",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "gpt-6.1-sol",
+          "reasoning_effort": "low"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.4220000000204891,
+      "generation_ended_at": "2026-10-23T07:06:50.325392+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "README.md": "0d9b865ec88865e2da70d13e0582408f52a89dd7d2545f11def1d64ec9adb210",
+        "received-prompt.txt": "fbd824721a261abe9b077c18d45574af547e53896aaa75aee50fd9705959b704",
+        "simulation.json": "9d8ef439f6f2571401314aab5f5c663739269f01c381e754ea658595e4493522",
+        "solution.py": "fefe6b892c8bbf4c2ef00b8d3227bc90b25876292259273e5dfc936adb7169e3"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.26500000001396984,
+      "duration_seconds": 0.6870000000344589,
+      "artifact_path": "runs/job-b85ce448e20d48dd/attempts/ebcb0f3ea51e45d89d994ae0bf1bb8ee"
+    },
+    {
+      "id": "job-f4d2b725bd947bab",
+      "model": "gpt-6-luna",
+      "effort": "medium",
+      "repeat": 1,
+      "attempt_id": "bebdae641bd84690a8e80a11a6c896f7",
+      "started_at": "2026-10-23T07:06:52.916174+00:00",
+      "ended_at": "2026-10-23T07:06:53.613889+00:00",
+      "status": "succeeded",
+      "codex_version": "SIMULATED — no Codex/model calls",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d1f8877f-5399-416d-a163-69cf626217fa}\\AC\\Temp\\codex-benchmark-workspaces\\89d002293e9f4b47bf7e270e47100844\\job-f4d2b725bd947bab\\bebdae641bd84690a8e80a11a6c896f7\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 1788,
+        "cached_input_tokens": 188,
+        "output_tokens": 488,
+        "reasoning_output_tokens": 162,
+        "total_tokens": 2276
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "simulated_functionality",
+            "category": "functionality",
+            "status": "passed",
+            "score": 40,
+            "max_score": 40,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_algorithm",
+            "category": "algorithm",
+            "status": "failed",
+            "score": 0,
+            "max_score": 30,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_exceptions",
+            "category": "exceptions",
+            "status": "passed",
+            "score": 20,
+            "max_score": 20,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_performance",
+            "category": "performance",
+            "status": "passed",
+            "score": 10,
+            "max_score": 10,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          }
+        ],
+        "score": 70,
+        "max_score": 100,
+        "planned_max_score": 100,
+        "pass_rate": 0.75,
+        "measured_tests": 4,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "simulated-bebdae641bd84690a8e80a11a6c896f7",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "gpt-6-luna",
+          "reasoning_effort": "medium"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.4059999999590218,
+      "generation_ended_at": "2026-10-23T07:06:53.342174+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "README.md": "0d9b865ec88865e2da70d13e0582408f52a89dd7d2545f11def1d64ec9adb210",
+        "received-prompt.txt": "fbd824721a261abe9b077c18d45574af547e53896aaa75aee50fd9705959b704",
+        "simulation.json": "9d8ef439f6f2571401314aab5f5c663739269f01c381e754ea658595e4493522",
+        "solution.py": "fefe6b892c8bbf4c2ef00b8d3227bc90b25876292259273e5dfc936adb7169e3"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.20400000002700835,
+      "duration_seconds": 0.6099999999860302,
+      "artifact_path": "runs/job-f4d2b725bd947bab/attempts/bebdae641bd84690a8e80a11a6c896f7"
+    },
+    {
+      "id": "job-fbcb5f39ed3553d9",
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "repeat": 1,
+      "attempt_id": "5715fbbf63854e8fa1a996bd7f0d4fe9",
+      "started_at": "2026-10-23T07:06:50.673116+00:00",
+      "ended_at": "2026-10-23T07:06:51.370482+00:00",
+      "status": "succeeded",
+      "codex_version": "SIMULATED — no Codex/model calls",
+      "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d1f8877f-5399-416d-a163-69cf626217fa}\\AC\\Temp\\codex-benchmark-workspaces\\89d002293e9f4b47bf7e270e47100844\\job-fbcb5f39ed3553d9\\5715fbbf63854e8fa1a996bd7f0d4fe9\\project",
+      "success": true,
+      "generation_finished": true,
+      "usage": {
+        "input_tokens": 1099,
+        "cached_input_tokens": 199,
+        "output_tokens": 399,
+        "reasoning_output_tokens": 133,
+        "total_tokens": 1498
+      },
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "simulated_functionality",
+            "category": "functionality",
+            "status": "passed",
+            "score": 40,
+            "max_score": 40,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_algorithm",
+            "category": "algorithm",
+            "status": "passed",
+            "score": 30,
+            "max_score": 30,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_exceptions",
+            "category": "exceptions",
+            "status": "passed",
+            "score": 20,
+            "max_score": 20,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          },
+          {
+            "name": "simulated_performance",
+            "category": "performance",
+            "status": "passed",
+            "score": 10,
+            "max_score": 10,
+            "duration_seconds": null,
+            "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+          }
+        ],
+        "score": 100,
+        "max_score": 100,
+        "planned_max_score": 100,
+        "pass_rate": 1.0,
+        "measured_tests": 4,
+        "skipped_tests": 0
+      },
+      "usage_source": "turn_final",
+      "completed_event": true,
+      "thread_id": "simulated-5715fbbf63854e8fa1a996bd7f0d4fe9",
+      "observed_configuration": [
+        {
+          "source": "session.configured",
+          "model": "gpt-6.1-sol",
+          "reasoning_effort": "medium"
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "malformed_lines": 0,
+      "exit_code": 0,
+      "generation_seconds": 0.4219999999040738,
+      "generation_ended_at": "2026-10-23T07:06:51.099233+00:00",
+      "error_type": null,
+      "process_error": null,
+      "submission_hashes": {
+        "README.md": "0d9b865ec88865e2da70d13e0582408f52a89dd7d2545f11def1d64ec9adb210",
+        "received-prompt.txt": "fbd824721a261abe9b077c18d45574af547e53896aaa75aee50fd9705959b704",
+        "simulation.json": "083ba853c3f9e63e5460dbf46d028cae8c37b68b496508ff93156f32eb099b56",
+        "solution.py": "fefe6b892c8bbf4c2ef00b8d3227bc90b25876292259273e5dfc936adb7169e3"
+      },
+      "grading_error": null,
+      "grading_seconds": 0.2029999999795109,
+      "duration_seconds": 0.6249999998835847,
+      "artifact_path": "runs/job-fbcb5f39ed3553d9/attempts/5715fbbf63854e8fa1a996bd7f0d4fe9"
+    }
+  ]
+}

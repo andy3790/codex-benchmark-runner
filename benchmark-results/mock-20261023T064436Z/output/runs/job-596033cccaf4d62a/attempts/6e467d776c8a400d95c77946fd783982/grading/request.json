@@ -1,0 +1,8 @@
+{
+  "plugin_dir": "C:\\Users\\SSAFY\\Desktop\\AiTest\\benchmark-results\\mock-20261023T064436Z\\output\\private\\grader",
+  "submission": "C:\\Users\\SSAFY\\Desktop\\AiTest\\benchmark-results\\mock-20261023T064436Z\\output\\runs\\job-596033cccaf4d62a\\attempts\\6e467d776c8a400d95c77946fd783982\\submission",
+  "artifact_dir": "C:\\Users\\SSAFY\\Desktop\\AiTest\\benchmark-results\\mock-20261023T064436Z\\output\\runs\\job-596033cccaf4d62a\\attempts\\6e467d776c8a400d95c77946fd783982\\grading",
+  "result_file": "C:\\Users\\SSAFY\\Desktop\\AiTest\\benchmark-results\\mock-20261023T064436Z\\output\\runs\\job-596033cccaf4d62a\\attempts\\6e467d776c8a400d95c77946fd783982\\grading\\grade.json",
+  "test_timeout_seconds": 1,
+  "options": {}
+}

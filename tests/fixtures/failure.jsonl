@@ -1,0 +1,3 @@
+{"type":"thread.started","thread_id":"failure"}
+{"type":"error","message":"reasoning effort ultra is not supported by this model"}
+{"type":"turn.failed","error":{"message":"Unsupported reasoning effort"}}

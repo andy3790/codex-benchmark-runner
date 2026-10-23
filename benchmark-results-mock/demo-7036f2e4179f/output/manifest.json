@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "experiment_id": "89d002293e9f4b47bf7e270e47100844",
+  "created_at": "2026-10-23T07:06:49.856708+00:00",
+  "runner_version": "1.0.0",
+  "fingerprint": "602bcc76a7133734d7c66e5a20a8b76f4de6b7d42d6545c150eb3f554f1b7f6d",
+  "starter_hashes": {
+    "README.md": "0d9b865ec88865e2da70d13e0582408f52a89dd7d2545f11def1d64ec9adb210"
+  },
+  "grader_hashes": {
+    "__init__.py": "ffe8bd5ab5fdad4512a8b0c528a12626a447c26e035d899e3d55d37fcdd04435",
+    "__pycache__/__init__.cpython-311.pyc": "6aad14c0c062c86bc8481dbd56f3664f80572950215dbe938673f84daa64d195",
+    "plugin.py": "2d9f89689d27b94e9ed202b9c98f9dd1da0b383d7b05d9e8c4ff2e3dd8008b21"
+  },
+  "jobs": [
+    {
+      "id": "job-b85ce448e20d48dd",
+      "model": "gpt-6.1-sol",
+      "effort": "low",
+      "repeat": 1
+    },
+    {
+      "id": "job-fbcb5f39ed3553d9",
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "repeat": 1
+    },
+    {
+      "id": "job-05b3bb741d4ee4ba",
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "repeat": 1
+    },
+    {
+      "id": "job-b47b1041809d3e4c",
+      "model": "gpt-6-luna",
+      "effort": "low",
+      "repeat": 1
+    },
+    {
+      "id": "job-f4d2b725bd947bab",
+      "model": "gpt-6-luna",
+      "effort": "medium",
+      "repeat": 1
+    },
+    {
+      "id": "job-7cbe537a2caaac67",
+      "model": "gpt-6-luna",
+      "effort": "high",
+      "repeat": 1
+    }
+  ],
+  "active_seconds": 4.577999999979511,
+  "synthetic": true,
+  "source_config": "C:\\Users\\SSAFY\\Desktop\\AiTest\\config.json",
+  "real_model_calls": 0,
+  "last_finished_at": "2026-10-23T07:06:54.451835+00:00"
+}

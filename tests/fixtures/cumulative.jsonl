@@ -1,0 +1,5 @@
+{"type":"turn.started"}
+{"type":"event_msg","payload":{"type":"token_count","info":{"total_token_usage":{"input_tokens":100,"cached_input_tokens":10,"output_tokens":20,"reasoning_output_tokens":5},"last_token_usage":{"input_tokens":100,"output_tokens":20}}}}
+{"type":"event_msg","payload":{"type":"token_count","info":{"total_token_usage":{"input_tokens":250,"cached_input_tokens":50,"output_tokens":35,"reasoning_output_tokens":8},"last_token_usage":{"input_tokens":150,"output_tokens":15}}}}
+{"type":"turn.completed","usage":{"input_tokens":250,"cached_input_tokens":50,"output_tokens":35,"reasoning_output_tokens":8}}
+{"type":"session.completed","usage":{"input_tokens":250,"cached_input_tokens":50,"output_tokens":35,"reasoning_output_tokens":8}}

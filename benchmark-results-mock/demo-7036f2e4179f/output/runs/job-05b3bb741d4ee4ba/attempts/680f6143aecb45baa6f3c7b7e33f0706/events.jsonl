@@ -1,0 +1,5 @@
+{"type": "thread.started", "thread_id": "simulated-680f6143aecb45baa6f3c7b7e33f0706"}
+{"type": "session.configured", "model": "gpt-6.1-sol", "reasoning_effort": "high"}
+{"type": "turn.started"}
+{"type": "item.completed", "item": {"type": "agent_message", "text": "SIMULATION ONLY: no model was called; candidate code was not executed."}}
+{"type": "turn.completed", "usage": {"input_tokens": 1483, "cached_input_tokens": 283, "output_tokens": 383, "reasoning_output_tokens": 127}}

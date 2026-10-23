@@ -1,0 +1,69 @@
+{
+  "id": "job-36281ff6bd6818da",
+  "model": "mock-model-a",
+  "effort": "high",
+  "repeat": 2,
+  "attempt_id": "47e1a17a58d34af4aeed89feaa4a57d9",
+  "started_at": "2026-10-23T06:44:37.507237+00:00",
+  "ended_at": "2026-10-23T06:44:38.001079+00:00",
+  "status": "succeeded",
+  "codex_version": "fake 1.0",
+  "workspace": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-36281ff6bd6818da\\47e1a17a58d34af4aeed89feaa4a57d9\\project",
+  "success": true,
+  "generation_finished": true,
+  "usage": {
+    "input_tokens": 200,
+    "cached_input_tokens": 50,
+    "output_tokens": 40,
+    "reasoning_output_tokens": 10,
+    "total_tokens": 240
+  },
+  "grade": {
+    "schema_version": 1,
+    "source": "independent_grader",
+    "tests": [
+      {
+        "name": "fixture_only",
+        "category": "harness_fixture",
+        "status": "passed",
+        "score": 1,
+        "max_score": 1,
+        "duration_seconds": null,
+        "detail": "Synthetic harness test, not code correctness"
+      }
+    ],
+    "score": 1,
+    "max_score": 1,
+    "planned_max_score": 1,
+    "pass_rate": 1.0,
+    "measured_tests": 1,
+    "skipped_tests": 0
+  },
+  "usage_source": "turn_final",
+  "completed_event": true,
+  "thread_id": "fake-47e1a17a58d34af4aeed89feaa4a57d9",
+  "observed_configuration": [
+    {
+      "source": "session.configured",
+      "model": "mock-model-a",
+      "reasoning_effort": "high"
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "malformed_lines": 0,
+  "exit_code": 0,
+  "generation_seconds": 0.1720000000204891,
+  "generation_ended_at": "2026-10-23T06:44:37.695702+00:00",
+  "error_type": null,
+  "process_error": null,
+  "submission_hashes": {
+    "received-prompt.txt": "8db8f6f3eaa712f762307038804e27f20d799e96dd7a9994e6df177954fe2335",
+    "seed.txt": "1e9b25fbf93e58aeb3ffdd1110906f48128fc8f0886726eda392443fb21ec0a4",
+    "solution.py": "c3502beeb3417c5267612d7eb3735c9007d672cb28d35cbc210f6ed966000679"
+  },
+  "grading_error": null,
+  "grading_seconds": 0.2190000000409782,
+  "duration_seconds": 0.3910000000614673,
+  "artifact_path": "runs/job-36281ff6bd6818da/attempts/47e1a17a58d34af4aeed89feaa4a57d9"
+}

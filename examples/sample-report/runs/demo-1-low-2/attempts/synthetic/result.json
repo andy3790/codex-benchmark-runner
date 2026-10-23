@@ -1,0 +1,30 @@
+{
+  "id": "demo-1-low-2",
+  "attempt_id": "synthetic",
+  "model": "demo-model-b",
+  "effort": "low",
+  "repeat": 2,
+  "status": "unsupported",
+  "success": false,
+  "started_at": "2026-10-23T00:00:00+00:00",
+  "ended_at": "2026-10-23T00:01:00+00:00",
+  "generation_seconds": 45,
+  "grading_seconds": 2.0,
+  "duration_seconds": 60.0,
+  "codex_version": "SYNTHETIC (not executed)",
+  "exit_code": 1,
+  "usage": {
+    "input_tokens": null,
+    "cached_input_tokens": null,
+    "output_tokens": null,
+    "reasoning_output_tokens": null,
+    "total_tokens": null
+  },
+  "grade": null,
+  "error_type": "unsupported_combination",
+  "usage_source": null,
+  "warnings": [
+    "All values are synthetic"
+  ],
+  "artifact_path": "runs/demo-1-low-2/attempts/synthetic"
+}

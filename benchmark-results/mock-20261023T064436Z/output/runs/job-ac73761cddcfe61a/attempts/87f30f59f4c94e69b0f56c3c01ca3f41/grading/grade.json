@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "source": "independent_grader",
+  "tests": [
+    {
+      "name": "fixture_only",
+      "category": "harness_fixture",
+      "status": "passed",
+      "score": 1,
+      "max_score": 1,
+      "duration_seconds": null,
+      "detail": "Synthetic harness test, not code correctness"
+    }
+  ],
+  "score": 1,
+  "max_score": 1,
+  "planned_max_score": 1,
+  "pass_rate": 1.0,
+  "measured_tests": 1,
+  "skipped_tests": 0
+}

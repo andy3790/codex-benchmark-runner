@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codex-benchmark-runner"
+version = "1.0.0"
+description = "Local, resumable Codex CLI benchmark runner with independent grading"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+codex-bench = "codex_bench.cli:main"
+
+[project.gui-scripts]
+codex-bench-gui = "codex_bench.gui:main"
+
+[tool.setuptools.packages.find]
+include = ["codex_bench*"]

@@ -1,0 +1,9 @@
+{
+  "gui_event_loop": true,
+  "experiments": 6,
+  "real_model_calls": 0,
+  "table_rows": 6,
+  "progress": "완료 6 / 6  ·  실패 0  ·  실행 중 0",
+  "status": "모의 실행 종료 · 코드 0",
+  "report": "C:\\Users\\SSAFY\\Desktop\\AiTest\\benchmark-results-mock\\demo-7036f2e4179f\\output\\report.html"
+}

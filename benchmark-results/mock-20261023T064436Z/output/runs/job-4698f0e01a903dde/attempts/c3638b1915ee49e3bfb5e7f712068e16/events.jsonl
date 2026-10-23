@@ -1,0 +1,4 @@
+{"type": "thread.started", "thread_id": "fake-c3638b1915ee49e3bfb5e7f712068e16"}
+{"type": "session.configured", "model": "mock-model-a", "reasoning_effort": "unsupported"}
+{"type": "turn.started"}
+{"type": "error", "message": "Unsupported reasoning effort"}

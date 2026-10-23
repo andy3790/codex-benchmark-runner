@@ -1,0 +1,13 @@
+{
+  "simulation": true,
+  "real_model_calls": 0,
+  "experiments": 12,
+  "statuses": {
+    "succeeded": 8,
+    "unsupported": 4
+  },
+  "first_run_exit_code": 1,
+  "resume_exit_code": 1,
+  "resume_new_processes": 0,
+  "report": "C:\\Users\\SSAFY\\Desktop\\AiTest\\benchmark-results\\mock-20261023T064436Z\\output\\report.html"
+}

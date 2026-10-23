@@ -1,0 +1,38 @@
+{
+  "models": [
+    {
+      "name": "gpt-6.1-sol",
+      "reasoning_efforts": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    {
+      "name": "gpt-6-luna",
+      "reasoning_efforts": [
+        "low",
+        "medium",
+        "high"
+      ]
+    }
+  ],
+  "repetitions": 1,
+  "mode": "sequential",
+  "isolation": "restricted",
+  "max_workers": 2,
+  "max_experiments": 12,
+  "run_timeout_seconds": 30,
+  "total_timeout_seconds": 300,
+  "prompt_file": "C:\\Users\\SSAFY\\Desktop\\AiTest\\benchmark-results-mock\\demo-7036f2e4179f\\prompt.md",
+  "starter_dir": "C:\\Users\\SSAFY\\Desktop\\AiTest\\starter",
+  "output_dir": "C:\\Users\\SSAFY\\Desktop\\AiTest\\benchmark-results-mock\\demo-7036f2e4179f\\output",
+  "codex_executable": "SIMULATED-NO-CODEX",
+  "grader": {
+    "plugin_dir": "C:\\Users\\SSAFY\\Desktop\\AiTest\\codex_bench\\mock_grader",
+    "test_timeout_seconds": 5,
+    "timeout_seconds": 30,
+    "options": {}
+  },
+  "scratch_dir": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d1f8877f-5399-416d-a163-69cf626217fa}\\AC\\Temp\\codex-benchmark-workspaces"
+}

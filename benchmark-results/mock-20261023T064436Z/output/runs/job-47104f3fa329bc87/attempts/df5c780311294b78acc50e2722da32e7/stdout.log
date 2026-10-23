@@ -1,0 +1,5 @@
+{"type": "thread.started", "thread_id": "fake-df5c780311294b78acc50e2722da32e7"}
+{"type": "session.configured", "model": "mock-model-a", "reasoning_effort": "low"}
+{"type": "turn.started"}
+{"type": "item.completed", "item": {"type": "agent_message", "text": "Fixture completed."}}
+{"type": "turn.completed", "usage": {"input_tokens": 200, "cached_input_tokens": 50, "output_tokens": 40, "reasoning_output_tokens": 10}}

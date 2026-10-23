@@ -1,0 +1,8 @@
+{"type":"thread.started","thread_id":"fixture-thread"}
+{"type":"turn.started","turn_id":"t1"}
+{"event_id":"usage-1","type":"usage.delta","usage":{"input_tokens":60,"output_tokens":5}}
+{"event_id":"done-1","type":"turn.completed","turn_id":"t1","usage":{"input_tokens":100,"cached_input_tokens":40,"output_tokens":20,"reasoning_output_tokens":8}}
+{"event_id":"done-1","type":"turn.completed","turn_id":"t1","usage":{"input_tokens":100,"cached_input_tokens":40,"output_tokens":20,"reasoning_output_tokens":8}}
+{"type":"turn.started","turn_id":"t2"}
+{"type":"item.completed","item":{"type":"agent_message","text":"Implemented fixture project."}}
+{"type":"turn.completed","turn_id":"t2","usage":{"input_tokens":100,"cached_input_tokens":40,"output_tokens":20,"reasoning_output_tokens":8}}

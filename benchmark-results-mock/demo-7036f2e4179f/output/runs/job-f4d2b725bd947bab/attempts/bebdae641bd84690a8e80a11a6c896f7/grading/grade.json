@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "source": "independent_grader",
+  "tests": [
+    {
+      "name": "simulated_functionality",
+      "category": "functionality",
+      "status": "passed",
+      "score": 40,
+      "max_score": 40,
+      "duration_seconds": null,
+      "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+    },
+    {
+      "name": "simulated_algorithm",
+      "category": "algorithm",
+      "status": "failed",
+      "score": 0,
+      "max_score": 30,
+      "duration_seconds": null,
+      "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+    },
+    {
+      "name": "simulated_exceptions",
+      "category": "exceptions",
+      "status": "passed",
+      "score": 20,
+      "max_score": 20,
+      "duration_seconds": null,
+      "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+    },
+    {
+      "name": "simulated_performance",
+      "category": "performance",
+      "status": "passed",
+      "score": 10,
+      "max_score": 10,
+      "duration_seconds": null,
+      "detail": "SYNTHETIC score for GUI/harness demonstration; no candidate code was tested"
+    }
+  ],
+  "score": 70,
+  "max_score": 100,
+  "planned_max_score": 100,
+  "pass_rate": 0.75,
+  "measured_tests": 4,
+  "skipped_tests": 0
+}

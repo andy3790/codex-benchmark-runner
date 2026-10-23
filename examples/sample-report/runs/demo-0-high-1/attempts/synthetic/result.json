@@ -1,0 +1,86 @@
+{
+  "id": "demo-0-high-1",
+  "attempt_id": "synthetic",
+  "model": "demo-model-a",
+  "effort": "high",
+  "repeat": 1,
+  "status": "succeeded",
+  "success": true,
+  "started_at": "2026-10-23T00:00:00+00:00",
+  "ended_at": "2026-10-23T00:01:00+00:00",
+  "generation_seconds": 80,
+  "grading_seconds": 2.0,
+  "duration_seconds": 60.0,
+  "codex_version": "SYNTHETIC (not executed)",
+  "exit_code": 0,
+  "usage": {
+    "input_tokens": 1300,
+    "cached_input_tokens": 300,
+    "output_tokens": 480,
+    "reasoning_output_tokens": 300,
+    "total_tokens": 1780
+  },
+  "grade": {
+    "schema_version": 1,
+    "source": "independent_grader",
+    "tests": [
+      {
+        "name": "synthetic_basic",
+        "category": "functionality",
+        "status": "passed",
+        "score": 40,
+        "max_score": 40,
+        "duration_seconds": 0.1,
+        "detail": "SYNTHETIC demonstration value"
+      },
+      {
+        "name": "synthetic_algorithm",
+        "category": "algorithm",
+        "status": "passed",
+        "score": 30,
+        "max_score": 30,
+        "duration_seconds": 0.2,
+        "detail": "SYNTHETIC demonstration value"
+      },
+      {
+        "name": "synthetic_exceptions",
+        "category": "exceptions",
+        "status": "passed",
+        "score": 20,
+        "max_score": 20,
+        "duration_seconds": 0.1,
+        "detail": "SYNTHETIC demonstration value"
+      },
+      {
+        "name": "synthetic_speed",
+        "category": "performance",
+        "status": "passed",
+        "score": 10,
+        "max_score": 10,
+        "duration_seconds": 0.3,
+        "detail": "SYNTHETIC demonstration value"
+      },
+      {
+        "name": "memory",
+        "category": "performance",
+        "status": "skipped",
+        "score": null,
+        "max_score": 0,
+        "duration_seconds": null,
+        "detail": "Not measured"
+      }
+    ],
+    "score": 100,
+    "max_score": 100,
+    "planned_max_score": 100,
+    "pass_rate": 1.0,
+    "measured_tests": 4,
+    "skipped_tests": 1
+  },
+  "error_type": null,
+  "usage_source": "turn_final",
+  "warnings": [
+    "All values are synthetic"
+  ],
+  "artifact_path": "runs/demo-0-high-1/attempts/synthetic"
+}

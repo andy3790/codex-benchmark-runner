@@ -1,0 +1,15 @@
+[
+  {"name":"basic","category":"functionality","points":15,"input":{"numbers":[3,1,2]},"expected":{"sorted":[1,2,3],"sum":6,"median":2}},
+  {"name":"empty","category":"functionality","points":10,"input":{"numbers":[]},"expected":{"sorted":[],"sum":0,"median":null}},
+  {"name":"even_negative_duplicates","category":"algorithm","points":15,"input":{"numbers":[-4,2,2,10]},"expected":{"sorted":[-4,2,2,10],"sum":10,"median":2.0}},
+  {"name":"bounds","category":"algorithm","points":10,"input":{"numbers":[1000000000,-1000000000,7,7]},"expected":{"sorted":[-1000000000,7,7,1000000000],"sum":14,"median":7}},
+  {"name":"missing","category":"exceptions","points":5,"input":{},"expected":{"error":"invalid_input"}},
+  {"name":"wrong_container","category":"exceptions","points":5,"input":{"numbers":"123"},"expected":{"error":"invalid_input"}},
+  {"name":"reject_bool","category":"exceptions","points":5,"input":{"numbers":[true,1]},"expected":{"error":"invalid_input"}},
+  {"name":"reject_float","category":"exceptions","points":5,"input":{"numbers":[1.25]},"expected":{"error":"invalid_input"}},
+  {"name":"reject_range","category":"exceptions","points":5,"input":{"numbers":[1000000001]},"expected":{"error":"invalid_input"}},
+  {"name":"wrong_root","category":"exceptions","points":5,"input":[1,2],"expected":{"error":"invalid_input"}},
+  {"name":"malformed_json","category":"exceptions","points":5,"raw_input":"{invalid json","expected":{"error":"invalid_input"}},
+  {"name":"overlong","category":"exceptions","points":5,"generator":"overlong"},
+  {"name":"large_reverse","category":"performance","points":10,"generator":"reverse_large"}
+]

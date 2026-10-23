@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "C:\\Users\\SSAFY\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "-I",
+    "C:\\Users\\SSAFY\\Desktop\\AiTest\\tests\\fixtures\\fake_codex.py",
+    "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-47104f3fa329bc87\\df5c780311294b78acc50e2722da32e7\\project",
+    "mock-model-a",
+    "low"
+  ],
+  "stdin": "common frozen prompt.md",
+  "cwd": "C:\\Users\\SSAFY\\AppData\\Local\\Packages\\sandbox.{d7e5b11e-677c-488f-876a-507978367a4a}\\AC\\Temp\\codex-bench-test-workspaces\\mock-20261023T064436Z\\d62b201943de4e69ae48fca7d5959c32\\job-47104f3fa329bc87\\df5c780311294b78acc50e2722da32e7\\project"
+}
