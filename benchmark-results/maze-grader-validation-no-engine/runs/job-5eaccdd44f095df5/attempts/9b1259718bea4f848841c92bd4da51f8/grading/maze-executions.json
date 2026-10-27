@@ -1,0 +1,30 @@
+[
+  {
+    "batch": "generation",
+    "status": "skipped",
+    "duration_seconds": null,
+    "exit_code": null,
+    "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+  },
+  {
+    "batch": "search",
+    "status": "skipped",
+    "duration_seconds": null,
+    "exit_code": null,
+    "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+  },
+  {
+    "batch": "browser_namespace",
+    "status": "skipped",
+    "duration_seconds": null,
+    "exit_code": null,
+    "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+  },
+  {
+    "batch": "large_grid",
+    "status": "skipped",
+    "duration_seconds": null,
+    "exit_code": null,
+    "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+  }
+]

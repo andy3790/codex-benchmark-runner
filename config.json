@@ -1,7 +1,29 @@
 {
   "models": [
-    {"name": "gpt-6.1-sol", "reasoning_efforts": ["low", "medium", "high"]},
-    {"name": "gpt-6-luna", "reasoning_efforts": ["low", "medium", "high"]}
+    {
+      "name": "gpt-6.1-sol",
+      "reasoning_efforts": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    {
+      "name": "gpt-6-luna",
+      "reasoning_efforts": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    {
+      "name": "gpt-6.1-terra",
+      "reasoning_efforts": [
+        "low",
+        "medium",
+        "high"
+      ]
+    }
   ],
   "repetitions": 1,
   "mode": "sequential",
@@ -10,14 +32,16 @@
   "max_experiments": 12,
   "run_timeout_seconds": 900,
   "total_timeout_seconds": 7200,
-  "prompt_file": "prompt.md",
+  "prompt_file": "C:/Users/SSAFY/Desktop/AiTest/maze_prompt.md",
   "starter_dir": "starter",
   "output_dir": "benchmark-results",
   "codex_executable": "codex",
   "grader": {
-    "plugin_dir": "graders/sample",
+    "plugin_dir": "graders/maze",
     "test_timeout_seconds": 5,
     "timeout_seconds": 120,
-    "options": {"docker_image": "python:3.12-slim"}
+    "options": {
+      "docker_image": "node:22-bookworm-slim"
+    }
   }
 }

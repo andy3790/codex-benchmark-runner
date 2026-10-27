@@ -59,6 +59,24 @@ python tools/make_sample_report.py
 
 설치 없이 `python -m codex_bench`로 사용할 수 있습니다. 선택적으로 `python -m pip install -e .`를 실행하면 `codex-bench` 명령도 사용할 수 있습니다. Python 3.12가 여러 버전 중 하나로 설치된 Windows에서는 `py -3.12 -m codex_bench`를 사용해도 됩니다.
 
+### Windows에서 npm으로 설치한 Codex CLI
+
+`npm install -g @openai/codex`로 설치해 사용할 수 있습니다. Windows npm은 `codex.cmd`/`codex.ps1` 실행 래퍼를 만들지만, 실행기는 이 래퍼를 셸로 실행하지 않고 **같은 npm 패키지에 포함된 실제 `codex.exe`를 자동으로 찾습니다.** GUI의 Codex 실행 파일과 `config.json`의 `codex_executable`은 기본값 `codex`로 두면 됩니다. 직접 지정한 네이티브 실행 파일 경로도 계속 지원합니다.
+
+설치 후 새 터미널에서 다음 순서로 확인하세요. 기존 Codex 로그인은 그대로 사용하므로 이미 로그인했다면 두 번째 명령은 생략해도 됩니다. PowerShell에서는 `.cmd`를 명시하면 npm의 `.ps1` 실행 정책 문제를 피할 수 있습니다.
+
+```powershell
+codex.cmd --version
+codex.cmd login
+python -m codex_bench --doctor
+```
+
+GUI가 이미 열려 있었다면 프로그램을 다시 시작하고 **환경 진단**을 누릅니다. 진단의 `resolved_from`은 발견한 npm 래퍼, `executable`은 실제 실행할 네이티브 바이너리, `resolution: npm-native`는 자동 해석 결과입니다. CLI 설치 버전도 기록하며 PATH의 다른 Codex 설치로 조용히 대체하지 않습니다. npm의 관리 패키지 경로를 실행 프로세스에 전달하지만 인증 파일을 복사하거나 `CODEX_HOME`을 변경하지 않습니다.
+
+`Use the actual codex.exe/native binary, not a shell wrapper`는 이전 실행기의 npm 설치 인식 제한에서 발생하던 메시지이며, 현재 버전에서는 정상 npm 설치를 자동 처리합니다. 네이티브 선택적 의존성이 설치되지 않아 자동 검색에 실패하면 `npm install -g @openai/codex --include=optional`로 복구하거나 GUI에서 실제 `codex.exe`를 선택하세요. 임의의 사용자 정의 `.bat`/`.ps1` 실행은 지원하지 않습니다.
+
+설치·로그인은 [OpenAI 공식 CLI 문서](https://learn.chatgpt.com/docs/cli), Windows npm 설치는 [Windows 배포 문서](https://learn.chatgpt.com/docs/enterprise/windows-deployment)를 참고하세요.
+
 ## 설정
 
 모든 상대 경로는 **설정 파일이 있는 폴더**를 기준으로 해석합니다. JSON은 UTF-8, UTF-8 BOM을 모두 읽습니다. 프롬프트는 UTF-8로 읽어 BOM을 제거하고 줄바꿈을 LF로 고정한 공통 사본을 모든 프로세스의 stdin에 동일하게 전달합니다.
@@ -76,7 +94,7 @@ python tools/make_sample_report.py
 | `prompt_file` / `starter_dir` | `prompt.md` / `starter` |
 | `output_dir` | `benchmark-results`. 과제·설정이 바뀌면 새 폴더 사용 |
 | `scratch_dir` | 시스템 임시 디렉터리의 `codex-benchmark-workspaces`. 어떤 Git 저장소 아래에도 둘 수 없음 |
-| `codex_executable` | `codex`. 실제 네이티브 실행 파일 경로도 가능. `.cmd`, `.bat`, `.ps1` 래퍼는 거부 |
+| `codex_executable` | `codex`. Windows npm 래퍼는 패키지 내부 네이티브 실행 파일로 자동 해석. `codex.exe` 직접 지정도 가능 |
 | `isolation` | `restricted`. 아래의 권한 경계 참고 |
 | `max_output_bytes` | 프로세스 stdout+stderr 감시 한도 16 MiB. 폴링 사이 출력으로 소폭 초과 가능 |
 | `max_project_bytes` | 시작 파일/제출물 사본의 크기 한도 128 MiB. OS 디스크 할당량은 아님 |
@@ -129,6 +147,8 @@ python tools/make_sample_report.py
 
 ## 채점기 작성
 
+`maze_prompt.md`용 미로 과제 채점기는 `graders/maze`에 있습니다. 현재 설정 파일에 연결했으며, 상세 배점·자동 검증 범위·미검증 UI 항목은 [미로 채점기 설명](graders/maze/README.md)을 참고하세요. 제출 코드는 준비된 Docker Node 이미지에서만 실행합니다. 기존 결과물만 검사하려면 `python tools/grade_maze.py <프로젝트 폴더> --output <새 결과 폴더>`를 사용하면 됩니다. 이 명령은 모델을 호출하지 않습니다.
+
 인터페이스는 `codex_bench/grading.py`의 `Grader`, `GradeContext`, `TestResult`입니다. 플러그인 폴더의 `plugin.py`는 다음 함수를 내보냅니다. 폴더의 다른 데이터 파일은 `context.plugin_dir`로 읽습니다. 의존하는 보조 파일도 같은 폴더에 두면 실험 시작 전에 모두 고정됩니다.
 
 ```python
@@ -177,6 +197,6 @@ benchmark-results/
 
 단위/통합 테스트는 가짜 Codex 프로세스와 고정 JSONL로 수행합니다. 순차/병렬 실행, stdout/stderr, 실패·미지원, 한글 프롬프트, 중복 없는 토큰, 누락값, 프로세스 자식 종료, 시간 초과·중단, 고정 입력 변경 탐지, 채점 중 재개, 오프라인 보고서/HTML escaping/Docker 제한 명령을 검사합니다. 실사용 모델 또는 Docker 후보 컨테이너를 테스트에서 호출하지 않습니다. 보고서 생성기와 테스트의 합성 점수는 제품 기능 검증 점수가 아닙니다.
 
-개발 환경에서는 Windows에서 Python 3.11.9로 GUI 테스트를 포함한 74개 테스트를 통과했고, 설치된 Codex CLI `0.163.0-alpha.11.2`의 버전/도움말 및 6개 조합 dry-run을 확인했습니다. GUI는 실제 Tk 위젯을 생성해 설정 편집·저장, 1060×720 창에서 주요 버튼/결과/로그 표시, 이벤트 루프를 통한 모의 실행·결과 갱신, 중단·보고서 보존을 검사했습니다. 보고서의 정렬·검색 스크립트는 브라우저/네트워크 없이 Node로 검사했고, 합성 결과의 로컬 링크를 확인했습니다. 브라우저 도구의 로컬 접근 제한 때문에 HTML 화면 렌더링 확인은 완료하지 못했습니다. Python 3.12, 실제 모델 호출, 실제 Docker 컨테이너 실행, 플랫폼 샌드박스 정책의 종단 간 적용 여부는 이 개발 세션에서 실행하지 않았습니다. 명시적으로 요청한 경우에만 유료/계정 사용량이 발생하는 종단 간 시험을 수행해야 합니다.
+개발 환경에서는 Windows에서 Python 3.11.9로 GUI·미로 채점기를 포함한 104개 테스트를 통과했고, 설치된 Codex CLI `0.163.0-alpha.11.2`의 버전/도움말 및 6개 조합 dry-run을 확인했습니다. GUI는 실제 Tk 위젯을 생성해 설정 편집·저장, 1060×720 창에서 주요 버튼/결과/로그 표시, 이벤트 루프를 통한 모의 실행·결과 갱신, 중단·보고서 보존을 검사했습니다. 미로 채점기는 신뢰 가능한 Node fixture와 의도적인 오류 변형으로 검증했으며, Docker 엔진이 실행되지 않는 환경에서 동적 검사가 skipped로 남는 경로도 확인했습니다. 보고서의 정렬·검색 스크립트는 브라우저/네트워크 없이 Node로 검사했고, 합성 결과의 로컬 링크를 확인했습니다. 브라우저 도구의 로컬 접근 제한 때문에 HTML 화면 렌더링 확인은 완료하지 못했습니다. Python 3.12, 실제 모델 호출, 실제 Docker 컨테이너 실행, 플랫폼 샌드박스 정책의 종단 간 적용 여부는 이 개발 세션에서 실행하지 않았습니다. 명시적으로 요청한 경우에만 유료/계정 사용량이 발생하는 종단 간 시험을 수행해야 합니다.
 
 Codex 실행 옵션과 토큰 예시는 [OpenAI 공식 비대화형 실행 문서](https://learn.chatgpt.com/docs/non-interactive-mode), [CLI 명령 문서](https://learn.chatgpt.com/docs/developer-commands?surface=cli)를 따릅니다. 권한 프로필의 상속·우선순위·플랫폼 제한은 [공식 Permissions](https://learn.chatgpt.com/docs/permissions), [Windows sandbox](https://learn.chatgpt.com/docs/windows/windows-sandbox)에서 확인할 수 있습니다.

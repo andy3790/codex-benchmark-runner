@@ -1,0 +1,10 @@
+{
+  "plugin_dir": "C:\\Users\\SSAFY\\Desktop\\AiTest\\benchmark-results\\maze-grader-validation-no-engine\\private\\grader",
+  "submission": "C:\\Users\\SSAFY\\Desktop\\AiTest\\benchmark-results\\maze-grader-validation-no-engine\\runs\\job-5eaccdd44f095df5\\attempts\\9b1259718bea4f848841c92bd4da51f8\\submission",
+  "artifact_dir": "C:\\Users\\SSAFY\\Desktop\\AiTest\\benchmark-results\\maze-grader-validation-no-engine\\runs\\job-5eaccdd44f095df5\\attempts\\9b1259718bea4f848841c92bd4da51f8\\grading",
+  "result_file": "C:\\Users\\SSAFY\\Desktop\\AiTest\\benchmark-results\\maze-grader-validation-no-engine\\runs\\job-5eaccdd44f095df5\\attempts\\9b1259718bea4f848841c92bd4da51f8\\grading\\grade.json",
+  "test_timeout_seconds": 5,
+  "options": {
+    "docker_image": "node:22-bookworm-slim"
+  }
+}

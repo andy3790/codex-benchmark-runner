@@ -1,0 +1,19 @@
+{
+  "models": [
+    "saved-submission"
+  ],
+  "reasoning_efforts": [
+    "low"
+  ],
+  "prompt_file": "C:\\Users\\SSAFY\\Desktop\\AiTest\\maze_prompt.md",
+  "starter_dir": "C:\\Users\\SSAFY\\Desktop\\AiTest\\starter",
+  "output_dir": "C:\\Users\\SSAFY\\Desktop\\AiTest\\benchmark-results\\maze-grader-validation-no-engine",
+  "grader": {
+    "plugin_dir": "C:\\Users\\SSAFY\\Desktop\\AiTest\\graders\\maze",
+    "test_timeout_seconds": 5,
+    "timeout_seconds": 120,
+    "options": {
+      "docker_image": "node:22-bookworm-slim"
+    }
+  }
+}

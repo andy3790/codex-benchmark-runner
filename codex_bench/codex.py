@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+import os
+import platform
 import re
 import shutil
 import subprocess
@@ -10,21 +12,89 @@ from .config import Config, Job
 from .util import BenchError, utc_now
 
 
-def diagnose(executable: str) -> dict:
+def resolve_executable(executable: str) -> dict:
+    """Resolve Windows npm shims to their own package's native CLI, without a shell.
+
+    Do not silently fall back to another Codex installation later on PATH: that
+    could benchmark a different CLI version than the user selected.
+    """
     resolved = shutil.which(executable)
-    result = {"checked_at": utc_now(), "executable": resolved, "version": None,
-              "checks": {}, "errors": [], "warnings": []}
     if not resolved:
-        result["errors"].append(f"Codex executable not found: {executable}")
+        raise BenchError(f"Codex executable not found: {executable}")
+    path = Path(resolved)
+    info = {"executable": resolved, "resolved_from": resolved, "resolution": "direct"}
+    wrapper = path.suffix.lower() in {".cmd", ".bat", ".ps1", ".js"}
+    wrapper |= os.name == 'nt' and path.name.lower() == 'codex'
+    if not wrapper:
+        return info
+    if path.stem.lower() != 'codex':
+        raise BenchError(f"Unsupported shell wrapper: {path}. Select codex, an npm codex shim, or codex.exe.")
+    if path.name.lower() == 'codex.js' and path.parent.name.lower() == 'bin':
+        package = path.parent.parent
+    elif path.parent.name == '.bin':
+        package = path.parent.parent / '@openai' / 'codex'
+    else:
+        package = path.parent / 'node_modules' / '@openai' / 'codex'
+    package = package.resolve()
+    try:
+        metadata = json.loads((package / 'package.json').read_text(encoding='utf-8-sig'))
+    except (OSError, ValueError) as exc:
+        raise BenchError(f"Cannot locate the npm @openai/codex package for {path}. Select its native codex.exe in the GUI, or reinstall npm install -g @openai/codex --include=optional.") from exc
+    if not isinstance(metadata, dict) or metadata.get('name') != '@openai/codex':
+        raise BenchError(f"Unrecognized npm package for {path}; expected @openai/codex")
+    machine = platform.machine().lower()
+    targets = {'amd64': ('x64', 'x86_64'), 'x86_64': ('x64', 'x86_64'), 'x64': ('x64', 'x86_64'),
+               'arm64': ('arm64', 'aarch64'), 'aarch64': ('arm64', 'aarch64')}
+    if machine not in targets:
+        raise BenchError(f"Unsupported Windows architecture for npm Codex: {machine}. Select the native executable explicitly.")
+    arch, cpu = targets[machine]
+    platform_name = 'codex-win32-' + arch
+    triple = cpu + '-pc-windows-msvc'
+    # npm optional packages may be nested (current npm) or hoisted. Older
+    # releases bundled vendor/ directly in @openai/codex.
+    vendors = [package / 'node_modules' / '@openai' / platform_name / 'vendor',
+               package.parent / platform_name / 'vendor', package / 'vendor']
+    for vendor in vendors:
+        for folder in ('bin', 'codex'):
+            native = vendor / triple / folder / 'codex.exe'
+            if native.is_file():
+                info.update(executable=str(native.resolve()), resolution='npm-native',
+                            npm_package_root=str(package), npm_package_version=metadata.get('version'),
+                            environment={'CODEX_MANAGED_PACKAGE_ROOT': str(package), 'CODEX_MANAGED_BY_NPM': '1'})
+                sidecar = vendor / triple / 'path'
+                if sidecar.is_dir():
+                    info['prepend_path'] = [str(sidecar.resolve())]
+                return info
+    raise BenchError(f"npm Codex native binary is missing for {triple}. Reinstall with npm install -g @openai/codex --include=optional, or select an existing native codex.exe. Package: {package}")
+
+
+def execution_environment(diagnostics: dict, base: dict | None = None) -> dict:
+    env = dict(os.environ if base is None else base)
+    if diagnostics.get('resolution') == 'npm-native':
+        for key in ('CODEX_MANAGED_BY_NPM', 'CODEX_MANAGED_BY_PNPM', 'CODEX_MANAGED_BY_BUN', 'CODEX_MANAGED_BY_VITE_PLUS'):
+            env.pop(key, None)
+    env.update(diagnostics.get('environment', {}))
+    if diagnostics.get('prepend_path'):
+        key = next((key for key in env if key.upper() == 'PATH'), 'PATH')
+        env[key] = os.pathsep.join([*diagnostics['prepend_path'], env.get(key, '')])
+    return env
+
+
+def diagnose(executable: str) -> dict:
+    result = {"checked_at": utc_now(), "requested_executable": executable, "executable": None, "version": None,
+              "checks": {}, "errors": [], "warnings": []}
+    try:
+        result.update(resolve_executable(executable))
+    except BenchError as exc:
+        result['errors'].append(str(exc))
         return result
-    if Path(resolved).suffix.lower() in {".cmd", ".bat", ".ps1"}:
-        result["errors"].append("Use the actual codex.exe/native binary, not a shell wrapper")
-        return result
+    resolved = result['executable']
     for name, arguments in [("version", ["--version"]), ("root_help", ["--help"]), ("exec_help", ["exec", "--help"])]:
         try:
             proc = subprocess.run([resolved, *arguments], stdin=subprocess.DEVNULL, capture_output=True,
                                   text=True, encoding="utf-8", errors="replace", timeout=15,
-                                  creationflags=subprocess.CREATE_NO_WINDOW if __import__("os").name == "nt" else 0)
+                                  env=execution_environment(result),
+                                  creationflags=subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0)
             result["checks"][name] = {"exit_code": proc.returncode, "stdout": proc.stdout, "stderr": proc.stderr}
             if proc.returncode:
                 result["errors"].append(f"codex {arguments} exited {proc.returncode}")

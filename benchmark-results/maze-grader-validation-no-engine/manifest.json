@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "experiment_id": "70e1951ef6634280b0edb93c14dd4554",
+  "created_at": "2026-10-27T07:12:11.850384+00:00",
+  "runner_version": "1.0.0",
+  "fingerprint": "b3eb0bb9ff325b3760d65574fd9123d60432d0ce05d987c52e0d6987b48e8c60",
+  "starter_hashes": {
+    "README.md": "0d9b865ec88865e2da70d13e0582408f52a89dd7d2545f11def1d64ec9adb210"
+  },
+  "grader_hashes": {
+    "bridge.js": "3e379cd5f47e4a300b8f4b7d01b150554c48d3234d3eddf96b3d3f0596064df2",
+    "plugin.py": "8e160e109cab07faa608dd9302030cc190981f97108c65ea3976caecec3b352f",
+    "README.md": "e8bc198d17c2f1edb65df9a8d7b7afbe0f245dfdf82f527ab65a161393a59f1b"
+  },
+  "jobs": [
+    {
+      "id": "job-5eaccdd44f095df5",
+      "model": "saved-submission",
+      "effort": "low",
+      "repeat": 1
+    }
+  ],
+  "active_seconds": 0.9059999999590218,
+  "grading_only": true,
+  "real_model_calls": 0,
+  "source_submission": "C:\\Users\\SSAFY\\Desktop\\AiTest\\tests\\fixtures\\maze_reference",
+  "last_finished_at": "2026-10-27T07:12:12.792893+00:00"
+}

@@ -12,7 +12,7 @@ import uuid
 from pathlib import Path
 
 from . import __version__
-from .codex import build_command, classify_failure
+from .codex import build_command, classify_failure, execution_environment
 from .config import Config, Job
 from .events import parse_events
 from .process import run_process
@@ -158,7 +158,7 @@ def execute_job(cfg: Config, job: Job, diagnostics: dict, experiment_id: str,
         write_json(attempt / "result.json", result)
         command = (command_factory or build_command)(cfg, job, workspace, diagnostics)
         write_json(attempt / "command.json", {"argv": command, "stdin": "common frozen prompt.md", "cwd": str(workspace)})
-        generation_env = os.environ.copy()
+        generation_env = execution_environment(diagnostics)
         # Keep temporary shell writes within this workspace, while auth uses existing CODEX_HOME.
         (workspace / ".benchmark-tmp").mkdir(exist_ok=True)
         generation_env.update({"TEMP": str(workspace / ".benchmark-tmp"), "TMP": str(workspace / ".benchmark-tmp"),

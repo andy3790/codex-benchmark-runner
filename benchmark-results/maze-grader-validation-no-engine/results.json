@@ -1,0 +1,1065 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-27T07:12:12.800786+00:00",
+  "metadata": {
+    "schema_version": 1,
+    "experiment_id": "70e1951ef6634280b0edb93c14dd4554",
+    "created_at": "2026-10-27T07:12:11.850384+00:00",
+    "runner_version": "1.0.0",
+    "fingerprint": "b3eb0bb9ff325b3760d65574fd9123d60432d0ce05d987c52e0d6987b48e8c60",
+    "starter_hashes": {
+      "README.md": "0d9b865ec88865e2da70d13e0582408f52a89dd7d2545f11def1d64ec9adb210"
+    },
+    "grader_hashes": {
+      "bridge.js": "3e379cd5f47e4a300b8f4b7d01b150554c48d3234d3eddf96b3d3f0596064df2",
+      "plugin.py": "8e160e109cab07faa608dd9302030cc190981f97108c65ea3976caecec3b352f",
+      "README.md": "e8bc198d17c2f1edb65df9a8d7b7afbe0f245dfdf82f527ab65a161393a59f1b"
+    },
+    "jobs": [
+      {
+        "id": "job-5eaccdd44f095df5",
+        "model": "saved-submission",
+        "effort": "low",
+        "repeat": 1
+      }
+    ],
+    "active_seconds": 0.9059999999590218,
+    "grading_only": true,
+    "real_model_calls": 0,
+    "source_submission": "C:\\Users\\SSAFY\\Desktop\\AiTest\\tests\\fixtures\\maze_reference",
+    "last_finished_at": "2026-10-27T07:12:12.792893+00:00"
+  },
+  "results": [
+    {
+      "id": "job-5eaccdd44f095df5",
+      "model": "saved-submission (grading only)",
+      "effort": "not applicable",
+      "repeat": 1,
+      "attempt_id": "9b1259718bea4f848841c92bd4da51f8",
+      "started_at": "2026-10-27T07:12:11.872974+00:00",
+      "ended_at": "2026-10-27T07:12:12.781068+00:00",
+      "status": "succeeded",
+      "success": true,
+      "usage": {},
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "entry_index.html",
+            "category": "artifacts",
+            "status": "passed",
+            "score": 2,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "Verified by independent grader"
+          },
+          {
+            "name": "entry_maze-core.js",
+            "category": "artifacts",
+            "status": "passed",
+            "score": 2,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "Verified by independent grader"
+          },
+          {
+            "name": "readme_present",
+            "category": "documentation",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Verified by independent grader"
+          },
+          {
+            "name": "self_test_sources_present",
+            "category": "documentation",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Verified by independent grader"
+          },
+          {
+            "name": "local_asset_references",
+            "category": "artifacts",
+            "status": "passed",
+            "score": 2,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "Verified by independent grader"
+          },
+          {
+            "name": "no_literal_external_dependencies",
+            "category": "artifacts",
+            "status": "passed",
+            "score": 2,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "Verified by independent grader"
+          },
+          {
+            "name": "commonjs_api",
+            "category": "api",
+            "status": "skipped",
+            "score": null,
+            "max_score": 3,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "dfs_representation_and_boundaries",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 1.5,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "dfs_reciprocal_walls",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "dfs_degenerate_sizes",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 0.5,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "dfs_connectivity",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 3,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "dfs_perfect_maze",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 3,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "dfs_seed_reproducibility",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "dfs_loop_ratio",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 1.5,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "dfs_seeded_weights",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 1.5,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "prim_representation_and_boundaries",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 1.5,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "prim_reciprocal_walls",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "prim_degenerate_sizes",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 0.5,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "prim_connectivity",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 3,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "prim_perfect_maze",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 3,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "prim_seed_reproducibility",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "prim_loop_ratio",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 1.5,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "prim_seeded_weights",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 1.5,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "bfs_optimal_paths",
+            "category": "search",
+            "status": "skipped",
+            "score": null,
+            "max_score": 7,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "dijkstra_optimal_paths",
+            "category": "search",
+            "status": "skipped",
+            "score": null,
+            "max_score": 7,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "astar_optimal_paths",
+            "category": "search",
+            "status": "skipped",
+            "score": null,
+            "max_score": 7,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "bfs_actual_entered_cell_cost",
+            "category": "search",
+            "status": "skipped",
+            "score": null,
+            "max_score": 4,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "unreachable_contract",
+            "category": "edge_cases",
+            "status": "skipped",
+            "score": null,
+            "max_score": 3,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "same_start_end_contract",
+            "category": "edge_cases",
+            "status": "skipped",
+            "score": null,
+            "max_score": 3,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "solver_does_not_mutate_input",
+            "category": "state",
+            "status": "skipped",
+            "score": null,
+            "max_score": 4,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "valid_expansion_order",
+            "category": "search",
+            "status": "skipped",
+            "score": null,
+            "max_score": 3,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "solver_repeatability",
+            "category": "state",
+            "status": "skipped",
+            "score": null,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "window_mazecore_classic_script_api",
+            "category": "api",
+            "status": "skipped",
+            "score": null,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "large_grid_correctness_and_compute_budget",
+            "category": "performance",
+            "status": "skipped",
+            "score": null,
+            "max_score": 5,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "offline_browser_startup",
+            "category": "browser_ui",
+            "status": "skipped",
+            "score": null,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "No real browser interaction in this grader. Requires separate browser/manual verification; not inferred from source keywords."
+          },
+          {
+            "name": "controls_and_comparison_table",
+            "category": "browser_ui",
+            "status": "skipped",
+            "score": null,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "No real browser interaction in this grader. Requires separate browser/manual verification; not inferred from source keywords."
+          },
+          {
+            "name": "animation_pause_resume_step_cancel",
+            "category": "browser_ui",
+            "status": "skipped",
+            "score": null,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "No real browser interaction in this grader. Requires separate browser/manual verification; not inferred from source keywords."
+          },
+          {
+            "name": "responsive_canvas_and_color_legend",
+            "category": "browser_ui",
+            "status": "skipped",
+            "score": null,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "No real browser interaction in this grader. Requires separate browser/manual verification; not inferred from source keywords."
+          },
+          {
+            "name": "generation_responsiveness_and_stale_animation",
+            "category": "browser_ui",
+            "status": "skipped",
+            "score": null,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "No real browser interaction in this grader. Requires separate browser/manual verification; not inferred from source keywords."
+          },
+          {
+            "name": "generator_algorithm_identity",
+            "category": "manual_review",
+            "status": "skipped",
+            "score": null,
+            "max_score": 0,
+            "duration_seconds": null,
+            "detail": "Output invariants do not prove that DFS and Prim are genuinely different implementations; source review required."
+          },
+          {
+            "name": "astar_manhattan_heuristic_design",
+            "category": "manual_review",
+            "status": "skipped",
+            "score": null,
+            "max_score": 0,
+            "duration_seconds": null,
+            "detail": "Optimal output is verified; the use/admissibility of a Manhattan heuristic itself requires source review."
+          }
+        ],
+        "score": 10,
+        "max_score": 10,
+        "planned_max_score": 100.0,
+        "pass_rate": 1.0,
+        "measured_tests": 6,
+        "skipped_tests": 35
+      },
+      "grading_error": null,
+      "generation_seconds": null,
+      "grading_seconds": 0.8120000000344589,
+      "duration_seconds": 0.8120000000344589,
+      "artifact_path": "runs/job-5eaccdd44f095df5/attempts/9b1259718bea4f848841c92bd4da51f8",
+      "submission_hashes": {
+        "core.test.js": "832096d1fa226727f89c5c6ad97525b6c979b58397d820570bc26dbebf32b610",
+        "index.html": "2e2cbd0592a5cf39148c74b8e31d0d27eefb08b0f668e84e5a9a9303296c198b",
+        "maze-core.js": "6bbc01e511f65a01bbaab05869a862826220a8d345796f46a5b8491bdf4ea26a",
+        "README.md": "963e4a0ca607e2b7a417858a86c5140c7dab09ff84df8f50b70391e15a6da628"
+      },
+      "warnings": [
+        "Grading only: no model was called. Browser UI tests remain unmeasured."
+      ]
+    }
+  ],
+  "summary": [
+    {
+      "model": "saved-submission (grading only)",
+      "effort": "not applicable",
+      "runs": 1,
+      "statuses": {
+        "succeeded": 1
+      },
+      "error_types": {},
+      "metrics": {
+        "score": {
+          "n": 1,
+          "missing": 0,
+          "mean": 10,
+          "min": 10,
+          "max": 10,
+          "stddev": 0.0
+        },
+        "max_score": {
+          "n": 1,
+          "missing": 0,
+          "mean": 10,
+          "min": 10,
+          "max": 10,
+          "stddev": 0.0
+        },
+        "pass_rate": {
+          "n": 1,
+          "missing": 0,
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0,
+          "stddev": 0.0
+        },
+        "input_tokens": {
+          "n": 0,
+          "missing": 1,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "cached_input_tokens": {
+          "n": 0,
+          "missing": 1,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "output_tokens": {
+          "n": 0,
+          "missing": 1,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "reasoning_output_tokens": {
+          "n": 0,
+          "missing": 1,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "total_tokens": {
+          "n": 0,
+          "missing": 1,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "cache_ratio": {
+          "n": 0,
+          "missing": 1,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "reasoning_ratio": {
+          "n": 0,
+          "missing": 1,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "generation_seconds": {
+          "n": 0,
+          "missing": 1,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "grading_seconds": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.8120000000344589,
+          "min": 0.8120000000344589,
+          "max": 0.8120000000344589,
+          "stddev": 0.0
+        },
+        "duration_seconds": {
+          "n": 1,
+          "missing": 0,
+          "mean": 0.8120000000344589,
+          "min": 0.8120000000344589,
+          "max": 0.8120000000344589,
+          "stddev": 0.0
+        },
+        "score_per_1000_tokens": {
+          "n": 0,
+          "missing": 1,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "score_per_second": {
+          "n": 0,
+          "missing": 1,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        }
+      },
+      "categories": {
+        "artifacts": {
+          "n": 1,
+          "missing": 0,
+          "mean": 8,
+          "min": 8,
+          "max": 8,
+          "stddev": 0.0
+        },
+        "documentation": {
+          "n": 1,
+          "missing": 0,
+          "mean": 2,
+          "min": 2,
+          "max": 2,
+          "stddev": 0.0
+        },
+        "api": {
+          "n": 0,
+          "missing": 1,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "generation": {
+          "n": 0,
+          "missing": 1,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "search": {
+          "n": 0,
+          "missing": 1,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "edge_cases": {
+          "n": 0,
+          "missing": 1,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "state": {
+          "n": 0,
+          "missing": 1,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "performance": {
+          "n": 0,
+          "missing": 1,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "browser_ui": {
+          "n": 0,
+          "missing": 1,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        },
+        "manual_review": {
+          "n": 0,
+          "missing": 1,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "stddev": null
+        }
+      }
+    }
+  ],
+  "attempt_history": [
+    {
+      "id": "job-5eaccdd44f095df5",
+      "model": "saved-submission (grading only)",
+      "effort": "not applicable",
+      "repeat": 1,
+      "attempt_id": "9b1259718bea4f848841c92bd4da51f8",
+      "started_at": "2026-10-27T07:12:11.872974+00:00",
+      "ended_at": "2026-10-27T07:12:12.781068+00:00",
+      "status": "succeeded",
+      "success": true,
+      "usage": {},
+      "grade": {
+        "schema_version": 1,
+        "source": "independent_grader",
+        "tests": [
+          {
+            "name": "entry_index.html",
+            "category": "artifacts",
+            "status": "passed",
+            "score": 2,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "Verified by independent grader"
+          },
+          {
+            "name": "entry_maze-core.js",
+            "category": "artifacts",
+            "status": "passed",
+            "score": 2,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "Verified by independent grader"
+          },
+          {
+            "name": "readme_present",
+            "category": "documentation",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Verified by independent grader"
+          },
+          {
+            "name": "self_test_sources_present",
+            "category": "documentation",
+            "status": "passed",
+            "score": 1,
+            "max_score": 1,
+            "duration_seconds": null,
+            "detail": "Verified by independent grader"
+          },
+          {
+            "name": "local_asset_references",
+            "category": "artifacts",
+            "status": "passed",
+            "score": 2,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "Verified by independent grader"
+          },
+          {
+            "name": "no_literal_external_dependencies",
+            "category": "artifacts",
+            "status": "passed",
+            "score": 2,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "Verified by independent grader"
+          },
+          {
+            "name": "commonjs_api",
+            "category": "api",
+            "status": "skipped",
+            "score": null,
+            "max_score": 3,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "dfs_representation_and_boundaries",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 1.5,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "dfs_reciprocal_walls",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "dfs_degenerate_sizes",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 0.5,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "dfs_connectivity",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 3,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "dfs_perfect_maze",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 3,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "dfs_seed_reproducibility",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "dfs_loop_ratio",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 1.5,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "dfs_seeded_weights",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 1.5,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "prim_representation_and_boundaries",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 1.5,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "prim_reciprocal_walls",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "prim_degenerate_sizes",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 0.5,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "prim_connectivity",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 3,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "prim_perfect_maze",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 3,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "prim_seed_reproducibility",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "prim_loop_ratio",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 1.5,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "prim_seeded_weights",
+            "category": "generation",
+            "status": "skipped",
+            "score": null,
+            "max_score": 1.5,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "bfs_optimal_paths",
+            "category": "search",
+            "status": "skipped",
+            "score": null,
+            "max_score": 7,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "dijkstra_optimal_paths",
+            "category": "search",
+            "status": "skipped",
+            "score": null,
+            "max_score": 7,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "astar_optimal_paths",
+            "category": "search",
+            "status": "skipped",
+            "score": null,
+            "max_score": 7,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "bfs_actual_entered_cell_cost",
+            "category": "search",
+            "status": "skipped",
+            "score": null,
+            "max_score": 4,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "unreachable_contract",
+            "category": "edge_cases",
+            "status": "skipped",
+            "score": null,
+            "max_score": 3,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "same_start_end_contract",
+            "category": "edge_cases",
+            "status": "skipped",
+            "score": null,
+            "max_score": 3,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "solver_does_not_mutate_input",
+            "category": "state",
+            "status": "skipped",
+            "score": null,
+            "max_score": 4,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "valid_expansion_order",
+            "category": "search",
+            "status": "skipped",
+            "score": null,
+            "max_score": 3,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "solver_repeatability",
+            "category": "state",
+            "status": "skipped",
+            "score": null,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "window_mazecore_classic_script_api",
+            "category": "api",
+            "status": "skipped",
+            "score": null,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "large_grid_correctness_and_compute_budget",
+            "category": "performance",
+            "status": "skipped",
+            "score": null,
+            "max_score": 5,
+            "duration_seconds": null,
+            "detail": "Docker Linux engine/image unavailable; pre-pull the configured image"
+          },
+          {
+            "name": "offline_browser_startup",
+            "category": "browser_ui",
+            "status": "skipped",
+            "score": null,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "No real browser interaction in this grader. Requires separate browser/manual verification; not inferred from source keywords."
+          },
+          {
+            "name": "controls_and_comparison_table",
+            "category": "browser_ui",
+            "status": "skipped",
+            "score": null,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "No real browser interaction in this grader. Requires separate browser/manual verification; not inferred from source keywords."
+          },
+          {
+            "name": "animation_pause_resume_step_cancel",
+            "category": "browser_ui",
+            "status": "skipped",
+            "score": null,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "No real browser interaction in this grader. Requires separate browser/manual verification; not inferred from source keywords."
+          },
+          {
+            "name": "responsive_canvas_and_color_legend",
+            "category": "browser_ui",
+            "status": "skipped",
+            "score": null,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "No real browser interaction in this grader. Requires separate browser/manual verification; not inferred from source keywords."
+          },
+          {
+            "name": "generation_responsiveness_and_stale_animation",
+            "category": "browser_ui",
+            "status": "skipped",
+            "score": null,
+            "max_score": 2,
+            "duration_seconds": null,
+            "detail": "No real browser interaction in this grader. Requires separate browser/manual verification; not inferred from source keywords."
+          },
+          {
+            "name": "generator_algorithm_identity",
+            "category": "manual_review",
+            "status": "skipped",
+            "score": null,
+            "max_score": 0,
+            "duration_seconds": null,
+            "detail": "Output invariants do not prove that DFS and Prim are genuinely different implementations; source review required."
+          },
+          {
+            "name": "astar_manhattan_heuristic_design",
+            "category": "manual_review",
+            "status": "skipped",
+            "score": null,
+            "max_score": 0,
+            "duration_seconds": null,
+            "detail": "Optimal output is verified; the use/admissibility of a Manhattan heuristic itself requires source review."
+          }
+        ],
+        "score": 10,
+        "max_score": 10,
+        "planned_max_score": 100.0,
+        "pass_rate": 1.0,
+        "measured_tests": 6,
+        "skipped_tests": 35
+      },
+      "grading_error": null,
+      "generation_seconds": null,
+      "grading_seconds": 0.8120000000344589,
+      "duration_seconds": 0.8120000000344589,
+      "artifact_path": "runs/job-5eaccdd44f095df5/attempts/9b1259718bea4f848841c92bd4da51f8",
+      "submission_hashes": {
+        "core.test.js": "832096d1fa226727f89c5c6ad97525b6c979b58397d820570bc26dbebf32b610",
+        "index.html": "2e2cbd0592a5cf39148c74b8e31d0d27eefb08b0f668e84e5a9a9303296c198b",
+        "maze-core.js": "6bbc01e511f65a01bbaab05869a862826220a8d345796f46a5b8491bdf4ea26a",
+        "README.md": "963e4a0ca607e2b7a417858a86c5140c7dab09ff84df8f50b70391e15a6da628"
+      },
+      "warnings": [
+        "Grading only: no model was called. Browser UI tests remain unmeasured."
+      ]
+    }
+  ]
+}
