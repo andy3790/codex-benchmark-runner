@@ -1,10 +1,39 @@
+# Python and packaging
 __pycache__/
 *.py[cod]
 .venv/
-benchmark-results/
-benchmark-results-mock/
-.test-data/
-.tools/
+venv/
 *.egg-info/
 build/
 dist/
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Local settings and authentication (public config.json remains tracked)
+*.local.json
+.env
+.env.*
+!.env.example
+.codex/
+.agents/
+.aws/
+.ssh/
+.npmrc
+
+# Generated runs, external tools, and disposable test data
+/benchmark-results/
+/benchmark-results-*/
+/.test-data/
+/.tools/
+node_modules/
+
+# Editor and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
