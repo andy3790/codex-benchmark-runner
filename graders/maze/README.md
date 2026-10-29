@@ -4,13 +4,13 @@
 
 ## 사용법
 
-현재 `config.json`의 프롬프트 설정을 유지하면서 채점기를 `graders/maze`, 이미지를 `node:22-bookworm-slim`으로 연결했습니다. 최초 이미지 준비는 사용자가 다음 명령으로 할 수 있습니다. 실행기는 이미지를 자동 다운로드하지 않습니다.
+기본 공개 `config.json`은 `maze_prompt.md`, 채점기 `graders/maze`, 이미지 `node:22-bookworm-slim`을 연결합니다. 한 조합 예시는 `examples/config.maze-sol-low.json`에 있습니다. 최초 이미지 준비는 사용자가 다음 명령으로 할 수 있습니다. 실행기는 이미지를 자동 다운로드하지 않습니다.
 
 ```powershell
 docker pull node:22-bookworm-slim
 ```
 
-이후 기존 GUI 또는 CLI에서 실험을 실행하면 제출물마다 이 채점기가 적용됩니다. 기존 결과와 섞이지 않게 새 결과 폴더를 지정하세요. 이 개발 과정에서는 실제 모델 벤치마크를 실행하지 않았습니다.
+이후 GUI 또는 CLI에서 실험을 실행하면 제출물마다 이 채점기가 적용됩니다. 기존 결과와 섞이지 않게 새 결과 폴더를 지정하세요. 기존 실제 단일 실행의 측정 범위와 한계는 [검증 기록](../../docs/validation.md)에 있습니다.
 
 이미 생성한 프로젝트는 모델을 다시 호출하지 않고 단독으로 채점할 수 있습니다.
 
@@ -66,7 +66,7 @@ Node의 browser namespace 검사는 DOM 없는 VM 호환성 검사이며 Chrome�
 
 고정된 `plugin.py`와 `bridge.js`는 제출 폴더에 복사하지 않습니다. 제출물 하나만 `/submission`에 읽기 전용으로 마운트하고 Docker 네트워크/루트 쓰기/권한을 제한합니다. 테스트 입력과 **정답 없는 호출 어댑터**만 stdin/명령 인수로 주고, 기대값과 점수 계산은 호스트에 둡니다. 기존 workspace restricted 정책으로 개발 과정에서도 채점기 읽기를 차단하세요.
 
-4개 배치(generation, search, browser_namespace, large_grid)의 stdout/stderr와 원본 반환값은 `grading/codex-bench-*/`에 보존합니다. `maze-executions.json`에는 배치 소요 시간, `maze-compute-times.json`에는 함수별 ms가 기록됩니다. 컨테이너/JSON/API 오류는 실패이며, Docker 엔진/이미지가 없는 등 지원되지 않는 실행 환경만 미검증입니다.
+4개 배치(generation, search, browser_namespace, large_grid)의 stdout/stderr와 채점에 전달한 반환값은 `grading/codex-bench-*/`에 보존합니다. 대형 격자 배치는 정확성 검사에 필요한 필드만 반환하며, 불필요한 애니메이션 기록과 입력 사본은 전송하지 않습니다. 1MiB 출력 제한과 실제 함수 호출 대상은 그대로 유지합니다. `maze-executions.json`에는 배치 소요 시간, `maze-compute-times.json`에는 함수별 ms가 기록됩니다. 컨테이너/JSON/API 오류는 실패이며, Docker 엔진/이미지가 없는 등 지원되지 않는 실행 환경만 미검증입니다.
 
 채점기 자체 검증:
 

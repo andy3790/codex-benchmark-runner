@@ -54,7 +54,7 @@ class BenchmarkController:
                 report = simulation.output / "report.html"
             else:
                 log("Codex 버전과 도움말을 진단합니다. 이 단계에서는 모델을 호출하지 않습니다.")
-                diagnostics = diagnose(cfg.codex)
+                diagnostics = diagnose(cfg.codex, config=cfg)
                 if cfg.isolation == "restricted" and diagnostics.get("permission_profiles") is False:
                     diagnostics["errors"].append("restricted 격리에는 Codex CLI 0.138.0 이상이 필요합니다")
                 self.events.put(("diagnostics", diagnostics))

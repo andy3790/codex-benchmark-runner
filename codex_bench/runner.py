@@ -178,6 +178,15 @@ def execute_job(cfg: Config, job: Job, diagnostics: dict, experiment_id: str,
         result.update({"exit_code": process.exit_code, "generation_seconds": process.duration_seconds,
                        "generation_ended_at": utc_now(), "error_type": error_type,
                        "process_error": process.error, "generation_finished": True, "status": "grading"})
+        if error_type:
+            messages = [line.strip() for line in stderr.splitlines() if line.strip()]
+            message = next((line for line in messages if line.lower().startswith('error:')), '')
+            if not message:
+                message = next((line for line in messages if ' ERROR ' in line), '')
+            if not message:
+                message = next((line for line in messages if not line.lower().startswith(('warning:', 'warn:'))
+                                and ' WARN ' not in line), '')
+            result['error_summary'] = (process.error or message or str(parsed.get('errors') or error_type))[:400]
         if parsed["malformed_lines"]:
             result["warnings"].append("Non-JSON stdout lines preserved; usage may be incomplete")
         try:
@@ -287,6 +296,9 @@ def run_benchmark(cfg: Config, diagnostics: dict, *, cancel_event: threading.Eve
                         complete = sum(r["status"] in TERMINAL for r in rows)
                         failed = sum(r["status"] in TERMINAL - {"succeeded"} for r in rows)
                         log(f"DONE {job.model} / {job.effort}: {result['status']} | complete {complete}/{len(rows)} | failed {failed}")
+                        reason = result.get('error_summary') or result.get('process_error') or result.get('grading_error')
+                        if reason:
+                            log('  Reason: ' + str(reason)[:400])
                         write_reports(cfg.output, rows, manifest)
                         progress(rows)
                     if time.monotonic() - last_update >= 30:

@@ -10,6 +10,13 @@ from typing import Any
 from .util import BenchError, digest, is_within, read_json, tree_hash
 
 
+def default_config_path(directory: Path | None = None) -> Path:
+    """Keep machine-specific settings out of the shared configuration."""
+    root = Path.cwd() if directory is None else Path(directory)
+    local = root / 'config.local.json'
+    return local if local.is_file() else root / 'config.json'
+
+
 @dataclass(frozen=True)
 class Job:
     id: str

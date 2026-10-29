@@ -1,0 +1,30 @@
+{
+  "models": [
+    {
+      "name": "gpt-6.1-sol",
+      "reasoning_efforts": [
+        "low",
+        "high"
+      ]
+    }
+  ],
+  "repetitions": 1,
+  "mode": "sequential",
+  "isolation": "restricted",
+  "max_workers": 2,
+  "max_experiments": 4,
+  "run_timeout_seconds": 900,
+  "total_timeout_seconds": 7200,
+  "prompt_file": "../prompt.md",
+  "starter_dir": "../starter",
+  "output_dir": "../benchmark-results/sample-run-001",
+  "codex_executable": "codex",
+  "grader": {
+    "plugin_dir": "../graders/sample",
+    "test_timeout_seconds": 5,
+    "timeout_seconds": 120,
+    "options": {
+      "docker_image": "python:3.12-slim"
+    }
+  }
+}

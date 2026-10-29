@@ -36,6 +36,9 @@ class TrustedFixtureExecutor:
         request = {**payload, 'root': str(self.submission)}
         process = subprocess.run([shutil.which('node'), *arguments[1:]], input=json.dumps(request).encode(),
                                  capture_output=True, timeout=15)
+        if len(process.stdout) + len(process.stderr) > 1024 * 1024:
+            return {'status': 'error', 'stdout': '', 'stderr': '', 'detail': 'output_limit',
+                    'duration_seconds': 0.1, 'exit_code': None}
         return {'status': 'ok' if process.returncode == 0 else 'error',
                 'stdout': process.stdout.decode('utf-8', errors='replace'),
                 'stderr': process.stderr.decode('utf-8', errors='replace'), 'detail': '',

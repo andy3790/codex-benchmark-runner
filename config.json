@@ -32,9 +32,9 @@
   "max_experiments": 12,
   "run_timeout_seconds": 900,
   "total_timeout_seconds": 7200,
-  "prompt_file": "C:/Users/SSAFY/Desktop/AiTest/maze_prompt.md",
+  "prompt_file": "maze_prompt.md",
   "starter_dir": "starter",
-  "output_dir": "benchmark-results",
+  "output_dir": "benchmark-results/maze-run-001",
   "codex_executable": "codex",
   "grader": {
     "plugin_dir": "graders/maze",

@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 
 from .codex import build_command, diagnose
-from .config import load_config
+from .config import default_config_path, load_config
 from .report import write_reports
 from .runner import OutputLock, read_results, run_benchmark
 from .util import BenchError, read_json
@@ -18,13 +18,15 @@ def main(argv=None) -> int:
         if hasattr(stream, "reconfigure"):
             stream.reconfigure(errors="backslashreplace")
     parser = argparse.ArgumentParser(description="Resumable local Codex CLI benchmarks. No API key required.")
-    parser.add_argument("--config", type=Path, default=Path("config.json"))
+    parser.add_argument("--config", type=Path, help="Settings file (default: config.local.json if present, otherwise config.json)")
     action = parser.add_mutually_exclusive_group()
     action.add_argument("--gui", action="store_true", help="Open the desktop GUI (no model calls on startup)")
     action.add_argument("--dry-run", action="store_true", help="Show combinations/argv without model calls or output writes")
     action.add_argument("--doctor", action="store_true", help="Inspect local CLI version/help without model calls")
     action.add_argument("--report-only", action="store_true", help="Regenerate reports from saved results without model calls")
     args = parser.parse_args(argv)
+    if args.config is None:
+        args.config = default_config_path()
     try:
         if args.gui:
             try:
@@ -39,7 +41,7 @@ def main(argv=None) -> int:
                 write_reports(cfg.output, read_results(cfg), metadata)
             print(cfg.output / "report.html")
             return 0
-        diagnostics = diagnose(cfg.codex)
+        diagnostics = diagnose(cfg.codex, config=cfg)
         if cfg.isolation == "restricted" and diagnostics.get("permission_profiles") is False:
             diagnostics["errors"].append("restricted isolation requires Codex permission profiles (CLI >= 0.138.0); no automatic weakening of isolation")
         if args.doctor:

@@ -102,7 +102,7 @@ class GuiControllerTests(unittest.TestCase):
 
     def test_cannot_start_second_operation_while_busy(self):
         release = threading.Event()
-        def hold(_):
+        def hold(_, **kwargs):
             release.wait(3)
             return DIAGNOSTICS
         try:

@@ -1,0 +1,15 @@
+include README.md CONTRIBUTING.md .editorconfig .gitattributes .gitignore
+include config.json prompt.md maze_prompt.md launch_gui.pyw
+graft codex_bench
+graft docs
+graft examples
+graft graders
+graft starter
+graft tests
+graft tools
+prune .git
+prune .tools
+prune .test-data
+prune benchmark-results
+prune benchmark-results-mock
+global-exclude __pycache__ *.py[cod] *.local.json .DS_Store Thumbs.db

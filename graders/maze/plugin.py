@@ -499,7 +499,7 @@ def grade(submission: Path, context: GradeContext) -> dict:
         for search in ALGORITHMS:
             perf_ops.append({'id': 'large_' + algorithm + '_' + search, 'kind': 'solve', 'maze_id': 'large_' + algorithm,
                              'options': {'algorithm': search, 'start': 0, 'end': 6399}})
-    performance = runtime.batch('large_grid', perf_ops) if runtime else {op['id']: {'status': 'error', 'detail': 'maze-core.js missing'} for op in perf_ops}
+    performance = runtime.batch('large_grid', perf_ops, compact=True) if runtime else {op['id']: {'status': 'error', 'detail': 'maze-core.js missing'} for op in perf_ops}
     def check_performance(op, row):
         duration = row.get('duration_ms')
         require(isinstance(duration, (int, float)) and not isinstance(duration, bool) and math.isfinite(duration) and 0 <= duration <= 2000,

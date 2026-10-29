@@ -66,9 +66,20 @@ if (core && response.api) {
       } else {
         throw Error('Unknown trusted operation');
       }
-      result.value = clone(value);
+      // Large-grid generation may include thousands of animation snapshots.
+      // Transfer only the fields inspected by the independent oracles in that
+      // batch; keep the complete maze in `stored` for the actual solver call.
+      let reported = value;
+      if (request.compact && value && typeof value === 'object' && !Array.isArray(value)) {
+        reported = op.kind === 'generate' ? {
+          width: value.width, height: value.height,
+          cells: Array.isArray(value.cells) ? value.cells.map(cell =>
+            cell && typeof cell === 'object' ? {walls: cell.walls, cost: cell.cost} : cell) : value.cells
+        } : {found: value.found, path: value.path, visitedOrder: value.visitedOrder, cost: value.cost};
+      }
+      result.value = clone(reported);
       if (op.kind === 'solve') {
-        result.input_after = clone(input);
+        if (!request.compact) result.input_after = clone(input);
         result.unchanged = before === stringify(input);
       }
       result.ok = true;

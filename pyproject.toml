@@ -6,8 +6,13 @@ build-backend = "setuptools.build_meta"
 name = "codex-benchmark-runner"
 version = "1.0.0"
 description = "Local, resumable Codex CLI benchmark runner with independent grading"
+readme = "README.md"
 requires-python = ">=3.11"
 dependencies = []
+
+[project.urls]
+Repository = "https://github.com/andy3790/codex-benchmark-runner"
+Issues = "https://github.com/andy3790/codex-benchmark-runner/issues"
 
 [project.scripts]
 codex-bench = "codex_bench.cli:main"

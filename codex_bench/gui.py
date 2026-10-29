@@ -13,6 +13,7 @@ from pathlib import Path
 from tkinter import filedialog, messagebox, ttk
 from tkinter.scrolledtext import ScrolledText
 
+from .config import default_config_path
 from .gui_controller import BenchmarkController
 from .gui_model import ConfigDocument
 from .runner import TERMINAL, read_results
@@ -521,8 +522,10 @@ class BenchmarkApp:
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Codex Benchmark Runner desktop GUI")
-    parser.add_argument("--config", type=Path, default=Path("config.json"))
+    parser.add_argument("--config", type=Path, help="Settings file (default: config.local.json if present, otherwise config.json)")
     args = parser.parse_args(argv)
+    if args.config is None:
+        args.config = default_config_path()
     try:
         root = tk.Tk()
     except tk.TclError as exc:

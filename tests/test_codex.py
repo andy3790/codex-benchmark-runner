@@ -1,4 +1,5 @@
 import tempfile
+import tomllib
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -13,8 +14,11 @@ class CodexTests(unittest.TestCase):
             cfg = setup_experiment(Path(directory))
             command = build_command(cfg, cfg.jobs[0], Path(directory) / "project", DIAGNOSTICS)
             self.assertIn("--json", command)
-            self.assertIn('permissions.benchmark.extends=":workspace"', command)
-            self.assertIn('permissions.benchmark.filesystem.":root"="deny"', command)
+            option = next(value for value in command if value.startswith('permissions='))
+            profile = tomllib.loads(option)['permissions']['benchmark']
+            self.assertEqual(profile['extends'], ':workspace')
+            self.assertEqual(profile['filesystem'][':root'], 'deny')
+            self.assertEqual(profile['filesystem'][':workspace_roots'], {'.': 'write'})
             self.assertNotIn("--sandbox", command)
             self.assertIn('approval_policy="never"', command)
             self.assertIn('model_reasoning_effort="low"', command)
@@ -57,3 +61,8 @@ class CodexTests(unittest.TestCase):
         self.assertEqual(classify_failure(1, parsed, "401 unauthorized", None), "authentication")
         self.assertEqual(classify_failure(1, parsed, "rate limit", None), "rate_limit")
         self.assertEqual(classify_failure(0, {}, "", None), "incomplete_events")
+        self.assertEqual(classify_failure(1, {}, 'Error loading config.toml: FilesystemPermissionToml in permissions', None), 'configuration_error')
+        self.assertEqual(classify_failure(1, {}, 'WARN Shell snapshot not supported yet for PowerShell\nError: MXC sandbox SYSTEMROOT missing', None), 'sandbox_error')
+        self.assertIsNone(classify_failure(0, parsed, 'WARN Shell snapshot not supported yet for PowerShell', None))
+        self.assertEqual(classify_failure(0, {'completed_event': False}, 'WARN not supported', None), 'incomplete_events')
+        self.assertEqual(classify_failure(0, {'errors': ['unknown model']}, '', None), 'unsupported_combination')
