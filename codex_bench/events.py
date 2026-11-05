@@ -35,11 +35,32 @@ def combine(items: list[dict]) -> dict:
 
 def parse_events(path: Path) -> dict:
     turns, deltas, cumulative = [], [], None
-    seen, turn_ids = set(), set()
+    seen, turns_by_id, conflicting_fields = set(), {}, set()
     malformed = 0
     errors, warnings, observations = [], [], []
     final, thread_id, current_turn, completed = "", None, None, False
     current_index = 0
+
+    def record_turn(key, usage):
+        values = normalize(usage)
+        if key is None or key not in turns_by_id:
+            turns.append(values)
+            if key is not None:
+                turns_by_id[key] = values
+            return
+        previous = turns_by_id[key]
+        for field, value in values.items():
+            # Replays can fill missing metrics, but conflicting observations stay
+            # unknown even if another replay later repeats one of those values.
+            if value is None or (key, field) in conflicting_fields:
+                continue
+            if previous[field] is None:
+                previous[field] = value
+            elif previous[field] != value:
+                previous[field] = None
+                conflicting_fields.add((key, field))
+                warnings.append(f"Conflicting {field} for turn {key!r}; value left unknown")
+
     for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
         if not line.strip():
             continue
@@ -50,7 +71,7 @@ def parse_events(path: Path) -> dict:
         except (ValueError, TypeError):
             malformed += 1
             continue
-        # Only event IDs are deduplicated. Identical usage in distinct turns is legitimate.
+        # Deduplicate event IDs first. Identical usage in distinct turns is legitimate.
         event_id = event.get("event_id")
         if event_id is not None:
             if event_id in seen:
@@ -84,20 +105,13 @@ def parse_events(path: Path) -> dict:
             continue
         if not isinstance(usage, dict):
             if kind == "turn.completed":
-                completed = True
-                turns.append(normalize({}))
+                record_turn(event.get("turn_id", current_turn), {})
             continue
         scope = event.get("usage_scope", usage.get("scope"))
         if kind in {"session.completed", "usage.total"} or scope in {"cumulative", "total", "session"}:
             cumulative = normalize(usage)
         elif kind == "turn.completed":
-            completed = True
-            key = event.get("turn_id", current_turn)
-            if key is not None and key in turn_ids:
-                continue
-            if key is not None:
-                turn_ids.add(key)
-            turns.append(normalize(usage))
+            record_turn(event.get("turn_id", current_turn), usage)
         elif kind == "usage.delta" or scope in {"delta", "incremental"}:
             deltas.append(normalize(usage))
         else:

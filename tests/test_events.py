@@ -36,6 +36,74 @@ class EventTests(unittest.TestCase):
         self.assertEqual(parsed["usage"]["input_tokens"], 20)
         self.assertIsNone(parsed["usage"]["total_tokens"])
 
+    def test_same_turn_missing_usage_replay_preserves_or_completes_usage(self):
+        usage = {"input_tokens": 10, "cached_input_tokens": 4, "output_tokens": 2, "reasoning_output_tokens": 1}
+        for missing_first in (False, True):
+            for via_started in (False, True):
+                for missing in ({}, {"usage": None}, {"usage": {}}):
+                    with self.subTest(missing_first=missing_first, via_started=via_started, missing=missing):
+                        common = {"type": "turn.completed", **({} if via_started else {"turn_id": "t1"})}
+                        known, absent = {**common, "usage": usage}, {**common, **missing}
+                        events = [{"type": "turn.started", "turn_id": "t1"}] if via_started else []
+                        events.extend([absent, known] if missing_first else [known, absent])
+                        parsed = self.parse(events)
+                        self.assertEqual(parsed["usage"], {**usage, "total_tokens": 12})
+                        self.assertEqual(parsed["usage_source"], "turn_final")
+                        self.assertTrue(parsed["completed_event"])
+                        self.assertEqual(parsed["warnings"], [])
+
+    def test_duplicate_turns_do_not_hide_a_different_turn_with_missing_usage(self):
+        known = {"type": "turn.completed", "turn_id": "t1", "usage": {"input_tokens": 10, "output_tokens": 2}}
+        parsed = self.parse([known, {"type": "turn.completed", "turn_id": "t1"},
+                             {"type": "turn.completed", "turn_id": "t2"}, known])
+        self.assertTrue(all(value is None for value in parsed["usage"].values()))
+        self.assertEqual(parsed["usage_source"], "turn_final")
+
+    def test_identical_usage_in_distinct_turns_is_counted_once_per_turn(self):
+        first = {"type": "turn.completed", "turn_id": "t1", "usage": {"input_tokens": 10, "output_tokens": 2}}
+        second = {**first, "turn_id": "t2"}
+        parsed = self.parse([first, second, first, {"type": "turn.completed", "turn_id": "t2"}])
+        self.assertEqual(parsed["usage"]["input_tokens"], 20)
+        self.assertEqual(parsed["usage"]["output_tokens"], 4)
+        self.assertEqual(parsed["usage"]["total_tokens"], 24)
+
+    def test_same_turn_partial_usage_is_completed_without_adding_values(self):
+        parsed = self.parse([{"type": "turn.completed", "turn_id": "t1", "usage": {"input_tokens": 10}},
+                             {"type": "turn.completed", "turn_id": "t1", "usage": {"input_tokens": 10, "output_tokens": 2}}])
+        self.assertEqual(parsed["usage"]["total_tokens"], 12)
+        self.assertIsNone(parsed["usage"]["cached_input_tokens"])
+        self.assertEqual(parsed["warnings"], [])
+
+    def test_conflicting_turn_usage_remains_unknown_after_more_replays(self):
+        original = {"type": "turn.completed", "turn_id": "t1", "usage": {"input_tokens": 10, "output_tokens": 2}}
+        conflict = {**original, "usage": {"input_tokens": 12, "output_tokens": 2}}
+        for events in ([original, conflict, original], [conflict, original, conflict]):
+            with self.subTest(events=events):
+                parsed = self.parse(events)
+                self.assertIsNone(parsed["usage"]["input_tokens"])
+                self.assertIsNone(parsed["usage"]["total_tokens"])
+                self.assertEqual(parsed["usage"]["output_tokens"], 2)
+                self.assertEqual(parsed["warnings"], ["Conflicting input_tokens for turn 't1'; value left unknown"])
+
+    def test_replayed_turns_keep_cumulative_over_turn_over_delta_precedence(self):
+        events = [{"type": "usage.delta", "usage": {"input_tokens": 1, "output_tokens": 1}},
+                  {"type": "turn.completed", "turn_id": "t1"},
+                  {"type": "turn.completed", "turn_id": "t1", "usage": {"input_tokens": 10, "output_tokens": 2}}]
+        parsed = self.parse(events)
+        self.assertEqual(parsed["usage"]["total_tokens"], 12)
+        self.assertEqual(parsed["usage_source"], "turn_final")
+        events.extend([{"type": "usage.total", "usage": {"input_tokens": 30, "output_tokens": 4}},
+                       {"type": "turn.completed", "turn_id": "t1"}])
+        parsed = self.parse(events)
+        self.assertEqual(parsed["usage"]["total_tokens"], 34)
+        self.assertEqual(parsed["usage_source"], "session_cumulative")
+
+    def test_replayed_event_id_does_not_change_turn_usage(self):
+        event = {"type": "turn.completed", "event_id": "done", "turn_id": "t1", "usage": {"input_tokens": 10, "output_tokens": 2}}
+        parsed = self.parse([event, {**event, "usage": {"input_tokens": 999, "output_tokens": 999}}])
+        self.assertEqual(parsed["usage"]["total_tokens"], 12)
+        self.assertEqual(parsed["warnings"], [])
+
     def test_explicit_deltas_deduplicate_event_id(self):
         event = {"type": "usage.delta", "event_id": "x", "usage": {"input_tokens": 10, "output_tokens": 2}}
         parsed = self.parse([event, event, {**event, "event_id": "y"}])
