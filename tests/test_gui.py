@@ -55,6 +55,63 @@ class GuiSmokeTests(unittest.TestCase):
         self.assertEqual(self.app.preview().raw["repetitions"], 2)
         self.assertIn("GUI 편집", self.app.preview().prompt)
 
+    def test_browse_prompt_then_external_change_or_deletion_blocks_save(self):
+        target = self.cfg.path.parent / "selected.md"
+        config_before = self.cfg.path.read_bytes()
+        original_before = self.cfg.prompt_path.read_bytes()
+        for deleted in (False, True):
+            with self.subTest(deleted=deleted):
+                target.write_text("선택한 내용\n", encoding="utf-8")
+                with patch("codex_bench.gui.filedialog.askopenfilename", return_value=str(target)):
+                    self.app.browse("prompt_file", "file")
+                self.assertEqual(self.app._prompt(), "선택한 내용\n")
+                self.app.prompt.insert("end", "GUI 편집")
+                if deleted:
+                    target.unlink()
+                else:
+                    target.write_text("external edit", encoding="utf-8")
+                with patch("codex_bench.gui.messagebox.showerror") as error:
+                    self.assertFalse(self.app.save())
+                error.assert_called_once()
+                self.assertEqual(self.cfg.path.read_bytes(), config_before)
+                self.assertEqual(self.cfg.prompt_path.read_bytes(), original_before)
+                if deleted:
+                    self.assertFalse(target.exists())
+                else:
+                    self.assertEqual(target.read_text(encoding="utf-8"), "external edit")
+
+    def test_browse_prompt_edit_and_save_roundtrip(self):
+        target = self.cfg.path.parent / "selected.md"
+        target.write_bytes("선택한 내용\r\n".encode("utf-8-sig"))
+        with patch("codex_bench.gui.filedialog.askopenfilename", return_value=str(target)):
+            self.app.browse("prompt_file", "file")
+        self.assertEqual(self.app._prompt(), "선택한 내용\n")
+        self.app.prompt.insert("end", "GUI 편집\n")
+        self.assertTrue(self.app.save())
+        self.assertEqual(self.app.preview().prompt_path, target)
+        self.assertEqual(target.read_bytes(), "선택한 내용\nGUI 편집\n".encode("utf-8"))
+        before = target.read_bytes(), self.cfg.path.read_bytes()
+        self.assertTrue(self.app.save())
+        self.assertEqual((target.read_bytes(), self.cfg.path.read_bytes()), before)
+
+    def test_cancel_prompt_browser_preserves_selection_and_change_detection(self):
+        target = self.cfg.path.parent / "selected.md"
+        target.write_text("selected content", encoding="utf-8")
+        with patch("codex_bench.gui.filedialog.askopenfilename", return_value=str(target)):
+            self.app.browse("prompt_file", "file")
+        self.app.prompt.insert("end", " GUI edit")
+        before = self.app._prompt(), self.app.variables["prompt_file"].get()
+        target.write_text("external edit", encoding="utf-8")
+        with patch("codex_bench.gui.filedialog.askopenfilename", return_value=""), \
+             patch.object(self.app.document, "select_prompt") as select:
+            self.app.browse("prompt_file", "file")
+        select.assert_not_called()
+        self.assertEqual((self.app._prompt(), self.app.variables["prompt_file"].get()), before)
+        with patch("codex_bench.gui.messagebox.showerror") as error:
+            self.assertFalse(self.app.save())
+        error.assert_called_once()
+        self.assertEqual(target.read_text(encoding="utf-8"), "external edit")
+
     def test_busy_controls_and_missing_metrics(self):
         self.app._set_busy(True)
         self.assertEqual(str(self.app.variables["mode"].get()), "sequential")

@@ -269,7 +269,7 @@ class BenchmarkApp:
         if name:
             try:
                 if key == "prompt_file":
-                    text = Path(name).read_text(encoding="utf-8-sig")
+                    text = self.document.select_prompt(Path(name))
                     self.prompt.delete("1.0", "end")
                     self.prompt.insert("1.0", text)
                 self.variables[key].set(name)

@@ -36,11 +36,21 @@ class ConfigDocument:
     original_form: dict
     original_prompt_path: Path
     original_prompt: str
+    selected_prompt_path: Path | None = None
+    selected_prompt: str | None = None
 
     @classmethod
     def open(cls, path: Path):
         cfg = load_config(path)
         return cls(cfg.path, copy.deepcopy(cfg.raw), form_values(cfg.raw), cfg.prompt_path, cfg.prompt)
+
+    def select_prompt(self, path: Path) -> str:
+        path = (self.path.parent / path).resolve()
+        prompt = path.read_text(encoding="utf-8-sig")
+        # Only commit the selection after reading succeeds. The GUI uses this
+        # exact content in its editor, so later saves can detect external edits.
+        self.selected_prompt_path, self.selected_prompt = path, prompt
+        return prompt
 
     def build(self, values: dict, prompt: str) -> Config:
         raw = copy.deepcopy(self.original_raw)
@@ -77,10 +87,23 @@ class ConfigDocument:
             raise BenchError("설정 파일이 외부에서 변경되었습니다. 다시 열어 변경 내용을 확인하세요.")
         if self.original_prompt_path.read_text(encoding="utf-8-sig") != self.original_prompt:
             raise BenchError("프롬프트가 외부에서 변경되었습니다. 다시 열어 변경 내용을 확인하세요.")
+        previous_text = self.original_prompt
+        if cfg.prompt_path != self.original_prompt_path:
+            if cfg.prompt_path == self.selected_prompt_path:
+                try:
+                    previous_text = cfg.prompt_path.read_text(encoding="utf-8-sig")
+                except FileNotFoundError as exc:
+                    raise BenchError("선택한 프롬프트가 삭제되었습니다. 파일을 다시 선택하세요.") from exc
+                if previous_text != self.selected_prompt:
+                    raise BenchError("선택한 프롬프트가 외부에서 변경되었습니다. 파일을 다시 선택해 변경 내용을 확인하세요.")
+            elif cfg.prompt_path.exists():
+                raise BenchError("저장할 프롬프트 파일을 먼저 선택해 내용을 확인하세요.")
+            else:
+                previous_text = None  # A new prompt path may still be created.
         original_config = self.path.read_bytes()
         previous_prompt = cfg.prompt_path.read_bytes() if cfg.prompt_path.exists() else None
         try:
-            if cfg.prompt_path != self.original_prompt_path or prompt != self.original_prompt:
+            if prompt != previous_text:
                 cfg.prompt_path.parent.mkdir(parents=True, exist_ok=True)
                 temporary = cfg.prompt_path.with_name(cfg.prompt_path.name + ".gui-tmp")
                 temporary.write_text(prompt, encoding="utf-8", newline="\n")
@@ -99,4 +122,5 @@ class ConfigDocument:
         self.original_raw = copy.deepcopy(loaded.raw)
         self.original_form = form_values(loaded.raw)
         self.original_prompt_path, self.original_prompt = loaded.prompt_path, loaded.prompt
+        self.selected_prompt_path, self.selected_prompt = None, None
         return loaded
