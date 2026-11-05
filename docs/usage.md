@@ -40,7 +40,7 @@ python -m codex_bench --gui
 
 같은 명령으로 재개할 때:
 
-- `succeeded`, `failed`, `unsupported`, `timed_out`은 종료된 실험이므로 건너뜁니다. 종료된 실패를 다시 측정하려면 새 `output_dir`를 사용합니다.
+- `succeeded`, `failed`, `unsupported`, `timed_out`은 종료된 실험이므로 건너뜁니다. 종료된 실패를 같은 조건에서 다시 생성하려면 아래의 `--retry-failed`를 사용합니다.
 - `pending`, `running`, `interrupted`, `grading`은 미완료 상태입니다. 생성이 완료되어 제출물 해시까지 저장되었으면 모델을 다시 호출하지 않고 채점만 이어갑니다. 변경된 제출물은 재채점하지 않습니다.
 - 채점 중 전체 실행 시간 예산이 만료되면 `interrupted`로 보존하고 다음 실행에서 채점만 재개합니다. 채점기 자체의 `grader.timeout_seconds` 제한을 먼저 초과한 경우는 종료된 실패로 기록합니다.
 - 생성 도중 중단되었으면 이전 로그·시도를 보존하고 동일 시작 파일에서 새 시도를 만듭니다. 모든 시도 이력은 JSON과 HTML에 남고, 조합 통계는 현재 시도 기준입니다.
@@ -50,3 +50,13 @@ python -m codex_bench --gui
 `--report-only`는 설정 파일의 `output_dir`로 결과 폴더를 찾고, 그 폴더에 저장된 `manifest.json`의 실험 목록과 실행 결과로 보고서를 다시 생성합니다. 설정의 모델·반복 수를 바꾸거나 원본 프롬프트·시작 파일·채점기를 이동한 뒤에도 저장된 실험 목록을 유지합니다. 상대 `output_dir`는 설정 파일의 폴더를 기준으로 해석합니다. 이 명령의 종료 코드 0은 보고서 생성 완료이며, 저장된 실험의 성공 여부와는 별개입니다.
 
 실제 실행 명령의 종료 코드 0은 모든 실행과 채점 프로토콜의 정상 종료, 1은 종료된 실행 실패 포함, 2는 설정·환경 오류, 130은 중단/전체 시간 제한을 뜻합니다. **정상 종료는 기능 테스트 만점을 뜻하지 않습니다.** 기능 검증은 `grade.tests`, `score`, `pass_rate`로 판단합니다.
+
+## 종료된 실패 재시도
+
+```powershell
+python -m codex_bench --config config.local.json --retry-failed
+```
+
+현재 상태가 `failed`, `unsupported`, `timed_out`인 작업만 선택하고, 공통 시작 파일에서 **새 모델 호출과 새 UUID 시도**를 시작합니다. 추가 Codex 사용량이 발생합니다. `succeeded`와 미완료 상태(`pending`, `running`, `grading`, `interrupted`)는 변경하지 않습니다. 기능 점수가 낮아도 실행 상태가 `succeeded`이면 재시도 대상이 아닙니다. 미완료 작업을 이어가려면 옵션 없는 일반 실행을 사용하세요.
+
+기존 실험이 있어야 하며 설정·프롬프트·시작 파일·채점기의 지문 검사를 그대로 적용합니다. 새 시도에는 `attempt_kind=retry`, `retry_of_attempt_id`로 출처를 기록합니다. 과거 시도 파일은 그대로 두고 현재 결과만 새 시도로 갱신합니다. 대상이 없으면 0으로 종료하며, 대상이 있을 때 종료 코드 0/1은 선택된 재시도들의 성공/실패를 기준으로 합니다. 중단 시에는 130과 새 시도의 기록을 남깁니다.

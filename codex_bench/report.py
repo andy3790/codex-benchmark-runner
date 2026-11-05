@@ -244,7 +244,8 @@ def render_html(rows: list[dict], groups: list[dict], metadata: dict, experiment
             parts.append(artifact_links(path, ["events.jsonl", "stdout.log", "stderr.log", "final_message.md", "result.json", "submission/"]))
         tests = (row.get("grade") or {}).get("tests", [])
         parts.append(table(["테스트", "범주", "상태", "점수", "만점", "시간", "상세"], [[t.get(k) for k in ["name", "category", "status", "score", "max_score", "duration_seconds", "detail"]] for t in tests]))
-        details = {k: row.get(k) for k in ["usage_source", "observed_configuration", "errors", "warnings", "process_error", "artifact_error", "submission_hashes"] if row.get(k)}
+        details = {k: row.get(k) for k in ["usage_source", "observed_configuration", "errors", "warnings", "process_error", "artifact_error", "submission_hashes",
+                                         "attempt_id", "attempt_kind", "retry_of_attempt_id"] if row.get(k)}
         parts.append(f'<pre>{html.escape(json.dumps(details, ensure_ascii=False, indent=2))}</pre></details>')
     parts.append('<footer>외부 폰트, CDN, 네트워크 요청 없이 동작합니다. 자체 테스트 출력은 원본 이벤트에 보존되며 독립 채점 점수로 인정하지 않습니다.</footer>')
     return "".join(parts) + f'<script>{SCRIPT}</script></body></html>'
@@ -294,10 +295,10 @@ def write_reports(output: Path, rows: list[dict], metadata: dict) -> None:
     if metadata.get("synthetic"):
         html_text = html_text.replace('<h1>', '<p class="badge">샘플: 모든 점수·시간·토큰은 합성 데이터입니다. 실제 모델 비교 결과가 아닙니다.</p><h1>', 1)
     if attempts:
-        attempt_table = table(["실험", "시도", "상태", "측정 토큰", API_COST_LABEL],
-                        [[r.get("id"), r.get("attempt_id"), r.get("status"),
-                          (r.get("usage") or {}).get("total_tokens"), r[API_COST_FIELD]]
-                         for r in attempts], cost_column=4)
+        attempt_table = table(["실험", "시도", "시도 종류", "재시도 대상", "상태", "측정 토큰", API_COST_LABEL],
+                              [[r.get("id"), r.get("attempt_id"), r.get("attempt_kind") or "generation",
+                                r.get("retry_of_attempt_id"), r.get("status"), (r.get("usage") or {}).get("total_tokens"),
+                                r[API_COST_FIELD]] for r in attempts], cost_column=6)
         html_text = html_text.replace("<footer>", '<h2>모든 시도 이력</h2><p>중단 후 재시도로 사용된 토큰도 각 시도 기록에 보존됩니다. 위 조합 통계는 각 실험의 현재 시도 기준입니다.</p>' + attempt_table + "<footer>")
     output.mkdir(parents=True, exist_ok=True)
     documents = [("results.json", json_text, "utf-8"), ("report.html", html_text, "utf-8")]

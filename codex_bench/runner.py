@@ -20,6 +20,7 @@ from .report import write_reports
 from .util import BenchError, copy_tree, digest, read_json, tree_hash, utc_now, write_json
 
 TERMINAL = {"succeeded", "failed", "unsupported", "timed_out"}
+RETRYABLE = TERMINAL - {"succeeded"}
 
 
 class OutputLock:
@@ -137,11 +138,13 @@ def grade_submission(cfg: Config, attempt: Path, cancel: threading.Event, deadli
 
 
 def execute_job(cfg: Config, job: Job, diagnostics: dict, experiment_id: str,
-                cancel: threading.Event, deadline: float, old: dict | None = None, command_factory=None) -> dict:
+                cancel: threading.Event, deadline: float, old: dict | None = None, command_factory=None,
+                *, retry_attempt_id: str | None = None) -> dict:
     run_root = cfg.output / "runs" / job.id
     run_root.mkdir(parents=True, exist_ok=True)
     # Resume grading without spending generation tokens again if generation was checkpointed.
-    reuse = old and old.get("generation_finished") and old.get("attempt_id") and (run_root / "attempts" / old["attempt_id"] / "submission").is_dir()
+    reuse = (not retry_attempt_id and old and old.get("generation_finished") and old.get("attempt_id")
+             and (run_root / "attempts" / old["attempt_id"] / "submission").is_dir())
     if reuse:
         result = old.copy()
         attempt = run_root / "attempts" / old["attempt_id"]
@@ -153,16 +156,20 @@ def execute_job(cfg: Config, job: Job, diagnostics: dict, experiment_id: str,
             clean_containers(previous)
             previous.rename(attempt / ("grading-previous-" + uuid.uuid4().hex[:8]))
     else:
-        attempt_id = uuid.uuid4().hex
+        attempt_id = retry_attempt_id or uuid.uuid4().hex
         attempt = run_root / "attempts" / attempt_id
         attempt.mkdir(parents=True)
         workspace = cfg.scratch / experiment_id / job.id / attempt_id / "project"
-        copy_tree(cfg.output / "private" / "starter", workspace, cfg.max_project_bytes)
         result = {**job.as_dict(), "attempt_id": attempt_id, "started_at": utc_now(), "ended_at": None,
                   "status": "running", "codex_version": diagnostics.get("version"), "workspace": str(workspace),
                   "success": False, "generation_finished": False, "usage": {}, "grade": None}
+        if retry_attempt_id:
+            result.update(attempt_kind="retry", retry_of_attempt_id=(old or {}).get("attempt_id"))
+        # Establish the new attempt before copying or launching can fail. A retry
+        # must never write its failure metadata into the previous attempt.
         write_json(run_root / "result.json", result)
         write_json(attempt / "result.json", result)
+        copy_tree(cfg.output / "private" / "starter", workspace, cfg.max_project_bytes)
         command = (command_factory or build_command)(cfg, job, workspace, diagnostics)
         write_json(attempt / "command.json", {"argv": command, "stdin": "common frozen prompt.md", "cwd": str(workspace)})
         generation_env = execution_environment(diagnostics)
@@ -233,7 +240,7 @@ def execute_job(cfg: Config, job: Job, diagnostics: dict, experiment_id: str,
 
 
 def run_benchmark(cfg: Config, diagnostics: dict, *, cancel_event: threading.Event | None = None,
-                  on_log=None, on_progress=None, command_factory=None) -> int:
+                  on_log=None, on_progress=None, command_factory=None, retry_failed: bool = False) -> int:
     def log(message):
         print(message, flush=True)
         if on_log:
@@ -243,8 +250,23 @@ def run_benchmark(cfg: Config, diagnostics: dict, *, cancel_event: threading.Eve
         if on_progress:
             on_progress(rows)
 
+    if retry_failed and not (cfg.output / "manifest.json").is_file():
+        raise BenchError("Retrying failed jobs requires an existing experiment manifest")
     with OutputLock(cfg.output):
+        if retry_failed and not (cfg.output / "manifest.json").is_file():
+            raise BenchError("Retrying failed jobs requires an existing experiment manifest")
         manifest = prepare(cfg)
+        initial_rows = read_results(cfg)
+        pending = []
+        for row, job in zip(initial_rows, cfg.jobs):
+            selected = row["status"] in RETRYABLE if retry_failed else row["status"] not in TERMINAL
+            if selected:
+                pending.append((job, row))
+        selected_ids = {job.id for job, _ in pending}
+        if retry_failed and not pending:
+            log("No failed, unsupported, or timed-out jobs to retry; saved results are unchanged.")
+            progress(initial_rows)
+            return 0
         write_json(cfg.output / "diagnostics.json", diagnostics)
         cancel = cancel_event if cancel_event is not None else threading.Event()
         previous_handlers = {}
@@ -261,12 +283,9 @@ def run_benchmark(cfg: Config, diagnostics: dict, *, cancel_event: threading.Eve
         # This is a per-invocation wall-clock limit, explicitly recorded alongside accumulated active time.
         deadline = started + cfg.total_timeout
         last_update = started
-        pending = []
-        for row, job in zip(read_results(cfg), cfg.jobs):
-            if row["status"] not in TERMINAL:
-                pending.append((job, row))
-        log(f"Experiments: {len(cfg.jobs)} | complete: {len(cfg.jobs)-len(pending)} | queued: {len(pending)} | workers: {cfg.workers}")
-        initial_rows = read_results(cfg)
+        complete = sum(row["status"] in TERMINAL for row in initial_rows)
+        action = "retry queued" if retry_failed else "queued"
+        log(f"Experiments: {len(cfg.jobs)} | complete: {complete} | {action}: {len(pending)} | workers: {cfg.workers}")
         write_reports(cfg.output, initial_rows, manifest)
         progress(initial_rows)
         try:
@@ -278,19 +297,27 @@ def run_benchmark(cfg: Config, diagnostics: dict, *, cancel_event: threading.Eve
                     while pending and len(active) < cfg.workers and not cancel.is_set():
                         job, old = pending.pop(0)
                         log(f"START {job.id} {job.model} / {job.effort} repeat={job.repeat}")
-                        future = pool.submit(execute_job, cfg, job, diagnostics, manifest["experiment_id"], cancel, deadline, old, command_factory)
-                        active[future] = job
+                        retry_attempt_id = uuid.uuid4().hex if retry_failed else None
+                        future = pool.submit(execute_job, cfg, job, diagnostics, manifest["experiment_id"], cancel, deadline, old,
+                                             command_factory, retry_attempt_id=retry_attempt_id)
+                        active[future] = (job, old, retry_attempt_id)
                         progress(read_results(cfg))
                     if not active:
                         break
                     done, _ = concurrent.futures.wait(active, timeout=0.5, return_when=concurrent.futures.FIRST_COMPLETED)
                     for future in done:
-                        job = active.pop(future)
+                        job, old, retry_attempt_id = active.pop(future)
                         try:
                             result = future.result()
                         except Exception as exc:
                             result_path = cfg.output / "runs" / job.id / "result.json"
                             result = read_json(result_path) if result_path.exists() else job.as_dict()
+                            if retry_attempt_id and result.get("attempt_id") != retry_attempt_id:
+                                # The worker may fail before its first checkpoint.
+                                # Record that error in the allocated retry attempt.
+                                result = {**job.as_dict(), "attempt_id": retry_attempt_id, "attempt_kind": "retry",
+                                          "retry_of_attempt_id": old.get("attempt_id"), "started_at": utc_now(),
+                                          "generation_finished": False, "usage": {}}
                             result.update({"status": "failed", "success": False, "error_type": "runner_error",
                                            "process_error": repr(exc), "grade": None, "ended_at": utc_now()})
                             result.setdefault("usage", {})
@@ -309,7 +336,7 @@ def run_benchmark(cfg: Config, diagnostics: dict, *, cancel_event: threading.Eve
                         write_reports(cfg.output, rows, manifest)
                         progress(rows)
                     if time.monotonic() - last_update >= 30:
-                        names = ", ".join(f"{j.model}/{j.effort}" for j in active.values())
+                        names = ", ".join(f"{job.model}/{job.effort}" for job, _, _ in active.values())
                         log(f"RUNNING {names} | remaining budget {max(0, deadline-time.monotonic()):.0f}s")
                         progress(read_results(cfg))
                         last_update = time.monotonic()
@@ -322,6 +349,7 @@ def run_benchmark(cfg: Config, diagnostics: dict, *, cancel_event: threading.Eve
             for sig, handler in previous_handlers.items():
                 signal.signal(sig, handler)
         log(f"Report: {cfg.output / 'report.html'}")
-        if cancel.is_set():
+        outcomes = [row for row in read_results(cfg) if not retry_failed or row["id"] in selected_ids]
+        if cancel.is_set() or retry_failed and any(row["status"] == "interrupted" for row in outcomes):
             return 130
-        return 1 if any(r["status"] != "succeeded" for r in read_results(cfg)) else 0
+        return 1 if any(row["status"] != "succeeded" for row in outcomes) else 0

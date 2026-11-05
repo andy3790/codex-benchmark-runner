@@ -9,7 +9,7 @@ from pathlib import Path
 from .codex import build_command, diagnose
 from .config import default_config_path, load_config
 from .report import read_saved_results, write_reports
-from .runner import OutputLock, run_benchmark
+from .runner import RETRYABLE, OutputLock, prepare, read_results, run_benchmark
 from .util import BenchError, read_json
 
 
@@ -24,6 +24,7 @@ def main(argv=None) -> int:
     action.add_argument("--dry-run", action="store_true", help="Show combinations/argv without model calls or output writes")
     action.add_argument("--doctor", action="store_true", help="Inspect local CLI version/help without model calls")
     action.add_argument("--report-only", action="store_true", help="Regenerate reports from saved results without model calls")
+    action.add_argument("--retry-failed", action="store_true", help="Generate new attempts only for failed, unsupported, or timed-out runs; uses model quota")
     args = parser.parse_args(argv)
     if args.config is None:
         args.config = default_config_path()
@@ -56,6 +57,16 @@ def main(argv=None) -> int:
             print(output / "report.html")
             return 0
         cfg = load_config(args.config)
+        if args.retry_failed:
+            if not (cfg.output / "manifest.json").is_file():
+                raise BenchError("--retry-failed requires an existing experiment manifest")
+            # A no-op retry should not require a Codex installation or probe it.
+            # The runner repeats validation under its own lock before execution.
+            with OutputLock(cfg.output):
+                prepare(cfg)
+                if not any(row["status"] in RETRYABLE for row in read_results(cfg)):
+                    print("No failed, unsupported, or timed-out jobs to retry; saved results are unchanged.")
+                    return 0
         diagnostics = diagnose(cfg.codex, config=cfg)
         if cfg.isolation == "restricted" and diagnostics.get("permission_profiles") is False:
             diagnostics["errors"].append("restricted isolation requires Codex permission profiles (CLI >= 0.138.0); no automatic weakening of isolation")
@@ -78,6 +89,8 @@ def main(argv=None) -> int:
             return 2 if diagnostics["errors"] else 0
         if diagnostics["errors"]:
             raise BenchError("Environment diagnosis failed:\n" + "\n".join(diagnostics["errors"]))
+        if args.retry_failed:
+            return run_benchmark(cfg, diagnostics, retry_failed=True)
         return run_benchmark(cfg, diagnostics)
     except (BenchError, OSError, ValueError, TypeError) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
