@@ -63,7 +63,7 @@ class GuiSmokeTests(unittest.TestCase):
         self.assertEqual(str(self.app.stop_button["state"]), "disabled")
         first = self.app.result_tree.get_children()[0]
         values = self.app.result_tree.item(first, "values")
-        self.assertEqual(values[4:7], ("—", "—", "—"))
+        self.assertEqual(values[4:], ("—", "—", "—", "—"))
 
     def test_report_button_uses_local_file_uri(self):
         path = self.cfg.path.parent / "report.html"

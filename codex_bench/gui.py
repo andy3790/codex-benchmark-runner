@@ -16,6 +16,7 @@ from tkinter.scrolledtext import ScrolledText
 from .config import default_config_path
 from .gui_controller import BenchmarkController
 from .gui_model import ConfigDocument
+from .pricing import API_COST_FIELD, API_COST_LABEL, estimate_api_cost_usd, format_api_cost
 from .runner import TERMINAL, read_results
 from .util import BenchError
 
@@ -200,9 +201,10 @@ class BenchmarkApp:
         panes.pack(fill="both", expand=True)
         table = ttk.Frame(panes)
         panes.add(table, weight=3)
-        columns = ("model", "effort", "repeat", "status", "score", "tokens", "seconds")
+        columns = ("model", "effort", "repeat", "status", "score", "tokens", API_COST_FIELD, "seconds")
         self.result_tree = ttk.Treeview(table, columns=columns, show="headings", height=9, selectmode="browse")
-        for key, label, width in zip(columns, ("모델", "추론", "반복", "상태", "점수", "총 토큰", "시간(초)"), (140, 65, 44, 80, 50, 70, 70)):
+        labels = ("모델", "추론", "반복", "상태", "점수", "총 토큰", API_COST_LABEL, "시간(초)")
+        for key, label, width in zip(columns, labels, (140, 65, 44, 80, 50, 70, 130, 70)):
             self.result_tree.heading(key, text=label)
             self.result_tree.column(key, width=width, minwidth=width, stretch=key == "model", anchor="w" if key in {"model", "effort", "status"} else "e")
         yscroll = ttk.Scrollbar(table, orient="vertical", command=self.result_tree.yview)
@@ -385,17 +387,18 @@ class BenchmarkApp:
             widget.configure(state="disabled" if busy else getattr(widget, "_restore_state", "normal"))
         self.stop_button.configure(state="normal" if busy else "disabled")
 
-    def render_rows(self, rows):
+    def render_rows(self, rows, *, synthetic=False):
         selected = self.result_tree.selection()
-        self.rows = {row["id"]: row for row in rows}
+        self.rows = {row["id"]: {**row, API_COST_FIELD: estimate_api_cost_usd(row, synthetic=synthetic)}
+                     for row in rows}
         self.result_tree.delete(*self.result_tree.get_children())
-        for row in rows:
+        for row in self.rows.values():
             grade, usage = row.get("grade") or {}, row.get("usage") or {}
             score = grade.get("score")
             seconds = row.get("generation_seconds")
             values = (row["model"], row["effort"], row["repeat"], STATUS.get(row["status"], row["status"]),
                       "—" if score is None else f"{score:g}", "—" if usage.get("total_tokens") is None else f"{usage['total_tokens']:,}",
-                      "—" if seconds is None else f"{seconds:.2f}")
+                      format_api_cost(row[API_COST_FIELD]), "—" if seconds is None else f"{seconds:.2f}")
             tag = "success" if row["status"] == "succeeded" else "failure" if row["status"] in TERMINAL else ""
             self.result_tree.insert("", "end", iid=row["id"], values=values, tags=(tag,))
         if selected and selected[0] in self.rows:
@@ -438,7 +441,7 @@ class BenchmarkApp:
         for job in data["jobs"]:
             path = output / "runs" / job["id"] / "result.json"
             rows.append(json.loads(path.read_text(encoding="utf-8")) if path.exists() else {**job, "status": "pending", "usage": {}})
-        self.render_rows(rows)
+        self.render_rows(rows, synthetic=bool(data.get("synthetic")))
 
     def open_report(self):
         path = self.controller.last_report
