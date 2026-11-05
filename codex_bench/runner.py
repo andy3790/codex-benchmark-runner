@@ -114,12 +114,19 @@ def grade_submission(cfg: Config, attempt: Path, cancel: threading.Event, deadli
     allowed = {"PATH", "SYSTEMROOT", "WINDIR", "TEMP", "TMP", "HOME", "USERPROFILE", "LOCALAPPDATA", "APPDATA",
                "DOCKER_HOST", "DOCKER_CONTEXT", "DOCKER_CONFIG", "DOCKER_CERT_PATH", "DOCKER_TLS_VERIFY"}
     env = {k: v for k, v in os.environ.items() if k.upper() in allowed}
+    remaining = deadline - time.monotonic()
+    overall_limited = remaining <= cfg.grading_timeout
     process = run_process([sys.executable, "-I", "-B", str(Path(__file__).with_name("grader_worker.py")), str(logs / "request.json")],
                           cwd=logs, stdout=logs / "stdout.log", stderr=logs / "stderr.log", input_bytes=b"",
-                          timeout=max(0.01, min(cfg.grading_timeout, deadline - time.monotonic())),
+                          timeout=max(0.01, min(cfg.grading_timeout, remaining)),
                           cancel=cancel, max_output_bytes=cfg.max_output_bytes, env=env)
+    # Preserve which limit stopped grading; cleanup can cross the other deadline.
+    if process.termination == "timeout" and overall_limited:
+        cancel.set()
     clean_containers(logs)
     write_json(logs / "process.json", vars(process))
+    if process.termination == "timeout" and overall_limited:
+        return None, "overall_timeout", process.duration_seconds
     if process.termination or process.exit_code != 0 or not (logs / "grade.json").exists():
         return None, process.termination or process.error or "grader_error", process.duration_seconds
     from .grading import validate_grade

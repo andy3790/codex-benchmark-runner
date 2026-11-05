@@ -10,7 +10,8 @@ from pathlib import Path
 from unittest.mock import patch
 
 from codex_bench.cli import main
-from codex_bench.runner import OutputLock, execute_job, prepare, read_results, run_benchmark
+from codex_bench.process import ProcessResult, run_process
+from codex_bench.runner import OutputLock, execute_job, grade_submission, prepare, read_results, run_benchmark
 from codex_bench.util import BenchError, read_json, write_json
 from tests.helpers import DIAGNOSTICS, fake_command, setup_experiment, test_directory
 
@@ -87,6 +88,71 @@ class RunnerTests(unittest.TestCase):
         with patch("codex_bench.runner.build_command", side_effect=AssertionError("Generation must not rerun")), contextlib.redirect_stdout(io.StringIO()):
             run_benchmark(self.cfg, DIAGNOSTICS)
         self.assertEqual(read_results(self.cfg)[0]["status"], "succeeded")
+
+    @staticmethod
+    def timeout_grader_process(command, **kwargs):
+        if Path(command[3]).name == "grader_worker.py":
+            return ProcessResult(-1, kwargs["timeout"], "timeout")
+        return run_process(command, **kwargs)
+
+    def test_grading_overall_timeout_resumes_without_new_generation(self):
+        self.cfg.jobs = self.cfg.jobs[:1]
+        self.cfg.grading_timeout = self.cfg.total_timeout * 2
+        with patch("codex_bench.runner.build_command", side_effect=fake_command) as command, \
+                patch("codex_bench.runner.run_process", side_effect=self.timeout_grader_process), \
+                contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(run_benchmark(self.cfg, DIAGNOSTICS), 130)
+            self.assertEqual(command.call_count, 1)
+        interrupted = read_results(self.cfg)[0]
+        self.assertEqual(interrupted["status"], "interrupted")
+        self.assertEqual(interrupted["grading_error"], "overall_timeout")
+        self.assertTrue(interrupted["generation_finished"])
+        self.assertIsNone(interrupted["error_type"])
+        self.assertIsNone(interrupted["grade"])
+
+        with patch("codex_bench.runner.build_command", side_effect=AssertionError("Generation must not rerun")), \
+                contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(run_benchmark(self.cfg, DIAGNOSTICS), 0)
+        resumed = read_results(self.cfg)[0]
+        self.assertEqual(resumed["status"], "succeeded")
+        self.assertEqual(resumed["attempt_id"], interrupted["attempt_id"])
+        self.assertEqual(resumed["submission_hashes"], interrupted["submission_hashes"])
+        self.assertEqual(resumed["usage"], interrupted["usage"])
+        self.assertIsNone(resumed["grading_error"])
+        attempt = self.cfg.output / resumed["artifact_path"]
+        self.assertEqual(len(list(attempt.glob("grading-previous-*"))), 1)
+
+    def test_grader_own_timeout_is_terminal(self):
+        self.cfg.jobs = self.cfg.jobs[:1]
+        self.cfg.grading_timeout = 0.01
+        with patch("codex_bench.runner.build_command", side_effect=fake_command) as command, \
+                patch("codex_bench.runner.run_process", side_effect=self.timeout_grader_process) as process, \
+                contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(run_benchmark(self.cfg, DIAGNOSTICS), 1)
+            result = read_results(self.cfg)[0]
+            self.assertEqual(result["status"], "failed")
+            self.assertEqual(result["grading_error"], "timeout")
+            self.assertTrue(result["generation_finished"])
+            calls = process.call_count
+            self.assertEqual(run_benchmark(self.cfg, DIAGNOSTICS), 1)
+            self.assertEqual(command.call_count, 1)
+            self.assertEqual(process.call_count, calls, "Terminal grading failure must not rerun")
+
+    def test_grading_timeout_reason_is_selected_before_cleanup(self):
+        for remaining, expected in [(2.0, "overall_timeout"), (10.0, "overall_timeout"), (20.0, "timeout")]:
+            with self.subTest(remaining=remaining):
+                attempt = self.root / f"timeout-{remaining}"
+                attempt.mkdir()
+                cancel = threading.Event()
+                with patch("codex_bench.runner.time.monotonic", return_value=100.0) as clock, \
+                        patch("codex_bench.runner.run_process", return_value=ProcessResult(-1, 30.0, "timeout")) as process, \
+                        patch("codex_bench.runner.clean_containers", side_effect=lambda _: setattr(clock, "return_value", 200.0)):
+                    grade, error, duration = grade_submission(self.cfg, attempt, cancel, 100.0 + remaining)
+                self.assertIsNone(grade)
+                self.assertEqual(error, expected)
+                self.assertEqual(duration, 30.0)
+                self.assertEqual(process.call_args.kwargs["timeout"], min(remaining, self.cfg.grading_timeout))
+                self.assertEqual(cancel.is_set(), expected == "overall_timeout")
 
     def test_dry_run_does_not_write_or_call_models(self):
         with patch("codex_bench.cli.diagnose", return_value=DIAGNOSTICS), patch("codex_bench.cli.run_benchmark") as run, contextlib.redirect_stdout(io.StringIO()):
