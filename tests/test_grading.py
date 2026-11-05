@@ -1,5 +1,6 @@
 import importlib.util
 import json
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -36,8 +37,24 @@ class GradingTests(unittest.TestCase):
             self.assertEqual(executor.run("x", ["python", "solution.py"], {})["status"], "skipped")
             run.assert_not_called()
 
+    def test_unavailable_engine_or_image_does_not_run_candidate(self):
+        ready = subprocess.CompletedProcess([], 0, b"linux\n", b"")
+        failed = subprocess.CompletedProcess([], 1, b"", b"unavailable")
+        scenarios = {
+            "engine_unavailable": [failed],
+            "windows_engine": [subprocess.CompletedProcess([], 0, b"windows\n", b"")],
+            "image_unavailable": [ready, failed],
+        }
+        for name, responses in scenarios.items():
+            with self.subTest(name=name), tempfile.TemporaryDirectory() as directory:
+                with patch("codex_bench.grading.shutil.which", return_value="docker"), patch("codex_bench.grading.subprocess.run", side_effect=responses), patch("codex_bench.grading.run_process") as run:
+                    executor = DockerExecutor(Path(directory), Path(directory), {}, 1)
+                    result = executor.run("x", ["python", "solution.py"], {})
+                self.assertEqual(result["status"], "skipped")
+                self.assertIsNone(result["duration_seconds"])
+                run.assert_not_called()
+
     def test_docker_restrictions_and_cleanup(self):
-        import subprocess
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             submission = root / "submission"
@@ -55,6 +72,37 @@ class GradingTests(unittest.TestCase):
             self.assertEqual(sum("type=bind" in part for part in command), 1)
             self.assertEqual(result["status"], "ok")
             self.assertEqual(docker.call_args.args[0][1:3], ["rm", "--force"])
+
+    def test_reserved_exit_codes_and_docker_messages_count_as_failures(self):
+        plugin = Path(__file__).resolve().parent.parent / "graders" / "sample" / "plugin.py"
+        spec = importlib.util.spec_from_file_location("sample_grader_exit_test", plugin)
+        module = importlib.util.module_from_spec(spec)
+        with patch("sys.dont_write_bytecode", True):
+            spec.loader.exec_module(module)
+        for exit_code in (125, 126, 127):
+            for stderr in ("", "docker: Error response from daemon: executable file not found"):
+                with self.subTest(exit_code=exit_code, stderr=stderr), tempfile.TemporaryDirectory() as directory:
+                    root = Path(directory)
+                    submission = root / "submission"
+                    submission.mkdir()
+                    (submission / "solution.py").write_text("# process is mocked; never executed", encoding="utf-8")
+                    def fake_run(command, **kwargs):
+                        kwargs["stdout"].write_text("", encoding="utf-8")
+                        kwargs["stderr"].write_text(stderr, encoding="utf-8")
+                        return ProcessResult(exit_code, 0.1)
+                    with patch("codex_bench.grading.shutil.which", return_value="docker"), patch("codex_bench.grading.subprocess.run", return_value=subprocess.CompletedProcess([], 0, b"linux\n", b"")), patch("codex_bench.grading.run_process", side_effect=fake_run):
+                        executor = DockerExecutor(submission, root / "logs", {}, 1)
+                        result = executor.run("exit", ["python", "/submission/solution.py"], {})
+                        context = GradeContext(root / "logs", plugin.parent, 1, {})
+                        grade = validate_grade(module.grade(submission, context))
+                    self.assertEqual(result["status"], "error")
+                    self.assertEqual(result["exit_code"], exit_code)
+                    self.assertEqual(result["stderr"], stderr)
+                    self.assertEqual(grade["score"], 0)
+                    self.assertEqual(grade["max_score"], 100)
+                    self.assertEqual(grade["pass_rate"], 0)
+                    self.assertEqual(grade["skipped_tests"], 1)  # Unmeasured memory only.
+                    self.assertTrue(all(test["status"] == "failed" for test in grade["tests"] if test["max_score"] > 0))
 
     def test_sample_grader_uses_actual_observation(self):
         plugin = Path(__file__).resolve().parent.parent / "graders" / "sample" / "plugin.py"

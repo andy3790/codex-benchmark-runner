@@ -136,10 +136,10 @@ class DockerExecutor:
                 pass
         stdout = (case_dir / "stdout.log").read_text(encoding="utf-8", errors="replace")
         stderr = (case_dir / "stderr.log").read_text(encoding="utf-8", errors="replace")
-        if process.exit_code in {125, 126, 127}:
-            status = "skipped"
-        else:
-            status = "ok" if process.exit_code == 0 and not process.termination else "error"
+        # Only the checks before execution can establish an unsupported environment.
+        # Candidate exits and stderr can imitate Docker failures, so every failure
+        # after invoking run remains an error, including infrastructure changes.
+        status = "ok" if process.exit_code == 0 and not process.termination else "error"
         return {"status": status, "stdout": stdout, "stderr": stderr, "exit_code": process.exit_code,
                 "duration_seconds": process.duration_seconds,
                 "detail": process.termination or process.error or stderr[-2000:]}

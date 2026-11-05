@@ -147,6 +147,33 @@ class MazeGraderTests(unittest.TestCase):
         self.assertIn('dfs_loop_ratio', failed)
         self.assertIn('prim_seeded_weights', failed)
 
+    def test_loop_generation_exception_preserves_remaining_grades(self):
+        self.mutate("if(typeof module!=='undefined'){const originalGenerate=module.exports.generateMaze;module.exports.generateMaze=o=>{if(o.loops>0 && !o.weighted)throw Error('loops unsupported');return originalGenerate(o);};}")
+        grade = self.grade()
+        self.assertEqual(self.failures(grade), {
+            f'{algorithm}_{criterion}' for algorithm in ('dfs', 'prim')
+            for criterion in ('representation_and_boundaries', 'reciprocal_walls', 'loop_ratio')})
+        self.assertEqual(grade['score'], 80)
+        self.assertEqual(grade['max_score'], 90)
+        self.assertEqual(grade['planned_max_score'], 100)
+        self.assertEqual(grade['skipped_tests'], 7)
+
+    def test_malformed_loop_return_preserves_remaining_grades(self):
+        self.mutate("if(typeof module!=='undefined'){const originalGenerate=module.exports.generateMaze;module.exports.generateMaze=o=>o.loops>0 && !o.weighted ? null : originalGenerate(o);}")
+        grade = self.grade()
+        self.assertEqual(self.failures(grade), {
+            f'{algorithm}_{criterion}' for algorithm in ('dfs', 'prim')
+            for criterion in ('representation_and_boundaries', 'reciprocal_walls', 'loop_ratio')})
+        self.assertEqual(grade['score'], 80)
+        self.assertEqual(grade['max_score'], 90)
+        self.assertEqual(grade['skipped_tests'], 7)
+
+    def test_unweighted_cost_rule_includes_loop_generation(self):
+        self.mutate("if(typeof module!=='undefined'){const originalGenerate=module.exports.generateMaze;module.exports.generateMaze=o=>{const result=originalGenerate(o);if(o.loops>0 && !o.weighted)result.cells[0].cost=2;return result;};}")
+        grade = self.grade()
+        self.assertEqual(self.failures(grade), {'dfs_representation_and_boundaries', 'prim_representation_and_boundaries'})
+        self.assertEqual(grade['score'], 87)
+
     def test_invalid_wall_boundary_is_not_given_connectivity_credit(self):
         self.mutate("const originalGenerate = module.exports.generateMaze; module.exports.generateMaze = o => {const r=originalGenerate(o);r.cells[0].walls &= ~1;return r;};")
         self.assertIn('dfs_representation_and_boundaries', self.failures(self.grade()))
@@ -239,12 +266,18 @@ class MazeGraderTests(unittest.TestCase):
         self.assertIsNone(test['score'])
 
     def test_candidate_exit_code_cannot_impersonate_missing_docker(self):
-        class Exit:
-            def run(self, *args):
-                return {'status': 'skipped', 'exit_code': 125, 'detail': '', 'stderr': '', 'duration_seconds': 0.1}
-        with patch.object(GradeContext, 'docker', return_value=Exit()):
-            grade = validate_grade(maze.grade(self.submission, self.context))
-        self.assertIn('commonjs_api', self.failures(grade))
+        for exit_code in (125, 126, 127):
+            class Exit:
+                def run(self, *args):
+                    return {'status': 'error', 'exit_code': exit_code, 'detail': '',
+                            'stderr': 'docker: Error response from daemon: executable file not found',
+                            'duration_seconds': 0.1}
+            with self.subTest(exit_code=exit_code), patch.object(GradeContext, 'docker', return_value=Exit()):
+                grade = validate_grade(maze.grade(self.submission, self.context))
+                self.assertIn('commonjs_api', self.failures(grade))
+                self.assertEqual(grade['score'], 10)  # Static artifacts remain measurable.
+                self.assertEqual(grade['max_score'], 90)
+                self.assertEqual(grade['skipped_tests'], 7)
 
     def test_default_image_is_node_without_mutating_context(self):
         options = []

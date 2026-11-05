@@ -315,12 +315,6 @@ class Runtime:
     def batch(self, name, operations, **extra):
         payload = {'operations': operations, **extra}
         response = self.executor.run(name, ['node', '-e', self.bridge], payload)
-        if response['status'] == 'skipped' and response.get('exit_code') in {125, 126, 127}:
-            reason = (response.get('stderr', '') + ' ' + response.get('detail', '')).lower()
-            infrastructure = ('docker:', 'error response from daemon', 'failed to connect to the docker',
-                              'executable file not found', 'oci runtime', 'cannot connect to the docker')
-            if not any(marker in reason for marker in infrastructure):
-                response = {**response, 'status': 'error', 'detail': 'Candidate Node process exited with code ' + str(response['exit_code'])}
         self.executions.append({'batch': name, 'status': response['status'], 'duration_seconds': response.get('duration_seconds'),
                                 'exit_code': response.get('exit_code'), 'detail': response.get('detail', '')})
         default = {'status': response['status'], 'detail': response.get('detail', ''), 'duration_ms': None}
@@ -409,8 +403,15 @@ def grade(submission: Path, context: GradeContext) -> dict:
     for algorithm, operations in groups.items():
         baseline = [op for op in operations if '_base_' in op['id']]
         edges = [op for op in operations if '_edge_' in op['id']]
-        criterion(f'{algorithm}_representation_and_boundaries', 'generation', 1.5, baseline + edges, generation,
-                  lambda op, row: graph(row['value'], op['options']['width'], op['options']['height']))
+        unweighted = [op for op in operations if not op['options']['weighted']]
+        def check_unweighted_representation(op, row):
+            graph(row['value'], op['options']['width'], op['options']['height'])
+            require(all(cell['cost'] == 1 for cell in row['value']['cells']),
+                    'Unweighted generation must set every cost to 1')
+        # Include loop/interleaved calls in the cost rule, but validate their
+        # execution and shape inside criterion so one failure cannot abort grading.
+        criterion(f'{algorithm}_representation_and_boundaries', 'generation', 1.5, unweighted, generation,
+                  check_unweighted_representation)
         criterion(f'{algorithm}_reciprocal_walls', 'generation', 2, operations, generation,
                   lambda op, row: graph(row['value'], op['options']['width'], op['options']['height']))
         criterion(f'{algorithm}_degenerate_sizes', 'generation', 0.5, edges, generation,
@@ -439,12 +440,6 @@ def grade(submission: Path, context: GradeContext) -> dict:
             graph(row['value'])
             require(len({cell['cost'] for cell in row['value']['cells']}) > 1, 'weighted option must actually vary costs in this multi-cell fixture')
         criterion(f'{algorithm}_seeded_weights', 'generation', 1.5, weighted, generation, check_weights)
-    # The unweighted cost rule is part of representation and must be explicitly verified.
-    for test in tests:
-        if test.name.endswith('_representation_and_boundaries') and test.status == 'passed':
-            algorithm = test.name.split('_', 1)[0]
-            if any(any(cell['cost'] != 1 for cell in generation[op['id']]['value']['cells']) for op in groups[algorithm] if not op['options']['weighted']):
-                test.status, test.score, test.detail = 'failed', 0, 'Unweighted generation must set every cost to 1'
 
     cases = search_cases()
     search_ops = [{'id': f'{name}_{algorithm}', 'kind': 'solve', 'maze': maze,
