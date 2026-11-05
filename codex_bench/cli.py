@@ -8,6 +8,7 @@ from pathlib import Path
 
 from .codex import build_command, diagnose
 from .config import default_config_path, load_config
+from .regrade import regrade_benchmark
 from .report import read_saved_results, write_reports
 from .runner import RETRYABLE, OutputLock, prepare, read_results, run_benchmark
 from .util import BenchError, read_json
@@ -24,6 +25,7 @@ def main(argv=None) -> int:
     action.add_argument("--dry-run", action="store_true", help="Show combinations/argv without model calls or output writes")
     action.add_argument("--doctor", action="store_true", help="Inspect local CLI version/help without model calls")
     action.add_argument("--report-only", action="store_true", help="Regenerate reports from saved results without model calls")
+    action.add_argument("--regrade", action="store_true", help="Grade saved submissions with a fresh snapshot of the configured grader; no model calls")
     action.add_argument("--retry-failed", action="store_true", help="Generate new attempts only for failed, unsupported, or timed-out runs; uses model quota")
     args = parser.parse_args(argv)
     if args.config is None:
@@ -35,6 +37,8 @@ def main(argv=None) -> int:
             except ImportError as exc:
                 raise BenchError("GUI에는 Python의 Tcl/Tk(Tkinter)가 필요합니다. Python 설치 옵션을 확인하세요.") from exc
             return gui_main(["--config", str(args.config)])
+        if args.regrade:
+            return regrade_benchmark(args.config)
         if args.report_only:
             # Reporting only needs the saved experiment, not its original inputs
             # or the model matrix currently selected for a future run.

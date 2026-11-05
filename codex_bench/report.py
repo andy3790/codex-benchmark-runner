@@ -183,6 +183,32 @@ def artifact_links(path: str, filenames: list[str]) -> str:
                    for filename in filenames)
 
 
+def regrade_links(path: str) -> str:
+    links = artifact_links(path, ["result.json", "source_result.json", "grading/grade.json",
+                                  "grading/stdout.log", "grading/stderr.log", "grading/process.json"])
+    if "/runs/" in path:
+        links += artifact_links(path.rsplit("/runs/", 1)[0], ["manifest.json"])
+    return links
+
+
+def render_regrade_history(regrades: list[dict]) -> str:
+    parts = ['<h2>재채점 이력</h2><p>저장된 제출물을 다시 채점한 기록입니다. 모델 생성 시도와 분리해 보존하며, '
+             '재채점은 모델 호출이나 생성 토큰을 추가하지 않습니다. 위 조합 통계는 현재 결과의 생성 사용량과 최신 점수를 사용합니다.</p>']
+    parts.append(table(["실험", "재채점", "원본 생성 시도", "상태", "점수", "만점", "채점 시간", "채점 오류", "모델 호출"],
+                       [[r.get("id"), r.get("regrade_id"), r.get("source_attempt_id"), r.get("status"),
+                         (r.get("grade") or {}).get("score"), (r.get("grade") or {}).get("max_score"),
+                         r.get("grading_seconds"), r.get("grading_error"), r.get("real_model_calls")] for r in regrades],
+                       "regrades"))
+    for row in regrades:
+        parts.append(f'<details><summary>재채점 {esc(row.get("regrade_id"))} · {esc(row.get("id"))}</summary>')
+        if row.get("artifact_path"):
+            parts.append('<p>재채점 결과·직전 결과·채점 로그·설정</p>' + regrade_links(row["artifact_path"]))
+        if row.get("source_artifact_path"):
+            parts.append('<p>원본 생성 결과</p>' + artifact_links(row["source_artifact_path"], ["result.json"]))
+        parts.append('</details>')
+    return "".join(parts)
+
+
 def render_html(rows: list[dict], groups: list[dict], metadata: dict, experiment_cost: dict) -> str:
     title = "Codex Benchmark Report"
     failures = sum(r["status"] in {"failed", "unsupported", "timed_out"} for r in rows)
@@ -242,10 +268,13 @@ def render_html(rows: list[dict], groups: list[dict], metadata: dict, experiment
         path = row.get("artifact_path")
         if path:
             parts.append(artifact_links(path, ["events.jsonl", "stdout.log", "stderr.log", "final_message.md", "result.json", "submission/"]))
+        if row.get("regrade_artifact_path"):
+            parts.append(f'<p>현재 채점 출처: 재채점 {esc(row.get("regrade_id"))} · 생성 시도 {esc(row.get("attempt_id"))}</p>')
+            parts.append(regrade_links(row["regrade_artifact_path"]))
         tests = (row.get("grade") or {}).get("tests", [])
         parts.append(table(["테스트", "범주", "상태", "점수", "만점", "시간", "상세"], [[t.get(k) for k in ["name", "category", "status", "score", "max_score", "duration_seconds", "detail"]] for t in tests]))
         details = {k: row.get(k) for k in ["usage_source", "observed_configuration", "errors", "warnings", "process_error", "artifact_error", "submission_hashes",
-                                         "attempt_id", "attempt_kind", "retry_of_attempt_id"] if row.get(k)}
+                                         "attempt_id", "attempt_kind", "retry_of_attempt_id", "regrade_id", "regrade_artifact_path"] if row.get(k)}
         parts.append(f'<pre>{html.escape(json.dumps(details, ensure_ascii=False, indent=2))}</pre></details>')
     parts.append('<footer>외부 폰트, CDN, 네트워크 요청 없이 동작합니다. 자체 테스트 출력은 원본 이벤트에 보존되며 독립 채점 점수로 인정하지 않습니다.</footer>')
     return "".join(parts) + f'<script>{SCRIPT}</script></body></html>'
@@ -273,6 +302,7 @@ def write_reports(output: Path, rows: list[dict], metadata: dict) -> None:
 
     attempts_by_path = {path: with_cost(row) for path, row in history("runs/*/attempts/*/result.json").items()}
     attempts = list(attempts_by_path.values())
+    regrades = list(history("regrades/*/runs/*/result.json").values())
     experiment_cost = (summarize_experiment_cost([], {}) if metadata.get("grading_only")
                        else summarize_experiment_cost(rows, attempts_by_path))
     # Render every format before replacing any report. Invalid saved data must
@@ -280,7 +310,7 @@ def write_reports(output: Path, rows: list[dict], metadata: dict) -> None:
     json_text = json.dumps({"schema_version": 1, "generated_at": utc_now(), "metadata": metadata,
                            "api_pricing": API_PRICING, "experiment_cost": experiment_cost,
                            "results": rows, "summary": groups,
-                           "attempt_history": attempts},
+                           "attempt_history": attempts, "regrade_history": regrades},
                           ensure_ascii=False, indent=2, allow_nan=False)
     flattened = [flatten(r) for r in rows]
     csv_text = None
@@ -300,6 +330,8 @@ def write_reports(output: Path, rows: list[dict], metadata: dict) -> None:
                                 r.get("retry_of_attempt_id"), r.get("status"), (r.get("usage") or {}).get("total_tokens"),
                                 r[API_COST_FIELD]] for r in attempts], cost_column=6)
         html_text = html_text.replace("<footer>", '<h2>모든 시도 이력</h2><p>중단 후 재시도로 사용된 토큰도 각 시도 기록에 보존됩니다. 위 조합 통계는 각 실험의 현재 시도 기준입니다.</p>' + attempt_table + "<footer>")
+    if regrades:
+        html_text = html_text.replace("<footer>", render_regrade_history(regrades) + "<footer>")
     output.mkdir(parents=True, exist_ok=True)
     documents = [("results.json", json_text, "utf-8"), ("report.html", html_text, "utf-8")]
     if csv_text is not None:

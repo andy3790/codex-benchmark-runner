@@ -6,6 +6,7 @@
 
 - 모델·추론 강도·반복 조합 생성과 순차/병렬 실행
 - 독립 작업 폴더, 실행 시간 제한, 중단 및 미완료 작업 재개
+- 저장된 생성물의 모델 호출 없는 재채점과 종료된 실패 작업의 새 시도
 - JSONL 원본, stdout/stderr, 최종 메시지, 생성 프로젝트 보존
 - 캐시·추론 하위 항목을 중복 합산하지 않는 토큰 집계와 누락값 보존
 - 별도 플러그인 채점, 오프라인 HTML·CSV·JSON 보고서
@@ -57,6 +58,8 @@ python -m codex_bench --config examples/config.maze-sol-low.json
 ## 결과 확인과 개발 검증
 
 결과는 설정의 `output_dir`에 저장됩니다. `report.html`은 인터넷 없이 열 수 있으며 정렬·검색 표, 비교 그래프, 반복 통계와 원본 기록 링크를 제공합니다. 실패·미완성 실행도 포함합니다.
+
+`python -m codex_bench --regrade`는 현재 설정의 채점기를 새로 보존해 저장된 생성물만 재채점합니다. `python -m codex_bench --retry-failed`는 종료된 실패 작업에 새 모델 호출을 수행합니다. 두 명령 모두 과거 이력을 보존하며, 상세 대상·종료 코드·저장 위치는 [사용 가이드](docs/usage.md)를 참고하세요.
 
 ```powershell
 python -m codex_bench --doctor
