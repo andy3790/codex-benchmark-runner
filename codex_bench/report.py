@@ -2,15 +2,52 @@ from __future__ import annotations
 
 import csv
 import html
+import io
 import json
 import math
+import re
 import statistics
 from collections import Counter, defaultdict
 from pathlib import Path
 from urllib.parse import quote
 
 from .pricing import API_COST_FIELD, API_COST_LABEL, API_PRICING, estimate_api_cost_usd, format_api_cost
-from .util import read_json, replace_file, utc_now, write_json
+from .util import BenchError, read_json, replace_file, utc_now
+
+
+def read_saved_results(output: Path) -> tuple[dict, list[dict]]:
+    """Read the original experiment matrix without needing its source inputs."""
+    metadata = read_json(output / "manifest.json")
+    if not isinstance(metadata, dict) or type(metadata.get("schema_version")) is not int or metadata["schema_version"] != 1:
+        raise BenchError("Saved manifest must use schema_version=1")
+    jobs = metadata.get("jobs")
+    if not isinstance(jobs, list) or not jobs:
+        raise BenchError("Saved manifest must contain a nonempty jobs list")
+    rows, seen = [], set()
+    statuses = {"pending", "running", "grading", "succeeded", "failed", "unsupported", "timed_out", "interrupted"}
+    for job in jobs:
+        if (not isinstance(job, dict)
+                or not isinstance(job.get("id"), str)
+                or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", job["id"])
+                or any(not isinstance(job.get(key), str) or not job[key].strip() for key in ("model", "effort"))
+                or type(job.get("repeat")) is not int or job["repeat"] < 1):
+            raise BenchError("Saved manifest contains an invalid job")
+        if job["id"] in seen:
+            raise BenchError(f"Saved manifest contains a duplicate job: {job['id']}")
+        seen.add(job["id"])
+        path = output / "runs" / job["id"] / "result.json"
+        if not path.resolve().is_relative_to(output.resolve()):
+            raise BenchError(f"Saved result path leaves the experiment: {job['id']}")
+        row = read_json(path) if path.exists() else {**job, "status": "pending", "usage": {}}
+        if (not isinstance(row, dict)
+                or row.get("id") != job["id"]
+                or any(not isinstance(row.get(key), str) or not row[key].strip() for key in ("model", "effort"))
+                or type(row.get("repeat")) is not int or row["repeat"] < 1
+                or not isinstance(row.get("status"), str) or row["status"] not in statuses
+                or any(row.get(key) is not None and not isinstance(row[key], dict) for key in ("usage", "grade"))):
+            raise BenchError(f"Saved result does not match its manifest job: {job['id']}")
+        rows.append(row)
+    return metadata, rows
 
 
 def ratio(numerator, denominator, scale=1):
@@ -141,6 +178,11 @@ def table(headers, rows, table_id="", *, cost_column=None):
     return f'<div class="scroll"><table class="sortable" id="{table_id}"><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table></div>'
 
 
+def artifact_links(path: str, filenames: list[str]) -> str:
+    return "".join(f'<a href="{quote(path + "/" + filename, safe="/")}">{esc(filename)}</a> &nbsp; '
+                   for filename in filenames)
+
+
 def render_html(rows: list[dict], groups: list[dict], metadata: dict, experiment_cost: dict) -> str:
     title = "Codex Benchmark Report"
     failures = sum(r["status"] in {"failed", "unsupported", "timed_out"} for r in rows)
@@ -199,8 +241,7 @@ def render_html(rows: list[dict], groups: list[dict], metadata: dict, experiment
         parts.append(f'<details><summary>{esc(label)}</summary>')
         path = row.get("artifact_path")
         if path:
-            for filename in ["events.jsonl", "stdout.log", "stderr.log", "final_message.md", "result.json", "submission/"]:
-                parts.append(f'<a href="{quote(path + "/" + filename, safe="/")}">{esc(filename)}</a> &nbsp; ')
+            parts.append(artifact_links(path, ["events.jsonl", "stdout.log", "stderr.log", "final_message.md", "result.json", "submission/"]))
         tests = (row.get("grade") or {}).get("tests", [])
         parts.append(table(["테스트", "범주", "상태", "점수", "만점", "시간", "상세"], [[t.get(k) for k in ["name", "category", "status", "score", "max_score", "duration_seconds", "detail"]] for t in tests]))
         details = {k: row.get(k) for k in ["usage_source", "observed_configuration", "errors", "warnings", "process_error", "artifact_error", "submission_hashes"] if row.get(k)}
@@ -210,7 +251,6 @@ def render_html(rows: list[dict], groups: list[dict], metadata: dict, experiment
 
 
 def write_reports(output: Path, rows: list[dict], metadata: dict) -> None:
-    output.mkdir(parents=True, exist_ok=True)
     synthetic = bool(metadata.get("synthetic"))
 
     def with_cost(row):
@@ -219,38 +259,51 @@ def write_reports(output: Path, rows: list[dict], metadata: dict) -> None:
     rows = [with_cost(row) for row in rows]
     groups = summarize(rows)
     # Preserve abandoned attempts too, including measured token spend before an interruption.
-    attempts_by_path = {}
-    for path in sorted(output.glob("runs/*/attempts/*/result.json")):
-        try:
-            record = read_json(path)
-        except (OSError, ValueError):
-            continue
-        if isinstance(record, dict):
-            attempts_by_path[path] = with_cost(record)
+    def history(pattern):
+        records = {}
+        for path in sorted(output.glob(pattern)):
+            try:
+                record = read_json(path)
+            except (OSError, ValueError):
+                continue
+            if isinstance(record, dict):
+                records[path] = record
+        return records
+
+    attempts_by_path = {path: with_cost(row) for path, row in history("runs/*/attempts/*/result.json").items()}
     attempts = list(attempts_by_path.values())
     experiment_cost = (summarize_experiment_cost([], {}) if metadata.get("grading_only")
                        else summarize_experiment_cost(rows, attempts_by_path))
-    write_json(output / "results.json", {"schema_version": 1, "generated_at": utc_now(), "metadata": metadata,
-                                         "api_pricing": API_PRICING, "experiment_cost": experiment_cost,
-                                         "results": rows, "summary": groups, "attempt_history": attempts})
+    # Render every format before replacing any report. Invalid saved data must
+    # not leave an old HTML report beside a partially regenerated JSON/CSV pair.
+    json_text = json.dumps({"schema_version": 1, "generated_at": utc_now(), "metadata": metadata,
+                           "api_pricing": API_PRICING, "experiment_cost": experiment_cost,
+                           "results": rows, "summary": groups,
+                           "attempt_history": attempts},
+                          ensure_ascii=False, indent=2, allow_nan=False)
     flattened = [flatten(r) for r in rows]
+    csv_text = None
     if flattened:
-        temporary = output / "results.csv.tmp"
-        with temporary.open("w", encoding="utf-8-sig", newline="") as file:
-            writer = csv.DictWriter(file, fieldnames=list(flattened[0]))
-            writer.writeheader()
-            # CSV is often opened in Excel; model-controlled strings are data, never formulas.
-            writer.writerows({k: "'" + v if isinstance(v, str) and v.lstrip().startswith(("=", "+", "-", "@")) else v for k, v in row.items()} for row in flattened)
-        replace_file(temporary, output / "results.csv")
+        buffer = io.StringIO(newline="")
+        writer = csv.DictWriter(buffer, fieldnames=list(flattened[0]))
+        writer.writeheader()
+        # CSV is often opened in Excel; model-controlled strings are data, never formulas.
+        writer.writerows({k: "'" + v if isinstance(v, str) and v.lstrip().startswith(("=", "+", "-", "@")) else v for k, v in row.items()} for row in flattened)
+        csv_text = buffer.getvalue()
     html_text = render_html(rows, groups, metadata, experiment_cost)
     if metadata.get("synthetic"):
         html_text = html_text.replace('<h1>', '<p class="badge">샘플: 모든 점수·시간·토큰은 합성 데이터입니다. 실제 모델 비교 결과가 아닙니다.</p><h1>', 1)
     if attempts:
-        history = table(["실험", "시도", "상태", "측정 토큰", API_COST_LABEL],
+        attempt_table = table(["실험", "시도", "상태", "측정 토큰", API_COST_LABEL],
                         [[r.get("id"), r.get("attempt_id"), r.get("status"),
                           (r.get("usage") or {}).get("total_tokens"), r[API_COST_FIELD]]
                          for r in attempts], cost_column=4)
-        html_text = html_text.replace("<footer>", '<h2>모든 시도 이력</h2><p>중단 후 재시도로 사용된 토큰도 각 시도 기록에 보존됩니다. 위 조합 통계는 각 실험의 현재 시도 기준입니다.</p>' + history + "<footer>")
-    temporary = output / "report.html.tmp"
-    temporary.write_text(html_text, encoding="utf-8")
-    replace_file(temporary, output / "report.html")
+        html_text = html_text.replace("<footer>", '<h2>모든 시도 이력</h2><p>중단 후 재시도로 사용된 토큰도 각 시도 기록에 보존됩니다. 위 조합 통계는 각 실험의 현재 시도 기준입니다.</p>' + attempt_table + "<footer>")
+    output.mkdir(parents=True, exist_ok=True)
+    documents = [("results.json", json_text, "utf-8"), ("report.html", html_text, "utf-8")]
+    if csv_text is not None:
+        documents.append(("results.csv", csv_text, "utf-8-sig"))
+    for name, content, encoding in documents:
+        (output / (name + ".tmp")).write_text(content, encoding=encoding, newline="")
+    for name, _, _ in documents:
+        replace_file(output / (name + ".tmp"), output / name)

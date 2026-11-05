@@ -8,8 +8,8 @@ from pathlib import Path
 
 from .codex import build_command, diagnose
 from .config import default_config_path, load_config
-from .report import write_reports
-from .runner import OutputLock, read_results, run_benchmark
+from .report import read_saved_results, write_reports
+from .runner import OutputLock, run_benchmark
 from .util import BenchError, read_json
 
 
@@ -34,13 +34,28 @@ def main(argv=None) -> int:
             except ImportError as exc:
                 raise BenchError("GUI에는 Python의 Tcl/Tk(Tkinter)가 필요합니다. Python 설치 옵션을 확인하세요.") from exc
             return gui_main(["--config", str(args.config)])
-        cfg = load_config(args.config)
         if args.report_only:
-            with OutputLock(cfg.output):
-                metadata = read_json(cfg.output / "manifest.json")
-                write_reports(cfg.output, read_results(cfg), metadata)
-            print(cfg.output / "report.html")
+            # Reporting only needs the saved experiment, not its original inputs
+            # or the model matrix currently selected for a future run.
+            config_path = args.config.resolve()
+            raw = read_json(config_path)
+            if not isinstance(raw, dict):
+                raise BenchError("Configuration must be a JSON object")
+            output_dir = raw.get("output_dir", "benchmark-results")
+            if not isinstance(output_dir, str) or not output_dir.strip():
+                raise BenchError("output_dir must be a nonempty path")
+            output = (config_path.parent / output_dir).resolve()
+            if not (output / "manifest.json").is_file():
+                raise BenchError(f"Saved experiment manifest is missing: {output / 'manifest.json'}")
+            with OutputLock(output):
+                metadata, rows = read_saved_results(output)
+                try:
+                    write_reports(output, rows, metadata)
+                except (KeyError, AttributeError, TypeError, ValueError) as exc:
+                    raise BenchError(f"Cannot render saved result data: {exc}") from exc
+            print(output / "report.html")
             return 0
+        cfg = load_config(args.config)
         diagnostics = diagnose(cfg.codex, config=cfg)
         if cfg.isolation == "restricted" and diagnostics.get("permission_profiles") is False:
             diagnostics["errors"].append("restricted isolation requires Codex permission profiles (CLI >= 0.138.0); no automatic weakening of isolation")
